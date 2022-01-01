@@ -10,7 +10,8 @@ making a change.
 
 1. Fork the repository into your own account
 2. git clone the repo into your machine
-3. you can now start coding... but! I highly recommend taking a look at the
+3. git checkout to the dev branch and make your changes there
+4. you can now start coding... but! I highly recommend taking a look at the
   installation
 
 ### Steps to do after changing the code
