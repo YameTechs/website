@@ -2,6 +2,17 @@
 
 The official website for YameTechs
 
+## Todos
+
+### routes
+
+[ ] home
+[ ] admin
+[ ] discord
+[ ] game
+[ ] portfolio
+[ ] services
+
 ## Setting Up Instructions
 
 ### 1.setup the files
