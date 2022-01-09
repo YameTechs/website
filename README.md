@@ -4,12 +4,13 @@ The official website for YameTechs
 
 ## Todos
 
-### routes todo
+### routes
 
 [ ] home
 [ ] admin
 [ ] discord
 [ ] game
+[ ] portfolio
 [ ] services
 
 ## Setting Up Instructions
