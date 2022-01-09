@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  <p>never gonna give you</p>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+  <section id="showcase">
+    <div class="center">
+      <h1>Navigate in yametech</h1>
+      <p>Yamete when you see techs!</p>
+    </div>
+  </section>
+  <section id="boxes">
+    <div class="container">
+      <div class="center">
+      {% for box in boxes %}
+        <a href="{{ url_for(box.name.lower()) }}" class="box">
+          <div class="center">
+            <h2>{{ box.name }}</h2>
+            <p>{{ box.description }}</p>
+          </div>
+        </a>
+      {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock content %}
