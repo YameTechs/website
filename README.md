@@ -8,10 +8,14 @@ The official website for YameTechs
 
 [ ] home
 [ ] admin
-[ ] discord
+[ ] about
+[ ] contacts
 [ ] game
 [ ] portfolio
+  [ ] projects
 [ ] services
+  [ ] bots (discord)
+  [ ] websites
 
 ## Setting Up Instructions
 
