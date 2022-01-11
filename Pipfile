@@ -11,3 +11,7 @@ flask-wtf = "*"
 [dev-packages]
 black = "*"
 flake8 = "*"
+isort = "*"
+
+[scripts]
+run = "python run.py"

@@ -1,6 +1,7 @@
+from flask import redirect, render_template, url_for
+
 from src import app
-from flask import render_template, redirect, url_for
-from src.forms import RegistrationForm, LoginForm
+from src.forms import LoginForm, RegistrationForm
 
 
 class Box:
