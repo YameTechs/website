@@ -1,12 +1,10 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ec8e5f90dd4e844f8e00c36fe86e792b2334a66ea51537e37f9fb2c1199466c0"
+            "sha256": "d60780ff1b3a073f0a426dd54d26c5b94300207dc1173b5ba2e0e47189c30ad1"
         },
         "pipfile-spec": 6,
-        "requires": {
-            "python_version": "3.10"
-        },
+        "requires": {},
         "sources": [
             {
                 "name": "pypi",
@@ -31,6 +29,14 @@
             ],
             "index": "pypi",
             "version": "==2.0.2"
+        },
+        "flask-wtf": {
+            "hashes": [
+                "sha256:01feccfc395405cea48a3f36c23f0d766e2cc6fd2a5a065ad50ad3e5827ec797",
+                "sha256:872fbb17b5888bfc734edbdcf45bc08fb365ca39f69d25dc752465a455517b28"
+            ],
+            "index": "pypi",
+            "version": "==1.0.0"
         },
         "itsdangerous": {
             "hashes": [
@@ -138,6 +144,14 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==2.0.2"
+        },
+        "wtforms": {
+            "hashes": [
+                "sha256:6b351bbb12dd58af57ffef05bc78425d08d1914e0fd68ee14143b7ade023c5bc",
+                "sha256:837f2f0e0ca79481b92884962b914eba4e72b7a2daaf1f939c890ed0124b834b"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==3.0.1"
         }
     },
     "develop": {
