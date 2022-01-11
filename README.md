@@ -6,16 +6,16 @@ The official website for YameTechs
 
 ### routes
 
-[ ] home
-[ ] admin
-[ ] about
-[ ] contacts
-[ ] game
-[ ] portfolio
-  [ ] projects
-[ ] services
-  [ ] bots (discord)
-  [ ] websites
+- [ ] home
+- [ ] admin
+- [ ] about
+- [ ] contacts
+- [ ] game
+- [ ] portfolio
+  - [ ] projects
+- [ ] services
+  - [ ] bots (discord)
+  - [ ] websites
 
 ## Setting Up Instructions
 
@@ -39,6 +39,7 @@ nano .env
 
 ```python
 DEVMODE='True'
+FLASK_SECRET_KEY='your secret key'
 ```
 
 ### 2.setup virtual environment
