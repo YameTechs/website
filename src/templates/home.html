@@ -10,7 +10,7 @@
     <div class="container">
       <div class="center">
       {% for box in boxes %}
-        <a href="{{ url_for(box.name.lower()) }}" class="box">
+        <a href="{{ url_for(box.redirect) }}" class="box">
           <div class="center">
             <h2>{{ box.name }}</h2>
             <p>{{ box.description }}</p>

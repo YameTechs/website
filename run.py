@@ -1,10 +1,12 @@
-import os
-
 from dotenv import load_dotenv
 
+load_dotenv()
+
+
+import os
 from src import app
 
-load_dotenv()
+
 DEVMODE = os.environ["DEVMODE"] == "True"
 
 if __name__ == "__main__":

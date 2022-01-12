@@ -1,18 +1,30 @@
-from flask import redirect, render_template, url_for
+from flask import redirect, render_template, url_for, flash
 
 from src import app
 from src.forms import LoginForm, RegistrationForm
 
 
 class Box:
-    def __init__(self, name, description=None) -> None:
+    def __init__(self, name, description=None, redirect=None) -> None:
         self.name = name
+
         if description is None:
             description = f"{name} related stuff"
         self.description = description
 
+        if redirect is None:
+            redirect = self.name.lower()
+        self.redirect = redirect
 
-BOXES = [Box("Portfolio"), Box("Contacts"), Box("Game"), Box("Services")]
+
+BOXES = [
+    Box("Portfolio"),
+    Box("Contacts"),
+    Box("Game"),
+    Box("Services"),
+    Box("Login"),
+    Box("Register"),
+]
 
 
 @app.route("/")
@@ -21,13 +33,16 @@ def home():
     return render_template("home.html", boxes=BOXES)
 
 
-@app.route("/login/")
+@app.route("/login/", methods=["POST", "GET"])
 def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        if form.email == "test@test.com" and form.password == "password":
-            return redirect(url_for('home'))
+        if form.email.data == "test@test.com" and form.password.data == "password":
+            flash("You have logged in!")
+            return redirect(url_for("home"))
+        else:
+            flash("incorrect data!")
 
     return render_template("login.html", form=form)
 
@@ -42,7 +57,8 @@ def register():
     form = RegistrationForm()
 
     if form.validate_on_submit():
-        return redirect(url_for('home'))
+        flash("You have registered in!")
+        return redirect(url_for("home"))
 
     return render_template("register.html", form=form)
 
