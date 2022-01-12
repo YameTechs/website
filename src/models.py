@@ -1,6 +1,6 @@
-from src import db
 from datetime import datetime
 
+from src import db
 
 VERIFIED = bool
 PEASANT = bool

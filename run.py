@@ -4,8 +4,8 @@ load_dotenv()
 
 
 import os
-from src import app
 
+from src import app
 
 DEVMODE = os.environ["DEVMODE"] == "True"
 
