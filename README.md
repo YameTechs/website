@@ -40,6 +40,7 @@ nano .env
 ```python
 DEVMODE='True'
 FLASK_SECRET_KEY='your secret key'
+DATABASE_URI='sqlite:///test.db'
 ```
 
 ### 2.setup virtual environment

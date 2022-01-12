@@ -9,6 +9,7 @@ python-dotenv = "*"
 flask-wtf = "*"
 flask-sqlalchemy = "*"
 flask-bcrypt = "*"
+flask-login = "*"
 
 [dev-packages]
 black = "*"
