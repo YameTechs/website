@@ -18,3 +18,4 @@ isort = "*"
 
 [scripts]
 run = "python run.py"
+format = "bash scripts.bash"
