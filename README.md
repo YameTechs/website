@@ -6,7 +6,7 @@ The official website for YameTechs
 
 ### routes
 
-- [ ] home
+- [x] home
 - [ ] admin
 - [ ] about
 - [ ] contacts
