@@ -4,36 +4,33 @@ from flask_login import current_user, login_required, login_user, logout_user
 from src import app, bcrypt, db
 from src.forms import LoginForm, RegistrationForm
 from src.models import User
+from src.utils import RedirBox
 
+USER = [RedirBox("Logout")]
 
-class Box:
-    def __init__(self, name, description=None, redirect=None) -> None:
-        self.name = name
-
-        if description is None:
-            description = f"{name} related stuff"
-        self.description = description
-
-        if redirect is None:
-            redirect = self.name.lower()
-        self.redirect = redirect
-
+GUEST = [
+    RedirBox("Login"),
+    RedirBox("Register"),
+]
 
 BOXES = [
-    Box("Portfolio"),
-    Box("Contacts"),
-    Box("Game"),
-    Box("Services"),
-    Box("Login"),
-    Box("Register"),
-    Box("Logout"),
+    RedirBox("Portfolio"),
+    RedirBox("Contacts"),
+    RedirBox("Game"),
+    RedirBox("Services"),
 ]
 
 
 @app.route("/")
 @app.route("/home/")
 def home():
-    return render_template("home.html", boxes=BOXES)
+    boxes = BOXES[:]
+    if current_user.is_authenticated:
+        boxes.extend(USER)
+    else:
+        boxes.extend(GUEST)
+
+    return render_template("home.html", boxes=boxes)
 
 
 @app.route("/login/", methods=["POST", "GET"])

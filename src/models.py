@@ -4,11 +4,6 @@ from flask_login import UserMixin
 
 from src import db, login_manager
 
-VERIFIED = bool
-PEASANT = bool
-STAFF = bool
-ADMIN = bool
-
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -56,7 +51,6 @@ class Redirbox(db.Model):
     name = db.Column(db.String(20), unique=True, nullable=False, primary_key=True)
     description = db.Column(db.Text, nullable=False)
     route = db.Column(db.String(69), unique=True, nullable=False)
-    role_required = None
 
     def __repr__(self):
         return f"RedirBox({self.id=}, {self.name=}, {self.route=})"
