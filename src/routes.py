@@ -1,27 +1,103 @@
 from src import app
-from flask import render_template
+from flask import render_template, redirect, url_for
+from src.forms import RegistrationForm, LoginForm
 
+<<<<<<< HEAD
+=======
+
+class Box:
+    def __init__(self, name, description=None) -> None:
+        self.name = name
+        if description is None:
+            description = f"{name} related stuff"
+        self.description = description
+
+
+BOXES = [Box("Portfolio"), Box("Contacts"), Box("Game"), Box("Services")]
+
+
+>>>>>>> ebe37732bcb74d102ad5f157535a90a41fdf5a02
 @app.route("/")
-@app.route("/home")
+@app.route("/home/")
 def home():
     return render_template("home.html")
 
-@app.route("/admin")
+
+@app.route("/login/")
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        if form.email == "test@test.com" and form.password == "password":
+            return redirect(url_for('home'))
+
+    return render_template("login.html", form=form)
+
+
+@app.route("/logout/")
+def logout():
+    return render_template("home.html", boxes=BOXES)
+
+
+@app.route("/register/", methods=["POST", "GET"])
+def register():
+    form = RegistrationForm()
+
+    if form.validate_on_submit():
+        return redirect(url_for('home'))
+
+    return render_template("register.html", form=form)
+
+
+@app.route("/account/")
+def account():
+    return render_template("home.html", boxes=BOXES)
+
+
+@app.route("/admin/")
 def admin():
     return render_template("home.html")
 
-@app.route("/discord")
-def discord():
+
+@app.route("/about/")
+def about():
     return render_template("home.html", boxes=BOXES)
 
-@app.route("/game")
+
+@app.route("/contacts/")
+def contacts():
+    return render_template("home.html", boxes=BOXES)
+
+
+@app.route("/game/")
 def game():
     return render_template("home.html")
 
-@app.route("/portfolio")
+
+@app.route("/portfolio/")
 def portfolio():
     return render_template("home.html")
 
-@app.route("/services")
+
+@app.route("/portfolio/projects/")
+def projects():
+    return render_template("home.html", boxes=BOXES)
+
+
+@app.route("/services/")
 def services():
+<<<<<<< HEAD
     return render_template("home.html")
+=======
+    return render_template("home.html", boxes=BOXES)
+
+
+@app.route("/services/bots/")
+def bots():
+    return render_template("home.html", boxes=BOXES)
+
+
+@app.route("/services/websites/")
+def websites():
+    return render_template("home.html", boxes=BOXES)
+>>>>>>> ebe37732bcb74d102ad5f157535a90a41fdf5a02
