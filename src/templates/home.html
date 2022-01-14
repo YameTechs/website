@@ -1,23 +1,36 @@
-{% extends "base.html" %}
-{% block content %}
-  <section id="showcase">
-    <div class="center">
-      <h1>Navigate in yametech</h1>
-      <p>Yamete when you see techs!</p>
-    </div>
-  </section>
-  <section id="boxes">
-    <div class="container">
-      <div class="center">
-      {% for box in boxes %}
-        <a href="{{ url_for(box.name.lower()) }}" class="box">
-          <div class="center">
-            <h2>{{ box.name }}</h2>
-            <p>{{ box.description }}</p>
-          </div>
-        </a>
-      {% endfor %}
-      </div>
-    </div>
-  </section>
-{% endblock content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>YameTech - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <!-- nav section -->
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">YameTech</label>
+    <ul>
+      <li><a class="on-hover active" href="#">Home</a></li>
+      <li><a href="#" class="on-hover">Portfolio</a></li>
+      <li><a href="#" class="on-hover">Projects</a></li>
+      <li><a href="#" class="on-hover">Services</a></li>
+    </ul>
+  </nav>
+  
+  <!-- contents -->
+  <div class="section1">
+    
+    <section class="s1">
+      <h2>Hello there!<br>We Are <h1>YameTech</h1></h2>
+    </section>
+    
+  </div>
+</body>
+</html>
