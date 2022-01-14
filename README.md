@@ -16,6 +16,14 @@ The official website for YameTechs
 - [ ] services
   - [ ] bots (discord)
   - [ ] websites
+- [ ] users
+  - [ ] account
+  - [ ] forgotten password
+    - [ ] verify email (email)
+  - [x] login
+  - [x] logout
+  - [ ] register
+    - [ ] verify account (email)
 
 ## Setting Up Instructions
 
