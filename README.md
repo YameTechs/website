@@ -8,11 +8,8 @@ The official website for YameTechs
 
 [ ] home
 [ ] admin
-<<<<<<< HEAD
-=======
 [ ] about
 [ ] contacts
->>>>>>> ebe37732bcb74d102ad5f157535a90a41fdf5a02
 [ ] game
 [ ] portfolio
   [ ] projects

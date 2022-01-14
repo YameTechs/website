@@ -2,21 +2,6 @@ from src import app
 from flask import render_template, redirect, url_for
 from src.forms import RegistrationForm, LoginForm
 
-<<<<<<< HEAD
-=======
-
-class Box:
-    def __init__(self, name, description=None) -> None:
-        self.name = name
-        if description is None:
-            description = f"{name} related stuff"
-        self.description = description
-
-
-BOXES = [Box("Portfolio"), Box("Contacts"), Box("Game"), Box("Services")]
-
-
->>>>>>> ebe37732bcb74d102ad5f157535a90a41fdf5a02
 @app.route("/")
 @app.route("/home/")
 def home():
