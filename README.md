@@ -8,7 +8,6 @@ The official website for YameTechs
 
 [ ] home
 [ ] admin
-[ ] discord
 [ ] game
 [ ] portfolio
 [ ] services
