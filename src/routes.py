@@ -21,7 +21,7 @@ def login():
 
 @app.route("/logout/")
 def logout():
-    return render_template("home.html", boxes=BOXES)
+    return render_template("home.html")
 
 
 @app.route("/register/", methods=["POST", "GET"])
@@ -36,7 +36,7 @@ def register():
 
 @app.route("/account/")
 def account():
-    return render_template("home.html", boxes=BOXES)
+    return render_template("home.html")
 
 
 @app.route("/admin/")
@@ -46,12 +46,12 @@ def admin():
 
 @app.route("/about/")
 def about():
-    return render_template("home.html", boxes=BOXES)
+    return render_template("home.html")
 
 
 @app.route("/contacts/")
 def contacts():
-    return render_template("home.html", boxes=BOXES)
+    return render_template("home.html")
 
 
 @app.route("/game/")
@@ -66,23 +66,20 @@ def portfolio():
 
 @app.route("/portfolio/projects/")
 def projects():
-    return render_template("home.html", boxes=BOXES)
+    return render_template("home.html")
 
 
 @app.route("/services/")
 def services():
-<<<<<<< HEAD
     return render_template("home.html")
-=======
-    return render_template("home.html", boxes=BOXES)
+
 
 
 @app.route("/services/bots/")
 def bots():
-    return render_template("home.html", boxes=BOXES)
+    return render_template("home.html")
 
 
 @app.route("/services/websites/")
 def websites():
-    return render_template("home.html", boxes=BOXES)
->>>>>>> ebe37732bcb74d102ad5f157535a90a41fdf5a02
+    return render_template("home.html")
