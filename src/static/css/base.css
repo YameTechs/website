@@ -38,7 +38,7 @@ nav {
   margin: .5rem;
   margin-left: 3rem;
   font-family: 'Lobster', cursive;
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 600;
 }
 
@@ -61,14 +61,24 @@ nav {
 .menu a {
   text-decoration: none;
   color: white;
-  padding: 12px 16px;
+  padding: 13px 19px;
   margin: .2rem;
   border-radius: 25px;
-  transition: .4s;
 }
 
-.menu a.accbtn {
+.menu1 a {
+  position: flex-end;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  margin: 0;
+  border-radius: 25px;
+}
+
+.menu1 a.accbtn {
   border: 1px solid #ddd;
+  margin-right: 25px;
 }
 
 .menu a:hover {
@@ -86,14 +96,14 @@ nav {
     display: flex;
   }
   
-  .menu {
+  .menu, .menu1 {
     display: none;
     background-color: #5b6f8b;
     width: 100%;
     text-align: center;
   }
   
-  .menu a {
+  .menu a, .menu1 a {
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -102,8 +112,10 @@ nav {
   
   .menu.active {
     display: block;
-    transition: .5s ease;
   }
+  
+  
+  
   
 }
 
