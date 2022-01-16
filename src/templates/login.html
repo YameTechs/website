@@ -18,13 +18,6 @@
   <form method="POST" action="">
     {{ form.hidden_tag() }}
 
-    <h1>username</h1>
-    {% if form.username.errors %}
-      {% for error in form.username.errors %}
-          <span>{{ error }}</span>
-      {% endfor %}
-    {% endif %}
-
     <h1>email</h1>
     {% if form.email.errors %}
       {% for error in form.email.errors %}
