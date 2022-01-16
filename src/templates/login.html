@@ -23,8 +23,6 @@
       {% for error in form.username.errors %}
           <span>{{ error }}</span>
       {% endfor %}
-    {% else %}
-        {{ form.username() }}
     {% endif %}
 
     <h1>email</h1>
