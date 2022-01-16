@@ -16,6 +16,8 @@ header {
   width: 100%;
 }
 
+/* navbar start */
+
 nav {
   position: fixed;
   top: 0;
@@ -104,3 +106,5 @@ nav {
   }
   
 }
+
+/* navbar end */
