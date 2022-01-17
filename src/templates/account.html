@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for x in ['id', 'date_joined', 'email', 'image_file', 'password', 'username'] %}
+      <h1>{{ x }}</h1>
+      <p>{{ getattr(current_user, x) }}</p>
+    {% endfor %}
+    {% if current_user.is_verified %}
+      <h1>'is_verified'</h1>
+      <p>{{ current_user.is_verified }}</p>
+      <!-- if the user is verified don't show button else show button -->
+    {% endif %}
+{% endblock content %}

@@ -4,6 +4,11 @@ The official website for YameTechs
 
 ## Todos
 
+## other features
+
+- [ ] captcha
+- [ ] security stuff
+
 ### routes
 
 - [x] home
@@ -49,6 +54,8 @@ nano .env
 DEVMODE='True'
 FLASK_SECRET_KEY='your secret key'
 DATABASE_URI='sqlite:///test.db'
+EMAIL_USER='youremail@gmail.com'
+EMAIL_PASSWORD='your_password'
 ```
 
 ### 2. Setup virtual environment

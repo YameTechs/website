@@ -7,24 +7,18 @@
     <h1>email</h1>
     {{ form.email.label() }}
 
-    {% if form.email.errors %}
-      {% for error in form.email.errors %}
-          <span>{{ error }}</span>
-      {% endfor %}
-    {% else %}
-        {{ form.email() }}
-    {% endif %}
+    {{ form.email() }}
+    {% for error in form.email.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
 
     <h1>password</h1>
     {{ form.password.label() }}
 
-    {% if form.password.errors %}
-      {% for error in form.password.errors %}
-          <span>{{ error }}</span>
-      {% endfor %}
-    {% else %}
-        {{ form.password() }}
-    {% endif %}
+    {{ form.password() }}
+    {% for error in form.password.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
 
     <h1>submit</h1>
     {{ form.submit() }}

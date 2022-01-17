@@ -1,8 +1,10 @@
 from datetime import datetime
 
 from flask_login import UserMixin
+from itsdangerous.jws import TimedJSONWebSignatureSerializer as Serializer
 
 from src import db, login_manager
+from src.config import Config
 
 
 @login_manager.user_loader
@@ -18,6 +20,23 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(50), nullable=False, default="default.jpeg")
     password = db.Column(db.String(69), nullable=False)
     username = db.Column(db.String(20), unique=True, nullable=False)
+    is_verified = db.Column(db.Boolean, nullable=False)
+
+    def get_verification_token(self, expires_sec=1800):
+        dictionary = {"user_id": self.id}
+        s = Serializer(Config.SECRET_KEY, expires_sec)
+        return s.dumps(dictionary).decode("utf-8")
+
+    @staticmethod
+    def get_user_by_token(token):
+        s = Serializer(Config.SECRET_KEY)
+
+        try:
+            user_id = s.loads(token)["user_id"]
+        except KeyError:
+            return None
+
+        return User.query.get(user_id)
 
     def __repr__(self):
         return f"User({self.id=}, {self.username=}, {self.email=})"

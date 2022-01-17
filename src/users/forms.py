@@ -32,3 +32,13 @@ class LoginForm(FlaskForm):
     password = PasswordField("Password", validators=[DataRequired()])
     remember = BooleanField("Remember Me")
     submit = SubmitField("Login")
+
+
+class RequestResetFrom(FlaskForm):
+    email = EmailField("Email", validators=[DataRequired()])
+    submit = SubmitField("Login")
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is None:
+            raise ValidationError("there is no account with that email!")
