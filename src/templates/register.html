@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
+
+  <style>
+    
+    form {
+      display: flex;
+      height: auto;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+  </style>
+
   <!-- PLEASE FIX THIS -->
   <form method="POST" action="">
     {{ form.hidden_tag() }}

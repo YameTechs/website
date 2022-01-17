@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #50627c;
+  font-family: Verdana;
+}
+
+header {
+  height: 50px;
+  width: 100%;
+}
+
+/* navbar start */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: hsla(215, 21%, 16%, 0.9);
+  width: 100%;
+  color: white;
+}
+
+.container {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: .5rem;
+  margin-left: 3rem;
+  font-family: 'Lobster', cursive;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.burgir {
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+
+.menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  padding: 13px 19px;
+  margin: .2rem;
+  border-radius: 25px;
+}
+
+.menu1 a {
+  position: flex-end;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  margin: 0;
+  border-radius: 25px;
+}
+
+.menu1 a.accbtn {
+  border: 1px solid #ddd;
+  margin-right: 25px;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .burgir {
+    display: flex;
+  }
+  
+  .menu, .menu1 {
+    display: none;
+    background-color: #5b6f8b;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .menu a, .menu1 a {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: .5rem 1rem;
+  }
+  
+  .menu.active {
+    display: block;
+  }
+  
+  
+  
+  
+}
+
+/* navbar end */

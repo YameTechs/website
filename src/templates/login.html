@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
+  
+  <style>
+    
+    form {
+      display: flex;
+      height: auto;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+  </style>
+  
   <!-- PLEASE FIX THIS -->
   <form method="POST" action="">
     {{ form.hidden_tag() }}
-
-    <h1>username</h1>
-    {% if form.username.errors %}
-      {% for error in form.username.errors %}
-          <span>{{ error }}</span>
-      {% endfor %}
-    {% else %}
-        {{ form.username() }}
-    {% endif %}
 
     <h1>email</h1>
     {% if form.email.errors %}
