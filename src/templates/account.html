@@ -8,5 +8,11 @@
       <h1>'is_verified'</h1>
       <p>{{ current_user.is_verified }}</p>
       <!-- if the user is verified don't show button else show button -->
+    {% else %}
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+
+        {{ form.submit() }}
+      </form>
     {% endif %}
 {% endblock content %}

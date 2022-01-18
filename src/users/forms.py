@@ -5,6 +5,10 @@ from wtforms.validators import DataRequired, EqualTo, Length, ValidationError
 from src.models import User
 
 
+class ResendEmailButton(FlaskForm):
+    submit = SubmitField("Send Verification Email")
+
+
 class RegistrationForm(FlaskForm):
     username = StringField(
         "Username", validators=[DataRequired(), Length(min=3, max=25)]

@@ -3,16 +3,29 @@ from flask_login import current_user, login_required, login_user, logout_user
 
 from src import bcrypt, db
 from src.models import User
-from src.users.forms import LoginForm, RegistrationForm
+from src.users.forms import LoginForm, RegistrationForm, ResendEmailButton
 from src.users.utils import send_user_email
 
 users = Blueprint("users", __name__)
 
 
-@users.route("/account/")
+@users.route("/account/", methods=["POST", "GET"])
 @login_required
 def account():
-    return render_template("account.html", dir=dir, getattr=getattr, user=current_user)
+    form = ResendEmailButton()
+
+    if form.validate_on_submit():
+        if form.submit.data:
+            msg_body = (
+                "To verify your account, visit the following link:\n"
+                "{}\n"
+                "If you did not make this request then simply ignore this email and no"
+                "changes will be made"
+            )
+            send_user_email(current_user, "Account Verification", msg_body)
+            flash('An email has been send with your verification link!')
+
+    return render_template("account.html", getattr=getattr, form=form)
 
 
 @users.route("/login/", methods=["POST", "GET"])
@@ -59,7 +72,7 @@ def register():
     )
 
     msg_body = (
-        "To reset your password, visit the following link:\n"
+        "To verify your account, visit the following link:\n"
         "{}\n\n"
         "If you did not make this request then simply ignore this email and no"
         "changes will be made"
@@ -76,16 +89,12 @@ def register():
 
 @users.route("/verify_token/<token>/", methods=["POST", "GET"])
 def verify_token(token):
-    if current_user.is_authenticated:
-        return redirect(url_for("main.home"))
-
     user = User.get_user_by_token(token)
     if user is None:
-        succ = False
-        flash("that's an invalid token lul, please request a new verification token")
-        return render_template("verify_token.html", success=succ)
+        msg = "that's an invalid token lul, please request a new verification token"
+        return render_template("verify_token.html", msg=msg)
 
-    succ = True
-    flash("Congratulation you have been verified")
-    # database query to change verification column
-    return render_template("verify_token.html", success=succ)
+    user.is_verified = True
+    db.session.commit()
+    msg = "Congratulation you have been verified"
+    return render_template("verify_token.html", msg=msg)
