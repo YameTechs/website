@@ -12,17 +12,7 @@
         <span>{{ error }}</span>
     {% endfor %}
 
-    <h1>password</h1>
-    {{ form.password.label() }}
-
-    {{ form.password() }}
-    {% for error in form.password.errors %}
-        <span>{{ error }}</span>
-    {% endfor %}
-
     <h1>submit</h1>
     {{ form.submit() }}
   </form>
-  <a href="{{ url_for("users.register") }}">Don't have an account yet? Register Now!</a>
-  <a href="{{ url_for("users.request_token") }}">Forgot your password?</a>
 {% endblock content %}

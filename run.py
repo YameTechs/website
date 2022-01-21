@@ -1,11 +1,14 @@
-import os
-
 from dotenv import load_dotenv
 
-from src import app
-
 load_dotenv()
-DEVMODE = os.environ["DEVMODE"] == "True"
+
+
+import os
+
+from src import create_app
 
 if __name__ == "__main__":
+    DEVMODE = os.environ["DEVMODE"] == "True"
+
+    app = create_app()
     app.run(debug=DEVMODE)
