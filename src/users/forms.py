@@ -5,6 +5,14 @@ from wtforms.validators import DataRequired, EqualTo, Length, ValidationError
 from src.models import User
 
 
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField("Password", validators=[DataRequired()])
+    confirm_password = PasswordField(
+        "Confirm Password", validators=[DataRequired(), EqualTo("password")]
+    )
+    submit = SubmitField("Sign Up")
+
+
 class ResendEmailButton(FlaskForm):
     submit = SubmitField("Send Verification Email")
 
@@ -40,7 +48,7 @@ class LoginForm(FlaskForm):
 
 class RequestResetFrom(FlaskForm):
     email = EmailField("Email", validators=[DataRequired()])
-    submit = SubmitField("Login")
+    submit = SubmitField("Submit")
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()

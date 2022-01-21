@@ -4,10 +4,14 @@ The official website for YameTechs
 
 ## Todos
 
-## other features
+### other features
 
 - [ ] captcha
 - [ ] security stuff
+
+### codes
+
+- [ ] events
 
 ### routes
 
@@ -23,12 +27,12 @@ The official website for YameTechs
   - [ ] websites
 - [ ] users
   - [ ] account
-  - [ ] forgotten password
-    - [ ] verify email (email)
+  - [x] forgotten password
+    - [x] verify email (email)
   - [x] login
   - [x] logout
-  - [ ] register
-    - [ ] verify account (email)
+  - [x] register
+    - [x] verify account (email)
 
 ## Setting Up Instructions
 
@@ -78,11 +82,11 @@ pipenv shell
 python
 
 # Import db and the models
->>> from src import db
+>>> from src import db, create_app
 >>> from src.models import *
 
 # Create the db
->>> db.create_all()
+>>> db.create_all(app=create_app())
 
 # Exit python cli
 >>> exit()

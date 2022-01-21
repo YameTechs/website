@@ -4,9 +4,9 @@ from flask_mail import Message
 from src import mail
 
 
-def send_user_email(user, msg_head, msg_body):
+def send_user_email(user, msg_head, msg_body, route):
     token = user.get_verification_token()
-    url = url_for("users.verify_token", token=token, _external=True)
+    url = url_for(route, token=token, _external=True)
 
     msg = Message(msg_head, sender="noreply@demo.com", recipients=[user.email])
 
