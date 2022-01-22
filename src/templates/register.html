@@ -19,42 +19,39 @@
     {{ form.hidden_tag() }}
 
     <h1>username</h1>
-    {% if form.username.errors %}
-      {% for error in form.username.errors %}
-          <span>{{ error }}</span>
-      {% endfor %}
-    {% else %}
-        {{ form.username() }}
-    {% endif %}
+    {{ form.username.label() }}
+
+    {{ form.username() }}
+    {% for error in form.username.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
 
     <h1>email</h1>
-    {% if form.email.errors %}
-      {% for error in form.email.errors %}
-          <span>{{ error }}</span>
-      {% endfor %}
-    {% else %}
-        {{ form.email() }}
-    {% endif %}
+    {{ form.email.label() }}
+
+    {{ form.email() }}
+    {% for error in form.email.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
 
     <h1>password</h1>
-    {% if form.password.errors %}
-      {% for error in form.password.errors %}
-          <span>{{ error }}</span>
-      {% endfor %}
-    {% else %}
-        {{ form.password() }}
-    {% endif %}
+    {{ form.password.label() }}
+
+    {{ form.password() }}
+    {% for error in form.password.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
 
     <h1>confirm_password</h1>
-    {% if form.confirm_password.errors %}
-      {% for error in form.confirm_password.errors %}
-          <span>{{ error }}</span>
-      {% endfor %}
-    {% else %}
-        {{ form.confirm_password() }}
-    {% endif %}
+    {{ form.confirm_password.label() }}
+
+    {{ form.confirm_password() }}
+    {% for error in form.confirm_password.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
 
     <h1>submit</h1>
     {{ form.submit() }}
   </form>
+  <a href="{{ url_for("users.login") }}">Already have an account? Login now!</a>
 {% endblock content %}

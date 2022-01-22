@@ -4,10 +4,19 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
 python-dotenv = "*"
+flask = "*"
 flask-wtf = "*"
+flask-sqlalchemy = "*"
+flask-bcrypt = "*"
+flask-login = "*"
+flask-mail = "*"
 
 [dev-packages]
 black = "*"
 flake8 = "*"
+isort = "*"
+
+[scripts]
+run = "python run.py"
+format = "bash scripts.bash"
