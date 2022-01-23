@@ -76,7 +76,7 @@ nav {
   transition: .4s ease;
 }
 
-.menu a:hover {
+.menu a:hover, .menu.is-active{
   background-color: #ddd;
   color: black;
 }

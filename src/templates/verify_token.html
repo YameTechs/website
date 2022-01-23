@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if success %}
+    <h1>Congratulations! you have verified</h1>
+  {% else %}
+    <h1>Sorry but you're token is expired!</h1>
+    <h2>Request another verification code here{{ url_for("users.account") }}!</h2>
+  {% endif %}
+{% endblock content %}
