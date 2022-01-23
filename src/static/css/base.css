@@ -1,28 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  background: #50627c;
-  font-family: Verdana;
+  font-family: 'Poppins', sans-serif;
 }
 
 header {
-  height: 50px;
+  height: 48px;
   width: 100%;
+  background: #000d1a;
 }
 
 /* navbar start */
 
 nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  background: hsla(215, 21%, 16%, 0.9);
+  background:#000d1a;
   width: 100%;
   color: white;
 }
@@ -30,55 +31,49 @@ nav {
 .container {
   display: flex;
   position: relative;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .logo {
   margin: .5rem;
-  margin-left: 3rem;
-  font-family: 'Lobster', cursive;
-  font-size: 32px;
+  margin-right: 5rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
   font-weight: 600;
+  letter-spacing: 2px;
+  cursor: none;
 }
 
 .burgir {
   position: absolute;
   top: .75rem;
-  right: 1rem;
+  right: 1.5rem;
   display: none;
   flex-direction: column;
   justify-content: space-between;
   font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.burgir:hover {
+  color: dimgray;
 }
 
 .menu {
   display: flex;
-  margin: 0;
+
   padding: 0;
 }
 
 .menu a {
+  font-size: 11px;
   text-decoration: none;
   color: white;
-  padding: 13px 19px;
+  padding: 9px 17px;
   margin: .2rem;
   border-radius: 25px;
-}
-
-.menu1 a {
-  position: flex-end;
-  border: 1px solid white;
-  color: white;
-  text-decoration: none;
-  padding: 5px 15px;
-  margin: 0;
-  border-radius: 25px;
-}
-
-.menu1 a.accbtn {
-  border: 1px solid #ddd;
-  margin-right: 25px;
+  transition: .4s ease;
 }
 
 .menu a:hover {
@@ -86,7 +81,23 @@ nav {
   color: black;
 }
 
+.accbtn {
+  border: 1px solid white;
+}
+
+#reg {
+  background: white;
+  color: black;
+}
+
 @media (max-width: 768px) {
+  nav {
+    position: fixed;
+    z-index: 1000;
+    background: rgb(0, 13, 26, 0.8);
+    border-bottom: 1px solid dimgray;
+  }
+  
   .container {
     flex-direction: column;
     align-items: flex-start;
@@ -96,14 +107,20 @@ nav {
     display: flex;
   }
   
-  .menu, .menu1 {
+  .menu {
     display: none;
-    background-color: #5b6f8b;
+    background-color: #000d1a;
     width: 100%;
+    border-bottom: 3px solid white;
     text-align: center;
+    z-index: 1000;
   }
   
-  .menu a, .menu1 a {
+  .logo {
+    margin-left: 30px;
+  }
+  
+  .menu a {
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -113,10 +130,7 @@ nav {
   .menu.active {
     display: block;
   }
-  
-  
-  
-  
 }
 
 /* navbar end */
+

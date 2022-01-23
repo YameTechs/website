@@ -1,4 +1,97 @@
 {% extends "base.html" %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" integrity="sha512-X/RSQYxFb/tvuz6aNRTfKXDnQzmnzoawgEQ4X8nZNftzs8KFFH23p/BA6D2k0QCM4R0sY1DEy9MIY9b3fwi+bg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" integrity="sha512-itF/9I/NigY9u4ukjw9s7/kG6SC7LJ5Q4pRNMnTbGZAsO4/RSUelfVuYBk8AkSk23qEcucIqdUlzzpy2qf7jGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+
 {% block content %}
-  <h1 style="display: flex; height: 100vh; width: 100%; align-items: center; justify-content: center;">THIS IS HOME</h1>
+<!-- first section -->
+  <div class="home-sec" id="homee">
+    <div class="intro" style="order: 2;">
+      <h2 style="color: white">Hello! We are <em  class="hello" style="letter-spacing: 2px; color: white; font-size: 35px; font-family: 'Roboto', sans-serif;">YameTech</em></h2>
+      <p>text text text text text text text text text text text text text text text text text text text text text!</p>
+      <button class="know-more">
+        Go to Portfolio
+      </button>
+    </div>
+    
+    <div class="web-pic" style="order: 1;">
+      <img src="{{ url_for('static', filename='img/programmer.png') }}">
+    </div>
+    
+    <div class="custom-shape-divider-bottom-1642833130">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+      </svg>
+    </div>
+  
+  </div>
+<!-- emd first section -->
+
+  
+
+<!-- second section -->
+  <div class="projectss">
+    <h2>Here's the projects that we've done</h2>
+    
+    <div class="owl-carousel owl-theme">
+      <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+      <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+      <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+      <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+      <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+      <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+      <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+      <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+      <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+    </div>
+    
+  </div>
+<!-- endsecond section -->
+
+<!-- third section -->
+
+  <div class="contacts">
+    
+    <div class="custom-shape-divider-top-1642926837">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+    
+  </div>
+
+<!-- end third section -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" integrity="sha512-9CWGXFSJ+/X0LWzSRCZFsOPhSfm6jbnL+Mpqo0o8Ke2SYr8rCTqb4/wGm+9n13HtDE1NQpAEOrMecDZw4FXQGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script type="text/javascript">
+    
+    $('.owl-carousel').owlCarousel({
+      center: true,
+      loop: true,
+      margin: 40,
+      nav: true,
+      autoplay: true,
+      autoplayTimeout: 1000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1000: {
+          items: 4
+        }
+      }
+    })
+    
+  </script>
+  
 {% endblock content %}
