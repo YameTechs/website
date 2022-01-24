@@ -18,26 +18,29 @@
         <div class="logo">
           YameTech
         </div>
-    
+
         <div class="burgir">
           <i class="fas fa-bars"></i>
         </div>
-    
+
         <div class="menu">
           <a href="/home/">Home</a>
           <a href="#">Services</a>
           <a href="/login/" class="accbtn">Login</a>
           <a href="/register/" class="accbtn" id="reg">Register</a>
         </div>
-        
+
       </div>
     </nav>
   </header>
   <!-- end nav section -->
-  
-  
-  
-  
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <span>{{ message }}</span>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
   {% block content %}{% endblock content %}
 </body>
 </html>
