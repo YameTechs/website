@@ -7,6 +7,8 @@
   <script src="https://kit.fontawesome.com/03853e84a6.js" crossorigin="anonymous"></script>
   <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  {% block head %}
+  {% endblock %}
 </head>
 <body>
   <!-- Nav xection -->
@@ -16,34 +18,26 @@
         <div class="logo">
           YameTech
         </div>
-
+    
         <div class="burgir">
           <i class="fas fa-bars"></i>
         </div>
-
+    
         <div class="menu">
           <a href="/home/">Home</a>
-          <a href="#">Portfolio</a>
-          <a href="#">Projects</a>
           <a href="#">Services</a>
-        </div>
-
-        <div class="menu1">
           <a href="/login/" class="accbtn">Login</a>
-          <a href="/register/" class="accbtn">Register</a>
+          <a href="/register/" class="accbtn" id="reg">Register</a>
         </div>
-
+        
       </div>
     </nav>
   </header>
   <!-- end nav section -->
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      {% for message in messages %}
-        <span>{{ message }}</span>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
+  
+  
+  
+  
   {% block content %}{% endblock content %}
 </body>
 </html>

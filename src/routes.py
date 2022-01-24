@@ -15,7 +15,7 @@ def login():
 
     if form.validate_on_submit():
         if form.email == "test@test.com" and form.password == "password":
-            return redirect(url_for('home'))
+            return redirect(url_for("home"))
 
     return render_template("login.html", form=form)
 
@@ -30,7 +30,7 @@ def register():
     form = RegistrationForm()
 
     if form.validate_on_submit():
-        return redirect(url_for('home'))
+        return redirect(url_for("home"))
 
     return render_template("register.html", form=form)
 

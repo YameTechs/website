@@ -3,7 +3,8 @@ from flask_login import current_user, login_required, login_user, logout_user
 
 from src import bcrypt, db
 from src.models import User
-from src.users.forms import LoginForm, RegistrationForm, ResendEmailButton, RequestResetFrom, ResetPasswordForm
+from src.users.forms import (LoginForm, RegistrationForm, RequestResetFrom,
+                             ResendEmailButton, ResetPasswordForm)
 from src.users.utils import send_user_email
 
 users = Blueprint("users", __name__)
