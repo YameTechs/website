@@ -144,3 +144,8 @@ def verify_token(token):
     db.session.commit()
     msg = "Congratulation you have been verified"
     return render_template("verify_token.html", msg=msg)
+
+@users.route("/about/")
+def about():
+    about()
+    return redirect(url_for("main.home"))
