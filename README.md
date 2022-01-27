@@ -6,7 +6,7 @@ The official website for YameTechs
 
 ### other features
 
-- [ ] captcha
+- [x] captcha
 - [ ] security stuff
 
 ### codes
@@ -60,6 +60,8 @@ FLASK_SECRET_KEY='your secret key'
 DATABASE_URI='sqlite:///test.db'
 EMAIL_USER='youremail@gmail.com'
 EMAIL_PASSWORD='your_password'
+RECAPTCHA_PUBLIC_KEY='site_key_from_google_recaptcha'
+RECAPTCHA_PRIVATE_KEY='private_key_from_google_recaptcha'
 ```
 
 ### 2. Setup virtual environment
