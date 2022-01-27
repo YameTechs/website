@@ -12,6 +12,8 @@
         <span>{{ error }}</span>
     {% endfor %}
 
+    {{ form.recaptcha() }}
+
     <h1>submit</h1>
     {{ form.submit() }}
   </form>
