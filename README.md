@@ -6,7 +6,7 @@ The official website for YameTechs
 
 ### other features
 
-- [ ] captcha
+- [x] captcha
 - [ ] security stuff
 
 ### codes
