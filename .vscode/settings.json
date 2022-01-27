@@ -1,4 +1,3 @@
 {
-  "python.autoComplete.extraPaths": ["./path-to-your-code"],
-  "python.analysis.extraPaths": ["./path-to-your-code"]
+  "python.autoComplete.extraPaths": ["./src"]
 }

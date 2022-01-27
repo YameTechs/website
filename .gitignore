@@ -130,3 +130,9 @@ dmypy.json
 
 # My stuff
 *.db
+
+#Prettier (a formatter or something)
+.prettierrc
+.prettierignore
+#vscode 
+*.vscode
