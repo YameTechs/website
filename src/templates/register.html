@@ -2,7 +2,7 @@
 {% block content %}
 
   <style>
-    
+
     form {
       display: flex;
       height: auto;
@@ -11,7 +11,7 @@
       align-items: center;
       justify-content: center;
     }
-    
+
   </style>
 
   <!-- PLEASE FIX THIS -->
@@ -49,6 +49,8 @@
     {% for error in form.confirm_password.errors %}
         <span>{{ error }}</span>
     {% endfor %}
+
+    {{ form.recaptcha() }}
 
     <h1>submit</h1>
     {{ form.submit() }}

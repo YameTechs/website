@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import (BooleanField, EmailField, PasswordField, StringField,
                      SubmitField)
 from wtforms.validators import DataRequired, EqualTo, Length, ValidationError
@@ -11,6 +11,7 @@ class ResetPasswordForm(FlaskForm):
     confirm_password = PasswordField(
         "Confirm Password", validators=[DataRequired(), EqualTo("password")]
     )
+    recaptcha = RecaptchaField()
     submit = SubmitField("Sign Up")
 
 
@@ -27,6 +28,7 @@ class RegistrationForm(FlaskForm):
     confirm_password = PasswordField(
         "Confirm Password", validators=[DataRequired(), EqualTo("password")]
     )
+    recaptcha = RecaptchaField()
     submit = SubmitField("Sign Up")
 
     def validate_username(self, username):
@@ -44,11 +46,13 @@ class LoginForm(FlaskForm):
     email = EmailField("Email", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
     remember = BooleanField("Remember Me")
+    recaptcha = RecaptchaField()
     submit = SubmitField("Login")
 
 
 class RequestResetFrom(FlaskForm):
     email = EmailField("Email", validators=[DataRequired()])
+    recaptcha = RecaptchaField()
     submit = SubmitField("Submit")
 
     def validate_email(self, email):
