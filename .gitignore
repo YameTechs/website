@@ -135,4 +135,6 @@ dmypy.json
 .prettierrc
 .prettierignore
 #vscode 
-.vscode
+
+.vscode/
+
