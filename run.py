@@ -1,10 +1,11 @@
-from dotenv import load_dotenv, find_dotenv
+from dotenv import find_dotenv, load_dotenv
 
 load_dotenv(find_dotenv())
 
 
-import os
-from src import create_app
+import os  # noqa: E402
+
+from src import create_app  # noqa: E402
 
 DEVMODE = os.environ["DEVMODE"] == "True"
 
