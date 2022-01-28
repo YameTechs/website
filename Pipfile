@@ -16,6 +16,7 @@ flask-mail = "*"
 black = "*"
 flake8 = "*"
 isort = "*"
+pre-commit = "*"
 
 [scripts]
 run = "python run.py"
