@@ -9,21 +9,18 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-}
-
-header {
-  height: 48px;
-  width: 100%;
-  background: #000d1a;
+  background: linear-gradient(to right, #000d1a, #003366);
+  margin-top: 60px;
 }
 
 /* navbar start */
 
 nav {
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
-  background:#000d1a;
+  background:none;
   width: 100%;
   color: white;
 }
@@ -81,14 +78,66 @@ nav {
   color: black;
 }
 
-.accbtn {
-  border: 1px solid white;
-}
-
 #reg {
-  background: white;
+  border: 1px solid white;
+  background: #DDD;
   color: black;
 }
+
+.menu #reg:hover {
+  
+  color: white;
+  background: none;
+}
+
+/* login popup */
+
+.login-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: white;
+  width: 40%;
+}
+
+.login-popup .form {
+  margin: 15px;
+}
+
+.login-popup .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  line-height: 15px;
+  color: white;
+  border-radius: 30px;
+  background: gray;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.login-popup .form h2 {
+  margin: 10px 0 20px;
+  text-align: center;
+}
+
+.login-popup .form .form-element {
+  margin: 15px 0px;
+}
+
+.login-popup .form 
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 768px) {
   nav {

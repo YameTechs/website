@@ -11,36 +11,36 @@
     <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/base.css') }}"
-    />
+      href="{{ url_for('static', filename='css/base.css') }}" />
     {% block head %} {% endblock %}
   </head>
   <body>
     <!-- Nav xection -->
-    <header>
-      <nav>
-        <div class="container">
-          <div class="logo">YameTech</div>
-
-          <div class="burgir">
-            <i class="fas fa-bars"></i>
-          </div>
-
-          <div class="menu">
-            <a href="/home/">Home</a>
-            <a href="#">Services</a>
-            <a href="/login/" class="accbtn">Login</a>
-            <a href="/register/" class="accbtn" id="reg">Register</a>
-          </div>
+    <nav>
+      <div class="container">
+        <div class="logo">YameTech</div>
+    
+        <div class="burgir">
+          <i class="fas fa-bars"></i>
         </div>
-      </nav>
-    </header>
+    
+        <div class="menu">
+          <a href="/home/">Home</a>
+          <a href="#">About</a>
+          <a href="#">Projects</a>
+          <a href="/register/" id="reg">Try our Services</a>
+        </div>
+      </div>
+    </nav>
+    
+    
+    
     <!-- end nav section -->
     
     {% with messages = get_flashed_messages() %} 
       {% if messages %} 
         {% for message in messages %}
-          <span>{{ message }}</span>
+          <span style="margin-top: 78px; color: white;">{{ message }}</span>
         {% endfor %} 
       {% endif %} 
     {% endwith %} 
