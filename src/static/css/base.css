@@ -90,55 +90,6 @@ nav {
   background: none;
 }
 
-/* login popup */
-
-.login-popup {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  background: white;
-  width: 40%;
-}
-
-.login-popup .form {
-  margin: 15px;
-}
-
-.login-popup .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  line-height: 15px;
-  color: white;
-  border-radius: 30px;
-  background: gray;
-  padding: 5px 5px;
-  cursor: pointer;
-}
-
-.login-popup .form h2 {
-  margin: 10px 0 20px;
-  text-align: center;
-}
-
-.login-popup .form .form-element {
-  margin: 15px 0px;
-}
-
-.login-popup .form 
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 768px) {
   nav {
     position: fixed;
