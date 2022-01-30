@@ -16,6 +16,7 @@
     {% block head %} {% endblock %}
   </head>
   <body>
+    <div class="theService"><a href='#'>Services</a></div>
     <!-- Nav xection -->
     <header>
       <nav>
@@ -44,6 +45,16 @@
         {% endfor %} 
       {% endif %} 
     {% endwith %} 
-  {% block content %} {% endblock content %}
+  
+  {% block content %}
+  
+  {% endblock content %}
+  <footer>
+    <p>Contact Informations:<br>
+    <a href="mailto:hege@example.com">hege@example.com</a>
+    <a href="facebook.com">
+    </p>
+
+  </footer>
   </body>
 </html>
