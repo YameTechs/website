@@ -8,3 +8,14 @@ burgirBtn.addEventListener('click', () => {
 })
 
 //end gurgir //
+
+
+// dropdown //
+
+const UserAcc = document.getElementsByClassName('user_acc')[0]
+const UserAccContent = document.getElementsByClassName('dropdown')[0]
+
+UserAcc.addEventListener('click', () => {
+  UserAccContent.classList.toggle('active')
+})
+// end dropdown // 

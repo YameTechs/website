@@ -90,6 +90,55 @@ nav {
   background: none;
 }
 
+.user_acc {
+
+  color: white;
+}
+
+.dropdown {
+  display: flex;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 9rem;
+  z-index: 1000;
+  pointer-events: none;
+  background-color: #DDDDDD;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown-content a {
+  font-size: 10px;
+  font-weight: 700;
+  margin: 0;
+  border-radius: 10px;
+  display: block;
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background: gra;
+  color: white;
+}
+
+.dropdown.active > a:focus + .dropdown-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   nav {
     position: fixed;
