@@ -154,6 +154,7 @@ def verify_token(token):
     msg = "Congratulation you have been verified"
     return render_template("verify_token.html", msg=msg)
 
+
 @users.route("/about/")
 def about():
     about()
