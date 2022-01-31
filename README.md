@@ -1,6 +1,6 @@
 # Website
 
-![Lint & Test](https://github.com/YameTechs/website/actions/workflows/lint_n_test/badge.svg)
+![Lints & Tests](https://github.com/YameTechs/website/actions/workflows/lint_n_test/badge.svg)
 
 The official website for YameTechs
 
