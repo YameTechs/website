@@ -5,6 +5,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: .2s linear
 }
 
 body {
@@ -16,25 +17,25 @@ body {
 /* navbar start */
 
 nav {
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
   background:none;
   width: 100%;
   color: white;
+  z-index: 1000;
 }
 
 .container {
   display: flex;
   position: relative;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .logo {
   margin: .5rem;
-  margin-right: 5rem;
+  margin-left: 3rem;
   font-family: 'Roboto', sans-serif;
   font-size: 28px;
   font-weight: 600;
@@ -90,48 +91,91 @@ nav {
   background: none;
 }
 
-.user_acc {
-
-  color: white;
-}
-
-.dropdown {
+.userAcc_settings {
+  position: relative;
   display: flex;
 }
 
-.dropdown-content {
+.userAcc_settings .userAcc_toggler {
+  margin-right: 3rem;
+  cursor: pointer;
+}
+
+.userAcc_settings .profilepic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.userAcc_settings .userAcc_menu {
   position: absolute;
-  top: 100%;
-  right: 9rem;
-  z-index: 1000;
+  top: calc(100% + 0.5rem);
+  right: 15px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #ddd;
+  color: black;
+  width: 250px;
   pointer-events: none;
-  background-color: #DDDDDD;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+  visibility: hidden;
   opacity: 0;
   transform: translateY(-10px);
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  transition: transform 200ms 0 ease-in-out;
 }
 
-.dropdown-content a {
+.userAcc_settings .userAcc_menu h3 {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.userAcc_settings .userAcc_menu span {
+  text-align: center;
   font-size: 10px;
-  font-weight: 700;
-  margin: 0;
-  border-radius: 10px;
-  display: block;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.userAcc_settings .userAcc_menu ul {
+  list-style: none;
+  margin: auto;
+}
+
+.userAcc_settings .userAcc_menu li {
+  border-top: 1px solid gray;
+  margin: 5px;
+}
+
+.userAcc_settings .userAcc_menu a {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: dimgray;
+  transition: .2s ease;
+}
+
+.userAcc_settings .userAcc_menu i {
+  margin-right: 7px;
+}
+
+.userAcc_settings .userAcc_menu a:hover {
   color: black;
+  font-size: 20px;
+  letter-spacing: 3px;
 }
 
-.dropdown-content a:hover {
-  background: gra;
-  color: white;
-}
-
-.dropdown.active > a:focus + .dropdown-content {
-  opacity: 1;
+.userAcc_menu.active {
   pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
   transform: translateY(0);
 }
+
+
 
 
 

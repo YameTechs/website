@@ -13,7 +13,7 @@ burgirBtn.addEventListener('click', () => {
 // dropdown //
 
 const UserAcc = document.getElementsByClassName('user_acc')[0]
-const UserAccContent = document.getElementsByClassName('dropdown')[0]
+const UserAccContent = document.getElementsByClassName('dropdow-content')[0]
 
 UserAcc.addEventListener('click', () => {
   UserAccContent.classList.toggle('active')
