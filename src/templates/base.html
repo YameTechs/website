@@ -11,30 +11,53 @@
     <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/base.css') }}"
-    />
+      href="{{ url_for('static', filename='css/base.css') }}" />
     {% block head %} {% endblock %}
   </head>
   <body>
     <!-- Nav xection -->
-    <header>
-      <nav>
-        <div class="container">
-          <div class="logo">YameTech</div>
-
-          <div class="burgir">
-            <i class="fas fa-bars"></i>
+    <nav>
+      <div class="container">
+        <div class="logo">YameTech</div>
+    
+        <div class="burgir">
+          <i class="fas fa-bars"></i>
+        </div>
+    
+        <div class="menu">
+          <a href="/home/">Home</a>
+          <a href="#">About</a>
+          <a href="/login/">Projects</a>
+          <a href="/services/" id="reg">Try our Services</a>
+        </div>
+        
+        <div class="userAcc_settings">
+          <div class="userAcc_toggler" onclick="UserAccToggle();">
+            <i class="far fa-user-circle fa-2x"></i>
           </div>
-
-          <div class="menu">
-            <a href="/home/">Home</a>
-            <a href="#">Services</a>
-            <a href="/login/" class="accbtn">Login</a>
-            <a href="/register/" class="accbtn" id="reg">Register</a>
+          <div class="userAcc_menu">
+            {% if current_user.is_authenticated %}
+              <img src="{{url_for('static', filename='img/example2.jpeg')}}" class="profilepic"><h3>{username}<br><span>{email}</span></h3>
+            {% else %}
+              <img src="{{url_for('static', filename='img/example2.jpeg')}}" class="profilepic"><h3>Guest<br><span>example@guest.com</span></h3>
+            {% endif %}
+            <ul>
+              {% if current_user.is_authenticated %}
+                <li><a href="#"><i class="fas fa-user"></i>My Profile</a></li>
+                <li><a href="#"><i class="fas fa-user"></i>TEST</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
+                <li><a href="/login/"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+              {% else %}
+                <li><a href="/login/"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+              {% endif %}
+            </ul>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+    
+    
+    
     <!-- end nav section -->
     
     {% with messages = get_flashed_messages() %} 
@@ -45,5 +68,12 @@
       {% endif %} 
     {% endwith %} 
   {% block content %} {% endblock content %}
+  
+  <script>
+    function UserAccToggle() {
+      const toggler = document.querySelector('.userAcc_menu');
+      toggler.classList.toggle('active')
+    }
+  </script>
   </body>
 </html>
