@@ -1,5 +1,7 @@
 # Website
 
+![Lints & Tests](https://github.com/YameTechs/website/actions/workflows/lint_n_test.yml/badge.svg)
+
 The official website for YameTechs
 
 ## Todos
