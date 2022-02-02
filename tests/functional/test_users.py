@@ -1,28 +1,20 @@
-from src import create_app
-from src.config import Config
-
-
-def test_home_page():
+def test_home_page(test_client):
     """
     GIVEN a Flask application configured for testing
     WHEN the '/' page is requested (GET)
     THEN check that the response is valid
     """
-    flask_app = create_app(Config)
+    response = test_client.get("/")
+    assert response.status_code == 200
+    assert b"login" in response.data
+    assert b"register" in response.data
 
-    with flask_app.test_client() as test_client:
-        response = test_client.get("/")
-        assert response.status_code == 200
 
-
-def test_home_page_post():
+def test_home_page_post(test_client):
     """
     GIVEN a Flask application configured for testing
     WHEN the '/' page is posted (POST)
     THEN check that a '405' status code is returned
     """
-    flask_app = create_app(Config)
-
-    with flask_app.test_client() as test_client:
-        response = test_client.post("/")
-        assert response.status_code == 405
+    response = test_client.post("/")
+    assert response.status_code == 405
