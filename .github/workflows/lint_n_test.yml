@@ -19,6 +19,8 @@ jobs:
       RECAPTCHA_PUBLIC_KEY: test
       RECAPTCHA_PRIVATE_KEY: test
 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
     - name: Checkout source repo.
       uses: actions/checkout@v2
@@ -35,3 +37,7 @@ jobs:
     - name: Testing by pytest
       run: |
         pipenv run python -m pytest --cov
+
+    - name: Upload Coverage
+      run: |
+        pipenv run coveralls --service=github

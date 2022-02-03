@@ -19,56 +19,55 @@
     <nav>
       <div class="container">
         <div class="logo">YameTech</div>
-    
+
         <div class="burgir">
           <i class="fas fa-bars"></i>
         </div>
-    
+
         <div class="menu">
           <a href="/home/">Home</a>
           <a href="#">About</a>
           <a href="/login/">Projects</a>
           <a href="/services/" id="reg">Try our Services</a>
         </div>
-        
+
         <div class="userAcc_settings">
           <div class="userAcc_toggler" onclick="UserAccToggle();">
             <i class="fas fa-user-circle fa-2x"></i>
           </div>
           <div class="userAcc_menu">
             {% if current_user.is_authenticated %}
-              <img src="{{url_for('static', filename='img/example2.jpeg')}}" class="profilepic"><h3>{username}<br><span>{email}</span></h3>
-            {% else %}
-              <img src="{{url_for('static', filename='img/example2.jpeg')}}" class="profilepic"><h3>Guest<br><span>example@guest.com</span></h3>
+              <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
+              <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
             {% endif %}
             <ul>
               {% if current_user.is_authenticated %}
                 <li><a href="#"><i class="fas fa-user"></i>My Profile</a></li>
-                <li><a href="#"><i class="fas fa-user"></i>TEST</a></li>
                 <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
-                <li><a href="/login/"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                <li><a href="/logout/"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
               {% else %}
                 <li><a href="/login/"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+                <li><a href="/register/"><i class="fas fa-sign-in-alt"></i>Register</a></li>
               {% endif %}
             </ul>
           </div>
         </div>
       </div>
     </nav>
-    
-    
-    
+
+
+
     <!-- end nav section -->
-    
-    {% with messages = get_flashed_messages() %} 
-      {% if messages %} 
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
         {% for message in messages %}
           <span>{{ message }}</span>
-        {% endfor %} 
-      {% endif %} 
-    {% endwith %} 
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
   {% block content %} {% endblock content %}
-  
+
   <script>
     function UserAccToggle() {
       const toggler = document.querySelector('.userAcc_menu');

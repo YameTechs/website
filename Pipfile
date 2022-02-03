@@ -18,6 +18,7 @@ flake8 = "*"
 isort = "*"
 pytest = "*"
 pytest-cov = "*"
+coveralls = "*"
 
 [scripts]
 run = "python run.py"
