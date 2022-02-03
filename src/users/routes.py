@@ -58,7 +58,6 @@ def login():
     flash("incorrect data!")
 
 
-
 @users.route("/logout/")
 def logout():
     logout_user()
@@ -138,9 +137,7 @@ def reset_password(token):
     if not form.validate_on_submit():
         return render_template("reset_password.html", title="Reset Password", form=form)
 
-    user.password = bcrypt.generate_password_hash(form.password.data).decode(
-        "utf-8"
-    )
+    user.password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
     db.session.commit()
     flash("Your password has been updated! You are now able to log in", "success")
     return redirect(url_for("users.login"))

@@ -30,9 +30,13 @@ jobs:
         pip install pipenv
         pipenv sync --dev
 
-    - name: Linting by flake8
+    - name: Linting code by flake8
       run: |
         pipenv run flake8 .
+
+    - name: Linting imports by isort
+      run: |
+        pipenv run isort . --check
 
     - name: Testing by pytest
       run: |
