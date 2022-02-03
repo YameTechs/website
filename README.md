@@ -32,13 +32,13 @@ The official website for YameTechs
 - [ ] admin
 - [ ] about
 - [ ] contacts
-- [ ] game
 - [ ] portfolio
   - [ ] projects
 - [ ] services
   - [ ] bots (discord)
   - [ ] websites
 - [ ] users
+  - [ ] settings
   - [ ] account
   - [x] forgotten password
     - [x] verify email (email)
