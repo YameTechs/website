@@ -1,6 +1,17 @@
 # Website
 
-![Lints & Tests](https://github.com/YameTechs/website/actions/workflows/lint_n_test.yml/badge.svg)
+[![Lints & Tests][lint_n_test.img]][lint_n_test.action]
+[![Coverage][coverage.img]][coverage.coveralls]
+[![Black][black.img]][black.github]
+
+[lint_n_test.img]: https://github.com/YameTechs/website/actions/workflows/lint_n_test.yml/badge.svg
+[lint_n_test.action]: https://github.com/YameTechs/website/actions?query=workflow%3A%22Lint+%26+Test%22+branch%3Amain++
+
+[coverage.img]: https://coveralls.io/repos/github/YameTechs/website/badge.svg
+[coverage.coveralls]: https://coveralls.io/github/YameTechs/website
+
+[black.img]: https://img.shields.io/badge/code%20style-black-000000.svg
+[black.github]: https://github.com/psf/black
 
 The official website for YameTechs
 

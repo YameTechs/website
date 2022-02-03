@@ -35,3 +35,7 @@ jobs:
     - name: Testing by pytest
       run: |
         pipenv run python -m pytest --cov
+
+    - name: Upload Coverage
+      run: |
+        pipenv run coveralls --service=github
