@@ -19,6 +19,8 @@ jobs:
       RECAPTCHA_PUBLIC_KEY: test
       RECAPTCHA_PRIVATE_KEY: test
 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
     - name: Checkout source repo.
       uses: actions/checkout@v2
