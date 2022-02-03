@@ -27,9 +27,9 @@
 
         <div class="menu">
           <a href="{{ url_for('main.home') }}">Home</a>
-          <a href="{{ url_for('main.home') }}">About</a>
+          <a href="{{ url_for('main.about') }}">About</a>
           <a href="{{ url_for('main.home') }}">Projects</a>
-          <a href="{{ url_for('main.home') }}" id="reg">Try our Services</a>
+          <a href="{{ url_for('main.service') }}" id="reg">Try our Services</a>
         </div>
 
         <div class="userAcc_settings">
@@ -43,7 +43,7 @@
             {% endif %}
             <ul>
               {% if current_user.is_authenticated %}
-              <li><a href="{{ url_for('users.account' )}}"><i class="fas fa-user"></i>My Profile</a></li>
+                <li><a href="{{ url_for('users.account' )}}"><i class="fas fa-user"></i>My Profile</a></li>
                 <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
                 <li><a href="{{ url_for('users.logout' )}}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
               {% else %}

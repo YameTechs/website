@@ -21,6 +21,7 @@ The official website for YameTechs
 
 - [x] captcha
 - [ ] security stuff
+- [ ] clean email msg
 
 ### codes
 

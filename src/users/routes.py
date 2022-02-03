@@ -20,18 +20,21 @@ users = Blueprint("users", __name__)
 def account():
     form = ResendEmailButton()
 
-    if form.validate_on_submit():
-        if form.submit.data:
-            msg_body = (
-                "To verify your account, visit the following link:\n"
-                "{}\n"
-                "If you did not make this request then simply ignore this email and no"
-                "changes will be made"
-            )
-            send_user_email(
-                current_user, "Account Verification", msg_body, "users.verify_token"
-            )
-            flash("An email has been send with your verification link!")
+    if not (form.validate_on_submit() and form.submit.data):
+        return render_template("account.html", form=form)
+
+    msg_body = (
+        "To verify your account, visit the following link:\n"
+        "{}\n"
+        "If you did not make this request then simply ignore this email and no"
+        "changes will be made"
+    )
+
+    send_user_email(
+        current_user, "Account Verification", msg_body, "users.verify_token"
+    )
+
+    flash("An email has been send with your verification link!")
 
     return render_template("account.html", getattr=getattr, form=form)
 
@@ -43,17 +46,17 @@ def login():
 
     form = LoginForm()
 
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+    if not form.validate_on_submit():
+        return render_template("login.html", form=form)
 
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user, remember=form.remember.data)
-            next_page = request.args.get("next")
-            return redirect(next_page or url_for("main.home"))
-        else:
-            flash("incorrect data!")
+    user = User.query.filter_by(email=form.email.data).first()
+    if user and bcrypt.check_password_hash(user.password, form.password.data):
+        login_user(user, remember=form.remember.data)
+        next_page = request.args.get("next")
+        return redirect(next_page or url_for("main.home"))
 
-    return render_template("login.html", form=form)
+    flash("incorrect data!")
+
 
 
 @users.route("/logout/")
@@ -64,15 +67,11 @@ def logout():
 
 @users.route("/register/", methods=["POST", "GET"])
 def register():
-    print("enter register")
     if current_user.is_authenticated:
-        print("user is authenticated")
         return redirect(url_for("main.home"))
 
     form = RegistrationForm()
-    print("form is valid")
     if not form.validate_on_submit():
-        print("returned")
         return render_template("register.html", form=form)
 
     hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
@@ -91,13 +90,10 @@ def register():
     )
 
     send_user_email(user, "Account Verification", msg_body, "users.verify_token")
-    print("email sent")
 
     db.session.add(user)
     db.session.commit()
-    print("added in database")
 
-    print("you have been registered")
     flash("You have registered in!")
     return redirect(url_for("users.login"))
 
@@ -108,23 +104,24 @@ def request_token():
         return redirect(url_for("main.home"))
 
     form = RequestResetFrom()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user is None:
-            flash("that email seems to be invalid!")
-            return redirect(url_for("users.request_token"))
+    if not form.validate_on_submit():
+        return render_template("request_token.html", form=form)
 
-        msg_body = (
-            "To change your password, visit the following link:\n"
-            "{}\n\n"
-            "If you did not make this request then simply ignore this email and no"
-            "changes will be made"
-        )
+    user = User.query.filter_by(email=form.email.data).first()
+    if user is None:
+        flash("that email seems to be invalid!")
+        return redirect(url_for("users.request_token"))
 
-        send_user_email(user, "Forgotten Password", msg_body, "users.reset_password")
-        flash("an email has been sent!")
-        return redirect(url_for("users.login"))
-    return render_template("request_token.html", form=form)
+    msg_body = (
+        "To change your password, visit the following link:\n"
+        "{}\n\n"
+        "If you did not make this request then simply ignore this email and no"
+        "changes will be made"
+    )
+
+    send_user_email(user, "Forgotten Password", msg_body, "users.reset_password")
+    flash("an email has been sent!")
+    return redirect(url_for("users.login"))
 
 
 @users.route("/reset_password/<token>", methods=["GET", "POST"])
@@ -138,15 +135,15 @@ def reset_password(token):
         return redirect(url_for("users.request_token"))
 
     form = ResetPasswordForm()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode(
-            "utf-8"
-        )
-        user.password = hashed_password
-        db.session.commit()
-        flash("Your password has been updated! You are now able to log in", "success")
-        return redirect(url_for("users.login"))
-    return render_template("reset_password.html", title="Reset Password", form=form)
+    if not form.validate_on_submit():
+        return render_template("reset_password.html", title="Reset Password", form=form)
+
+    user.password = bcrypt.generate_password_hash(form.password.data).decode(
+        "utf-8"
+    )
+    db.session.commit()
+    flash("Your password has been updated! You are now able to log in", "success")
+    return redirect(url_for("users.login"))
 
 
 @users.route("/verify_token/<token>/", methods=["POST", "GET"])
@@ -160,9 +157,3 @@ def verify_token(token):
     db.session.commit()
     msg = "Congratulation you have been verified"
     return render_template("verify_token.html", msg=msg)
-
-
-@users.route("/services/")
-def about():
-    about()
-    return redirect(url_for("main.home"))
