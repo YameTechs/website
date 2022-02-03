@@ -8,6 +8,7 @@ main = Blueprint("main", __name__)
 def home():
     return render_template("home.html")
 
+
 @main.route("/services/")
 def services():
     return render_template("services.html")
