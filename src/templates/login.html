@@ -1,15 +1,13 @@
 {% extends "base.html" %}
-
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename="css/forms.css")}}" />
 {% endblock head %}
-
 {% block content %}
-
   <div class="logreg-form">
     <h2>LOGIN</h2>
     <form method="POST" action="">
       {{ form.hidden_tag() }}
+
       <div class="form-element">
         <label for="emaill">Email</label>
         {{ form.email(class="form-input", id="emaill", placeholder="Enter email") }}
@@ -38,14 +36,11 @@
       <div class="form-element">
         {{ form.submit(class="form-submit") }}
       </div>
-
     </form>
+
     <div class="form-element">
       <a href="{{ url_for("users.register") }}">Don't have an account yet? Register Now!</a>
       <a href="{{ url_for("users.request_token") }}">Forgot your password?</a>
     </div>
   </div>
-
-
-
 {% endblock content %}
