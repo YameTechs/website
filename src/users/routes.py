@@ -64,15 +64,15 @@ def logout():
 
 @users.route("/register/", methods=["POST", "GET"])
 def register():
-    print('enter register')
+    print("enter register")
     if current_user.is_authenticated:
         print("user is authenticated")
         return redirect(url_for("main.home"))
 
     form = RegistrationForm()
-    print('form is valid')
+    print("form is valid")
     if not form.validate_on_submit():
-        print('returned')
+        print("returned")
         return render_template("register.html", form=form)
 
     hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
@@ -91,13 +91,13 @@ def register():
     )
 
     send_user_email(user, "Account Verification", msg_body, "users.verify_token")
-    print('email sent')
+    print("email sent")
 
     db.session.add(user)
     db.session.commit()
-    print('added in database')
+    print("added in database")
 
-    print('you have been registered')
+    print("you have been registered")
     flash("You have registered in!")
     return redirect(url_for("users.login"))
 
@@ -160,6 +160,7 @@ def verify_token(token):
     db.session.commit()
     msg = "Congratulation you have been verified"
     return render_template("verify_token.html", msg=msg)
+
 
 @users.route("/services/")
 def about():
