@@ -1,5 +1,7 @@
 # Website
 
+![Lints & Tests](https://github.com/YameTechs/website/actions/workflows/lint_n_test.yml/badge.svg)
+
 The official website for YameTechs
 
 ## Todos
@@ -102,8 +104,6 @@ After making changes to your code run the following
 
 ```bash
 # To fix the code in a certain format do:
-pipenv run format
-
-# Please check flake8 messages for the errors that the code might have
-# Try to fix those errors to! if the errors persist just leave it.
+pipenv run flake8 .
+pipenv run python -m pytest --cov
 ```

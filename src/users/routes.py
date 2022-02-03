@@ -152,4 +152,4 @@ def verify_token(token):
     user.is_verified = True
     db.session.commit()
     msg = "Congratulation you have been verified"
-    return render_template("verify_token.html", msg=msg)
+    return render_template("verify_token.html", msg=msg
