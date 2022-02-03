@@ -28,7 +28,7 @@ class RegistrationForm(FlaskForm):
         "Confirm Password", validators=[DataRequired(), EqualTo("password")]
     )
     recaptcha = RecaptchaField()
-    submit = SubmitField("SIGN UP")
+    submit = SubmitField("Sign Up")
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
@@ -42,11 +42,11 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    email = EmailField("SDADSADA", validators=[DataRequired()])
+    email = EmailField("Email", validators=[DataRequired()])
     password = PasswordField(validators=[DataRequired()])
-    remember = BooleanField()
+    remember = BooleanField("Remember Me")
     recaptcha = RecaptchaField()
-    submit = SubmitField("LOGIN")
+    submit = SubmitField("Login")
 
 
 class RequestResetFrom(FlaskForm):
