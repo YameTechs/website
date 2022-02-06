@@ -21,7 +21,7 @@ def account():
     form = ResendEmailButton()
 
     if not (form.validate_on_submit() and form.submit.data):
-        return render_template("account.html", form=form)
+        return render_template("account.html", getattr=getattr, form=form)
 
     msg_body = (
         "To verify your account, visit the following link:\n"
@@ -56,6 +56,7 @@ def login():
         return redirect(next_page or url_for("main.home"))
 
     flash("incorrect data!")
+    return render_template("login.html", form=form)
 
 
 @users.route("/logout/")
@@ -154,3 +155,8 @@ def verify_token(token):
     db.session.commit()
     msg = "Congratulation you have been verified"
     return render_template("verify_token.html", msg=msg)
+
+
+@users.route("/settings/", methods=["POST", "GET"])
+def settings():
+    return render_template("settings.html")

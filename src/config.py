@@ -14,5 +14,3 @@ class Config:
     MAIL_PASSWORD = os.environ["EMAIL_PASS"]
     RECAPTCHA_PUBLIC_KEY = os.environ["RECAPTCHA_PUBLIC_KEY"]
     RECAPTCHA_PRIVATE_KEY = os.environ["RECAPTCHA_PRIVATE_KEY"]
-
-    TESTING = os.environ["DEVMODE"] == "True"
