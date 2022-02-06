@@ -1,5 +1,18 @@
 # Website
 
+[![Lints & Tests][lint_n_test.img]][lint_n_test.action]
+[![Coverage][coverage.img]][coverage.coveralls]
+[![Black][black.img]][black.github]
+
+[lint_n_test.img]: https://github.com/YameTechs/website/actions/workflows/lint_n_test.yml/badge.svg
+[lint_n_test.action]: https://github.com/YameTechs/website/actions?query=workflow%3A%22Lint+%26+Test%22+branch%3Amain++
+
+[coverage.img]: https://coveralls.io/repos/github/YameTechs/website/badge.svg
+[coverage.coveralls]: https://coveralls.io/github/YameTechs/website
+
+[black.img]: https://img.shields.io/badge/code%20style-black-000000.svg
+[black.github]: https://github.com/psf/black
+
 The official website for YameTechs
 
 ## Todos
@@ -19,13 +32,13 @@ The official website for YameTechs
 - [ ] admin
 - [ ] about
 - [ ] contacts
-- [ ] game
 - [ ] portfolio
   - [ ] projects
 - [ ] services
   - [ ] bots (discord)
   - [ ] websites
 - [ ] users
+  - [ ] settings
   - [ ] account
   - [x] forgotten password
     - [x] verify email (email)
@@ -102,8 +115,6 @@ After making changes to your code run the following
 
 ```bash
 # To fix the code in a certain format do:
-pipenv run format
-
-# Please check flake8 messages for the errors that the code might have
-# Try to fix those errors to! if the errors persist just leave it.
+pipenv run flake8 .
+pipenv run python -m pytest --cov
 ```

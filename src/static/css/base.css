@@ -5,10 +5,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: 0.2s linear;
 }
 
 body {
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(to right, #000d1a, #003366);
+  margin-top: 60px;
 }
 footer {
   font-family: "Poppins", sans-serif;
@@ -20,33 +23,28 @@ footer {
   padding: 3px;
   background-color: #013970;
 }
-header {
-  height: 48px;
-  width: 100%;
-  background: #000d1a;
-}
-
 /* navbar start */
 
 nav {
   position: absolute;
   top: 0;
   left: 0;
-  background: #000d1a;
+  background: none;
   width: 100%;
   color: white;
+  z-index: 1000;
 }
 
 .container {
   display: flex;
   position: relative;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .logo {
   margin: 0.5rem;
-  margin-right: 5rem;
+  margin-left: 3rem;
   font-family: "Roboto", sans-serif;
   font-size: 28px;
   font-weight: 600;
@@ -91,13 +89,99 @@ nav {
   color: black;
 }
 
-.accbtn {
+#reg {
   border: 1px solid white;
+  background: #ddd;
+  color: black;
 }
 
-#reg {
-  background: white;
+.menu #reg:hover {
+  color: white;
+  background: none;
+}
+
+.userAcc_settings {
+  position: relative;
+  display: flex;
+}
+
+.userAcc_settings .userAcc_toggler {
+  margin-right: 3rem;
+  cursor: pointer;
+}
+
+.userAcc_settings .profilepic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.userAcc_settings .userAcc_menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 15px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #ddd;
   color: black;
+  width: 250px;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: transform 200ms 0 ease-in-out;
+}
+
+.userAcc_settings .userAcc_menu h3 {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.userAcc_settings .userAcc_menu span {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.userAcc_settings .userAcc_menu ul {
+  list-style: none;
+  margin: auto;
+}
+
+.userAcc_settings .userAcc_menu li {
+  border-top: 1px solid gray;
+  margin: 5px;
+}
+
+.userAcc_settings .userAcc_menu a {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: dimgray;
+  transition: 0.2s ease;
+}
+
+.userAcc_settings .userAcc_menu i {
+  margin-right: 7px;
+}
+
+.userAcc_settings .userAcc_menu a:hover {
+  color: black;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.userAcc_menu.active {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {

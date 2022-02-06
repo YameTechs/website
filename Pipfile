@@ -11,13 +11,14 @@ flask-sqlalchemy = "*"
 flask-bcrypt = "*"
 flask-login = "*"
 flask-mail = "*"
-pytest = "*"
 
 [dev-packages]
 black = "*"
 flake8 = "*"
 isort = "*"
-pre-commit = "*"
+pytest = "*"
+pytest-cov = "*"
+coveralls = "*"
 
 [scripts]
 run = "python run.py"

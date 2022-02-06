@@ -1,0 +1,43 @@
+name: Lint & Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint-n-test:
+    runs-on: ubuntu-latest
+
+    env:
+      DEVMODE: True
+      FLASK_SECRET_KEY: who knows it's secret
+      DATABASE_URI: sqlite:///test.db
+      EMAIL_USER: test@test.com
+      EMAIL_PASS: test
+      RECAPTCHA_PUBLIC_KEY: test
+      RECAPTCHA_PRIVATE_KEY: test
+
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+    - name: Checkout source repo.
+      uses: actions/checkout@v2
+
+    - name: Install dependencies.
+      run: |
+        pip install pipenv
+        pipenv sync --dev
+
+    - name: Linting by flake8
+      run: |
+        pipenv run flake8 .
+
+    - name: Testing by pytest
+      run: |
+        pipenv run python -m pytest --cov
+
+    - name: Upload Coverage
+      run: |
+        pipenv run coveralls --service=github

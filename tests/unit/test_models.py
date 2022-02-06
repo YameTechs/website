@@ -7,9 +7,9 @@ def test_new_user():
     WHEN a new User is created
     THEN check the email, password, and username are defined correctly
     """
-    email = 'deez.nuts@test.com'
-    password = 'password'
-    username = 'deeznuts'
+    email = "deez.nuts@test.com"
+    password = "password"
+    username = "deeznuts"
 
     user = User(email=email, password=password, username=username)
 

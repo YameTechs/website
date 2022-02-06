@@ -7,4 +7,4 @@ burgirBtn.addEventListener("click", () => {
   menuShow.classList.toggle("active");
 });
 
-//end burgir //
+//end gurgir //
