@@ -12,6 +12,13 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
+user_role = db.Table(
+    "user_role",
+    db.Column("user_id", db.Integer, db.ForeignKey("users.id")),
+    db.Column("role_id", db.Integer, db.ForeignKey("roles.id")),
+)
+
+
 class User(db.Model, UserMixin):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
@@ -21,6 +28,10 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(69), nullable=False)
     username = db.Column(db.String(20), unique=True, nullable=False)
     is_verified = db.Column(db.Boolean, nullable=False)
+
+    roles = db.relationship(
+        "Role", secondary=user_role, backref=db.backref("users", lazy="dynamic")
+    )
 
     def get_verification_token(self, expires_sec=1800):
         dictionary = {"user_id": self.id}
@@ -46,30 +57,7 @@ class Role(db.Model):
     __tablename__ = "roles"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(69), unique=True, nullable=False)
-    override = db.Column(db.Boolean, nullable=False)
+    description = db.Column(db.Text)
 
     def __repr__(self):
-        return f"Role({self.id=}, {self.name=}, {self.override=})"
-
-
-class UserRole(db.Model):
-    __tablename__ = "usersroles"
-    id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.Integer, db.ForeignKey("users.id"))
-    role = db.Column(db.Integer, db.ForeignKey("roles.id"))
-
-    users = db.relationship(User)
-    roles = db.relationship(Role)
-
-    def __repr__(self):
-        return f"UserRole({self.id=}, {self.user=}, {self.role=})"
-
-
-class Redirbox(db.Model):
-    __tablename__ = "redirboxes"
-    name = db.Column(db.String(20), unique=True, nullable=False, primary_key=True)
-    description = db.Column(db.Text, nullable=False)
-    route = db.Column(db.String(69), unique=True, nullable=False)
-
-    def __repr__(self):
-        return f"RedirBox({self.id=}, {self.name=}, {self.route=})"
+        return f"Role({self.id=}, {self.name=})"
