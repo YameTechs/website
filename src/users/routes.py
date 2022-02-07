@@ -2,6 +2,7 @@ from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 
 from src import bcrypt, db
+from src.utils import logout_required
 from src.models import User, Role
 from src.users.forms import (
     LoginForm,
@@ -40,10 +41,8 @@ def account():
 
 
 @users.route("/login/", methods=["POST", "GET"])
+@logout_required
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for("main.home"))
-
     form = LoginForm()
 
     if not form.validate_on_submit():
@@ -66,10 +65,8 @@ def logout():
 
 
 @users.route("/register/", methods=["POST", "GET"])
+@logout_required
 def register():
-    if current_user.is_authenticated:
-        return redirect(url_for("main.home"))
-
     form = RegistrationForm()
     if not form.validate_on_submit():
         return render_template("register.html", form=form)
@@ -98,10 +95,8 @@ def register():
 
 
 @users.route("/request_token/", methods=["POST", "GET"])
+@logout_required
 def request_token():
-    if current_user.is_authenticated:
-        return redirect(url_for("main.home"))
-
     form = RequestResetFrom()
     if not form.validate_on_submit():
         return render_template("request_token.html", form=form)
@@ -124,10 +119,8 @@ def request_token():
 
 
 @users.route("/reset_password/<token>", methods=["GET", "POST"])
+@logout_required
 def reset_password(token):
-    if current_user.is_authenticated:
-        return redirect(url_for("home"))
-
     user = User.get_user_by_token(token)
     if user is None:
         flash("That is an invalid or expired token")
@@ -156,5 +149,6 @@ def verify_token(token):
 
 
 @users.route("/settings/", methods=["POST", "GET"])
+@login_required
 def settings():
     return render_template("settings.html")
