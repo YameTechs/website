@@ -2,7 +2,7 @@ from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 
 from src import bcrypt, db
-from src.models import User
+from src.models import User, Role
 from src.users.forms import (
     LoginForm,
     RegistrationForm,
@@ -26,7 +26,7 @@ def account():
     msg_body = (
         "To verify your account, visit the following link:\n"
         "{}\n"
-        "If you did not make this request then simply ignore this email and no"
+        "If you did not make this request then simply ignore this email and no "
         "changes will be made"
     )
 
@@ -79,7 +79,6 @@ def register():
         email=form.email.data,
         username=form.username.data,
         password=hashed_password,
-        is_verified=False,
     )
 
     msg_body = (
@@ -148,13 +147,12 @@ def reset_password(token):
 def verify_token(token):
     user = User.get_user_by_token(token)
     if user is None:
-        msg = "that's an invalid token lul, please request a new verification token"
-        return render_template("verify_token.html", msg=msg)
+        return render_template("verify_token.html", success=False)
 
-    user.is_verified = True
+    verified_role = Role.query.filter_by(name="verified").first()
+    user.roles.append(verified_role)
     db.session.commit()
-    msg = "Congratulation you have been verified"
-    return render_template("verify_token.html", msg=msg)
+    return render_template("verify_token.html", success=True)
 
 
 @users.route("/settings/", methods=["POST", "GET"])

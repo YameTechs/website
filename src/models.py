@@ -1,10 +1,11 @@
 from datetime import datetime
 
+from flask import current_app
 from flask_login import UserMixin
+from flask_sqlalchemy import event
 from itsdangerous.jws import TimedJSONWebSignatureSerializer as Serializer
 
-from src import db, login_manager
-from src.config import Config
+from src import bcrypt, db, login_manager
 
 
 @login_manager.user_loader
@@ -27,20 +28,22 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(50), nullable=False, default="default.jpeg")
     password = db.Column(db.String(69), nullable=False)
     username = db.Column(db.String(20), unique=True, nullable=False)
-    is_verified = db.Column(db.Boolean, nullable=False)
 
     roles = db.relationship(
         "Role", secondary=user_role, backref=db.backref("users", lazy="dynamic")
     )
 
+    def has_role(self, role):
+        return role.lower() in {r.name.lower() for r in self.roles}
+
     def get_verification_token(self, expires_sec=1800):
         dictionary = {"user_id": self.id}
-        s = Serializer(Config.SECRET_KEY, expires_sec)
+        s = Serializer(current_app.config["SECRET_KEY"], expires_sec)
         return s.dumps(dictionary).decode("utf-8")
 
     @staticmethod
     def get_user_by_token(token):
-        s = Serializer(Config.SECRET_KEY)
+        s = Serializer(current_app.config["SECRET_KEY"])
 
         try:
             user_id = s.loads(token)["user_id"]
@@ -61,3 +64,36 @@ class Role(db.Model):
 
     def __repr__(self):
         return f"Role({self.id=}, {self.name=})"
+
+
+@event.listens_for(Role.__table__, "after_create", once=True)
+def add_initial_roles(*args, **kwargs):
+    verified_role = Role(name="verified", description="Verified users")
+    admin_role = Role(name="admin", description="Administrator")
+    db.session.add_all([verified_role, admin_role])
+    db.session.commit()
+
+
+@event.listens_for(User.__table__, "after_create", once=True)
+def add_initial_user(*args, **kwargs):
+    password = bcrypt.generate_password_hash(
+        current_app.config["MAIN_ADMIN_PASSWORD"]
+    ).decode("utf-8")
+
+    user = User(
+        email=current_app.config["MAIN_ADMIN_EMAIL"],
+        username=current_app.config["MAIN_ADMIN_USERNAME"],
+        password=password,
+    )
+
+    db.session.add(user)
+    db.session.commit()
+
+
+@event.listens_for(user_role, "after_create", once=True)
+def add_initial_user_roles(*args, **kwargs):
+    admin_role = Role.query.filter_by(name="admin").first()
+
+    user = User.query.filter_by(email=current_app.config["MAIN_ADMIN_EMAIL"]).first()
+    user.roles.append(admin_role)
+    db.session.commit()
