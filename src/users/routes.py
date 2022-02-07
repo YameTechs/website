@@ -2,8 +2,7 @@ from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 
 from src import bcrypt, db
-from src.utils import logout_required
-from src.models import User, Role
+from src.models import Role, User
 from src.users.forms import (
     LoginForm,
     RegistrationForm,
@@ -12,6 +11,7 @@ from src.users.forms import (
     ResetPasswordForm,
 )
 from src.users.utils import send_user_email
+from src.utils import logout_required
 
 users = Blueprint("users", __name__)
 
@@ -136,6 +136,12 @@ def reset_password(token):
     return redirect(url_for("users.login"))
 
 
+@users.route("/settings/", methods=["POST", "GET"])
+@login_required
+def settings():
+    return render_template("settings.html")
+
+
 @users.route("/verify_token/<token>/", methods=["POST", "GET"])
 def verify_token(token):
     user = User.get_user_by_token(token)
@@ -146,9 +152,3 @@ def verify_token(token):
     user.roles.append(verified_role)
     db.session.commit()
     return render_template("verify_token.html", success=True)
-
-
-@users.route("/settings/", methods=["POST", "GET"])
-@login_required
-def settings():
-    return render_template("settings.html")
