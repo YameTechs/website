@@ -8,12 +8,12 @@
 {% block content %}
 
   <div class="logreg-form">
-    <h2>REGISTER</h2>
+    <h2>Register Now</h2>
     <form method="POST" action="">
       {{ form.hidden_tag() }}
       <div class="form-element">
-        <label for="username">username</label>
-        {{ form.username(class="form-input", id="username", placeholder="Enter email") }}
+        <label for="username">Username</label>
+        {{ form.username(class="form-input", id="username", placeholder="Enter Username") }}
         {% for error in form.username.errors %}
           <span>{{ error }}</span>
         {% endfor %}

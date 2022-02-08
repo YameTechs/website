@@ -4,29 +4,13 @@
   href="{{ url_for('static', filename='css/home.css') }}"
 />
 
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-  integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-  integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-
-
 {% endblock %} {% block content %}
 <!-- first section -->
 
 
 <div class="home-sec" id="homee">
   <div class="intro" style="order: 2">
-    <h2 style="color: white">
+    <h1 style="color: white">
       Hello! We are
       <em
         class="hello"
@@ -38,12 +22,12 @@
         "
         >YameTech</em
       >
-    </h2>
+    </h1>
     <p>
       text text text text text text text text text text text text text text text
       text text text text text text!
     </p>
-    <button href="/home/" class="know-more">Go to Portfolio</button>
+    <button href="/home/" class="know-more">Know More</button>
   </div>
   <div class="web-pic" style="order: 1">
     <img src="{{ url_for('static', filename='img/programmer.png') }}" />
@@ -66,22 +50,39 @@
 <!-- second section -->
 
 <div class="projectss">
-  <h2>Here's the projects that we've done<br></h2>
+  <h1><b>Here's the projects that we've done</b></h1>
   
-  <div class="owl-carousel owl-theme">
+  <div class="projlist">
     
-    <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}" ></div>
-    <div class="item"><img src="{{url_for('static', filename="img/programmer.png")}}" ></div>
-    <div class="item"><img src="{{url_for('static', filename="img/web-pic.png")}}" ></div>
-    <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}" ></div>
-    <div class="item"><img src="{{url_for('static', filename="img/programmer.png")}}" ></div>
-    <div class="item"><img src="{{url_for('static', filename="img/web-pic.png")}}" ></div>
-    <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
-    <div class="item"><img src="{{url_for('static', filename="img/example.jpeg")}}"></div>
+    <div class="card">
+      <img src="{{url_for('static', filename="img/default.jpeg")}}">
+      <div class="proj-text">
+        <h2>Project1</h2>
+        <span>text text text text text text text  texttext text text text text text </span>
+      </div>
+      <div class="projbtn">
+        <a href="#">Take a clearer look!  <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{{url_for('static', filename="img/default.jpeg")}}">
+      <div class="proj-text">
+        <h2>Project2</h2>
+        <span>text text text text text text text  texttext text text text text text </span>
+      </div>
+      
+      <div class="projbtn">
+        <a href="#">Take a clearer look!  <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="to-proj">
+      <a href="#">To Portfolio <i class="fas fa-arrow-right"></i></a>
+    </div>
     
+  </div>
+  
 
 </div>
-  </div>
 </div>
 <!-- endsecond section -->
 <!-- third section -->
@@ -101,36 +102,4 @@
   </div>
 </div>
 <!-- end third section -->
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-  integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-></script>
-></script>
-<script type="text/javascript">
-  $('.owl-carousel').owlCarousel({
-    center:true,
-    loop: true,
-    margin:10,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:5
-        }
-    }
-})
-</script>
 {% endblock content %}
