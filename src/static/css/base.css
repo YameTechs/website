@@ -21,7 +21,7 @@ footer {
   color: #f2f2f7;
   text-align: center;
   padding: 3px;
-  background-color: #013970;
+  background-color: #161616;
 }
 /* navbar start */
 
@@ -228,11 +228,6 @@ nav {
 
 /* navbar end */
 @media (min-width: 760px) {
-  header {
-    height: 200px;
-    width: 100%;
-    background: #000d1a;
-  }
   nav {
     z-index: 1000;
     background: rgb(0, 13, 26, 0.8);
@@ -241,13 +236,15 @@ nav {
 
   .logo {
     margin: 0.5rem;
-    margin-right: 20rem;
+    margin-right: 30rem;
     font-family: "Roboto", sans-serif;
-    font-size: 50px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 590px;
     letter-spacing: 2px;
     cursor: text;
     color: white;
+    position: relative;
+    left: 20px;
   }
 
   .menu {
@@ -270,26 +267,26 @@ nav {
     background-color: #ddd;
     color: black;
   }
-}
-.theService {
-  display: flex;
-}
+  .theService {
+    display: flex;
+  }
 
-.theService a {
-  z-index: 1000;
-  background-color: rgb(16, 15, 119);
-  position: fixed;
-  top: 500px;
-  left: -25px;
-  font-size: 20px;
+  .theService a {
+    z-index: 1000;
+    background-color: rgb(16, 15, 119);
+    position: fixed;
+    top: 500px;
+    left: -25px;
+    font-size: 20px;
 
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  transform: rotate(90deg);
-  padding: 10px 10px;
-}
-.theService a:hover,
-.theService {
-  background-color: black;
-  color: White;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transform: rotate(90deg);
+    padding: 10px 10px;
+  }
+  .theService a:hover,
+  .theService {
+    background-color: black;
+    color: White;
+  }
 }
