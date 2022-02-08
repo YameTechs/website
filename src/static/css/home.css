@@ -28,11 +28,17 @@ a {
   color: white;
 }
 
-.intro button {
+.intro a {
+  background: #DDD;
+  color: black;
   border-radius: 30px;
   padding: 9px 13px;
   cursor: pointer;
   margin-bottom: 100px;
+}
+
+.intro a:hover {
+  color: blue;
 }
 
 .web-pic {
@@ -141,12 +147,20 @@ a {
   justify-content: center;
 }
 
-
 .to-proj a {
   background: #003366;
   color: white;
   border-radius: 20px;
   padding: 9px 12px;
+}
+
+.projbtn a:hover {
+  color: blue
+}
+
+.to-proj a:hover {
+  color: black;
+  background: lightblue;
 }
 
 /* third section */
