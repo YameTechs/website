@@ -1,7 +1,7 @@
 from flask import url_for
 from flask_mail import Message
 
-from src import mail
+from src import _mail
 
 
 def send_user_email(user, msg_head, msg_body, route):
@@ -12,4 +12,4 @@ def send_user_email(user, msg_head, msg_body, route):
 
     msg.body = msg_body.format(url)
 
-    mail.send(msg)
+    _mail.send(msg)

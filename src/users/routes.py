@@ -1,7 +1,7 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 
-from src import bcrypt, db
+from src import _bcrypt, _db
 from src.models import Role, User
 from src.users.forms import (
     LoginForm,
@@ -49,7 +49,7 @@ def login():
         return render_template("login.html", form=form)
 
     user = User.query.filter_by(email=form.email.data).first()
-    if user and bcrypt.check_password_hash(user.password, form.password.data):
+    if user and _bcrypt.check_password_hash(user.password, form.password.data):
         login_user(user, remember=form.remember.data)
         next_page = request.args.get("next")
         return redirect(next_page or url_for("main.home"))
@@ -71,7 +71,7 @@ def register():
     if not form.validate_on_submit():
         return render_template("register.html", form=form)
 
-    hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
+    hashed_password = _bcrypt.generate_password_hash(form.password.data).decode("utf-8")
     user = User(
         email=form.email.data,
         username=form.username.data,
@@ -87,8 +87,8 @@ def register():
 
     send_user_email(user, "Account Verification", msg_body, "users.verify_token")
 
-    db.session.add(user)
-    db.session.commit()
+    _db.session.add(user)
+    _db.session.commit()
 
     flash("You have registered in!")
     return redirect(url_for("users.login"))
@@ -130,8 +130,8 @@ def reset_password(token):
     if not form.validate_on_submit():
         return render_template("reset_password.html", title="Reset Password", form=form)
 
-    user.password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
-    db.session.commit()
+    user.password = _bcrypt.generate_password_hash(form.password.data).decode("utf-8")
+    _db.session.commit()
     flash("Your password has been updated! You are now able to log in", "success")
     return redirect(url_for("users.login"))
 
@@ -150,5 +150,5 @@ def verify_token(token):
 
     verified_role = Role.query.filter_by(name="verified").first()
     user.roles.append(verified_role)
-    db.session.commit()
+    _db.session.commit()
     return render_template("verify_token.html", success=True)
