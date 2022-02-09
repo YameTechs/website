@@ -1,5 +1,4 @@
 from src import create_app
-from src.config import Config
 
 
 def test_home_page():
@@ -8,7 +7,7 @@ def test_home_page():
     WHEN the '/' page is requested (GET)
     THEN check that the response is valid
     """
-    flask_app = create_app(Config)
+    flask_app = create_app()
 
     with flask_app.test_client() as test_client:
         response = test_client.get("/")
@@ -21,7 +20,7 @@ def test_home_page_post():
     WHEN the '/' page is posted (POST)
     THEN check that a '405' status code is returned
     """
-    flask_app = create_app(Config)
+    flask_app = create_app()
 
     with flask_app.test_client() as test_client:
         response = test_client.post("/")
