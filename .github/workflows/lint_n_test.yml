@@ -18,6 +18,9 @@ jobs:
       EMAIL_PASS: test
       RECAPTCHA_PUBLIC_KEY: test
       RECAPTCHA_PRIVATE_KEY: test
+      MAIN_ADMIN_EMAIL:  test@test.com
+      MAIN_ADMIN_PASSWORD: test
+      MAIN_ADMIN_USERNAME: test
 
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -30,9 +33,13 @@ jobs:
         pip install pipenv
         pipenv sync --dev
 
-    - name: Linting by flake8
+    - name: Linting code by flake8
       run: |
         pipenv run flake8 .
+
+    - name: Linting imports by isort
+      run: |
+        pipenv run isort . --check
 
     - name: Testing by pytest
       run: |
