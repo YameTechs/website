@@ -49,6 +49,7 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
             next_page = request.args.get("next")
+            flash('Logged in!')
             return redirect(next_page or url_for("main.home"))
         else:
             flash("incorrect data!")
@@ -59,6 +60,7 @@ def login():
 @users.route("/logout/")
 def logout():
     logout_user()
+    flash('Logged out!')
     return redirect(url_for("main.home"))
 
 
