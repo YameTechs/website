@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from src.config import Config
 
+_admin = Admin()
 _bcrypt = Bcrypt()
 _db = SQLAlchemy()
 _login_manager = LoginManager()
@@ -17,7 +18,6 @@ _mail = Mail()
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
-    _admin = Admin()
 
     # Need to be here to avoid circular imports
     from src.admin.views import MyAdminIndexView, MyAdminView  # noqa
