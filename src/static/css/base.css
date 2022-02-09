@@ -23,7 +23,6 @@ nav {
   background:none;
   width: 100%;
   color: white;
-  z-index: 1000;
 }
 
 .container {
@@ -121,6 +120,7 @@ nav {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
+  z-index: 1000;
   transform: translateY(-10px);
   transition: transform 200ms 0 ease-in-out;
 }
@@ -175,10 +175,34 @@ nav {
   transform: translateY(0);
 }
 
+.flash-msg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff2cc;
+  margin: 20px;
+  border-radius: 5px; 
+  padding: 9px 13px;
+}
 
 
+.flash-msg button {
+  background: none;
+  outline: none;
+  border: none;
+  color: black;
+  padding: 9px 13px; 
+  cursor: pointer;
+}
 
+.flash-msg button img {
+  height: 11px;
+  width: 11px;
+}
 
+.flash-msg.disappear {
+  display: none;
+}
 
 
 

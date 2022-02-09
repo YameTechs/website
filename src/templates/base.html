@@ -64,7 +64,10 @@
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
-          <span>{{ message }}</span>
+          <div class="flash-msg" role="alert">
+            <p>{{ message }}</i></p>
+            <button onclick="FlashDismiss();"><img src="{{ url_for ('static', filename="img/icons/close.png")}}"></button>
+          </div>
         {% endfor %}
       {% endif %}
     {% endwith %}
@@ -74,6 +77,11 @@
     function UserAccToggle() {
       const toggler = document.querySelector('.userAcc_menu');
       toggler.classList.toggle('active')
+    }
+    
+    function FlashDismiss() {
+      const toggler = document.querySelector('.flash-msg');
+      toggler.classList.toggle('disappear')
     }
   </script>
   </body>
