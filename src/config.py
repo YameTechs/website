@@ -15,4 +15,6 @@ class Config:
     RECAPTCHA_PUBLIC_KEY = os.environ["RECAPTCHA_PUBLIC_KEY"]
     RECAPTCHA_PRIVATE_KEY = os.environ["RECAPTCHA_PRIVATE_KEY"]
 
-    TESTING = os.environ["DEVMODE"] == "True"
+    MAIN_ADMIN_EMAIL = os.environ["MAIN_ADMIN_EMAIL"]
+    MAIN_ADMIN_PASSWORD = os.environ["MAIN_ADMIN_PASSWORD"]
+    MAIN_ADMIN_USERNAME = os.environ["MAIN_ADMIN_USERNAME"]
