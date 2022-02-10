@@ -21,4 +21,4 @@ def about():
 
 @main.route("/projects/")
 def projects():
-  return render_template("projects.html")
+    return render_template("projects.html")
