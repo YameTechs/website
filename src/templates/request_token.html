@@ -1,33 +1,28 @@
 {% extends "base.html" %}
-
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename="css/forms.css")}}">
 {% endblock head %}
-
 {% block content %}
-  
   <div class="logreg-form">
     <h2>FORGOT PASSWORD</h2>
     <form method="POST" action="">
       {{ form.hidden_tag() }}
-    
+
       <div class="form-element">
         <label for="emaill">Email</label>
-        
         {{ form.email(class="form-input", id="emaill", placeholder="Enter email") }}
         {% for error in form.email.errors %}
         <span>{{ error }}</span>
         {% endfor %}
       </div>
-    
+
       <div class="form-element">
         {{ form.recaptcha() }}
       </div>
-    
+
       <div class="form-elememt">
         {{ form.submit(class="form-submit") }}
       </div>
     </form>
   </div>
-  
 {% endblock content %}

@@ -13,10 +13,7 @@ def home():
 def services():
     return render_template("services.html")
 
-@main.route("/projects/")
-def projects():
-    return render_template("projects.html")
 
-@main.route("/abouts/")
-def abouts():
+@main.route("/about/")
+def about():
     return render_template("about.html")
