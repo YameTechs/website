@@ -21,7 +21,7 @@ footer {
   color: #f2f2f7;
   text-align: center;
   padding: 3px;
-  background-color: #161616;
+  background: linear-gradient(to right, #161616, #585858);
 }
 /* navbar start */
 
@@ -267,6 +267,7 @@ nav {
     background-color: #ddd;
     color: black;
   }
+  /*
   .theService {
     display: flex;
   }
@@ -288,5 +289,5 @@ nav {
   .theService {
     background-color: black;
     color: White;
-  }
+  }*/
 }
