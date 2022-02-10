@@ -1,4 +1,5 @@
-from flask import Blueprint
+from flask import Blueprint, abort, render_template
+from flask_login import current_user
 from flask_admin import Admin
 
 from src import _db
@@ -34,3 +35,15 @@ class AdminBlueprint(Blueprint):
 admin = AdminBlueprint("admin_hack", __name__, url_prefix="/admin/")
 admin.add_view(MyAdminView(User, _db.session))
 admin.add_view(MyAdminView(Role, _db.session))
+
+
+@admin.route("/")
+def index():
+    return render_template("admin/index.html")
+
+
+@admin.before_request
+def abort_if_peasant():
+    if current_user.is_authenticated and current_user.has_role("admin"):
+        return
+    return abort(404)
