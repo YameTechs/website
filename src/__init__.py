@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_admin import Admin
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
@@ -7,7 +6,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 from src.config import Config
 
-_admin = Admin()
 _bcrypt = Bcrypt()
 _db = SQLAlchemy()
 _login_manager = LoginManager()
@@ -20,18 +18,15 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     # Need to be here to avoid circular imports
-    from src.admin.views import MyAdminIndexView, MyAdminView  # noqa
+    from src.admin.routes import admin
     from src.main.routes import main
     from src.models import Role, User, user_role  # noqa
     from src.users.routes import users
 
+    app.register_blueprint(admin)
     app.register_blueprint(main)
     app.register_blueprint(users)
 
-    _admin.add_view(MyAdminView(User, _db.session))
-    _admin.add_view(MyAdminView(Role, _db.session))
-
-    _admin.init_app(app, MyAdminIndexView())
     _db.init_app(app)
     _bcrypt.init_app(app)
     _login_manager.init_app(app)
