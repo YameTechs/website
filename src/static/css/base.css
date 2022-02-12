@@ -275,10 +275,23 @@ footer {
   .userAcc_menu2 {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    flex-direction: column;
     width: 100%;
     height: auto;
     margin: 1rem;
+  }
+  
+  .userAcc_menu2 .profile-name {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .user_options {
+    display: flex;
   }
   
   .userAcc_menu2 img {
