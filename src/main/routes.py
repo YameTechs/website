@@ -14,6 +14,11 @@ def services():
     return render_template("services.html")
 
 
-@main.route("/about/")
+@main.route("/abouts/")
 def about():
     return render_template("about.html")
+
+
+@main.route("/projects/")
+def projects():
+    return render_template("projects.html")
