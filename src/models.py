@@ -109,4 +109,3 @@ def add_initial_user_roles(*args, **kwargs):
     user = User.query.filter_by(email=current_app.config["MAIN_ADMIN_EMAIL"]).first()
     user.roles.append(admin_role)
     _db.session.commit()
-

@@ -20,4 +20,4 @@ def index():
 def abort_if_peasant():
     if current_user.is_authenticated and current_user.has_role("admin"):
         return
-    return abort(404)
+    abort(404)

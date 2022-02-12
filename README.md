@@ -31,11 +31,13 @@ The official website for YameTechs
 
 - [x] home
 - [ ] admin
+  - [x] database view
 - [ ] about
 - [ ] contacts
 - [ ] portfolio
   - [ ] projects
 - [ ] services
+  - [x] CRUD operation on service post
   - [ ] bots (discord)
   - [ ] websites
 - [ ] users
@@ -72,13 +74,25 @@ nano .env
 #### sample layout of `.env` file
 
 ```python
+# Only set this to true if you are developing
 DEVMODE='True'
+
+# This could be anything
 FLASK_SECRET_KEY='your secret key'
+
+# You could keep this if you don't know what else to put in here
 DATABASE_URI='sqlite:///test.db'
+
+# This must be a real email!
 EMAIL_USER='your_email@mail.com'
+# THis must be the password for your email above!
 EMAIL_PASS='your_password'
+
+# Get you key in google recaptcha (just google it)
 RECAPTCHA_PUBLIC_KEY='site_key_from_google_recaptcha'
 RECAPTCHA_PRIVATE_KEY='private_key_from_google_recaptcha'
+
+# This is the main user that will be added as the main admin
 MAIN_ADMIN_EMAIL='youre_mail@mail.com'
 MAIN_ADMIN_PASSWORD='your_password'
 MAIN_ADMIN_USERNAME='your_username'
@@ -97,31 +111,18 @@ pipenv sync --dev
 pipenv shell
 ```
 
-### 3. Setup the database
-
-```bash
-# Go into python cli
-python
-
-# Import _db and the models
->>> from src import _db, create_app
->>> from src.models import *
-
-# Create the db
->>> _db.create_all(app=create_app())
-
-# Exit python cli
->>> exit()
-```
-
-you are now ready to edit the code!
-
-### 4. Pushing
+### 3. Pushing
 
 After making changes to your code run the following
 
 ```bash
 # To fix the code in a certain format do:
+pipenv run isort .
+pipenv run black .
+
+# To lint the code do:
 pipenv run flake8 .
+
+# To test the code do:
 pipenv run python -m pytest --cov
 ```
