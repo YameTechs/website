@@ -1,9 +1,9 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, flash, redirect, render_template, request, url_for
+
 from src import _db
-from src.utils import admin_required
 from src.models import Project
 from src.project.forms import ProjectForm
-
+from src.utils import admin_required
 
 project = Blueprint("project", __name__)
 

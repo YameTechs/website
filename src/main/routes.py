@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+
 from src.models import Project
 
 main = Blueprint("main", __name__)
