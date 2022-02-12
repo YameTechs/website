@@ -1,8 +1,12 @@
+.form-container {
+  padding: 50px 300px;
+}
+
 .logreg-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background: #ddd;
   border-radius: 30px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
@@ -11,7 +15,7 @@
 
 .logreg-form h2 {
   text-align: center;
-  margin: 10px 0px 20px;
+  margin: 20px 0px 5px;
   letter-spacing: 3px;
   font-weight: 600;
 }
@@ -60,4 +64,5 @@
   font-size: 15px;
   color: #000d1a;
   text-align: center;
+  margin-bottom: 10px;
 }
