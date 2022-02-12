@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 
+:root {
+  --primary-theme: linear-gradient(to right, #000d1a, #003366);
+  --primary-textColor: #FFFFFF;
+  --light-theme: linear-gradient(to right, white, #DDD);
+  --light-textColor: #000000;
+  
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,7 +18,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #000d1a, #003366);
+  background: var(--primary-theme);
   margin-top: 60px;
 }
 
@@ -22,7 +30,7 @@ nav {
   left: 0;
   background:none;
   width: 100%;
-  color: white;
+  color: var(--primary-textColor);
 }
 
 .container {
@@ -66,7 +74,7 @@ nav {
 .menu a {
   font-size: 11px;
   text-decoration: none;
-  color: white;
+  color: var(--primary-textColor);
   padding: 9px 17px;
   margin: .2rem;
   border-radius: 25px;
@@ -81,12 +89,12 @@ nav {
 #reg {
   border: 1px solid white;
   background: #DDD;
-  color: black;
+  color: var(--light-textColor);
 }
 
 .menu #reg:hover {
   
-  color: white;
+  color: var(--primary-textColor);
   background: none;
 }
 
@@ -115,7 +123,7 @@ nav {
   padding: 10px 20px;
   border-radius: 10px;
   background: #ddd;
-  color: black;
+  color: var(--light-textColor);
   width: 250px;
   pointer-events: none;
   visibility: hidden;
