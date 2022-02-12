@@ -88,7 +88,7 @@ class Project(_db.Model):
     image_file = _db.Column(_db.String(50), nullable=False, default="default.jpeg")
 
     def __repr__(self):
-        return f"Project({self.id=}, {self.name=}, {self.description=})"
+        return f"Project({self.id=}, {self.title=}, {self.description=})"
 
 
 @event.listens_for(Role.__table__, "after_create", once=True)

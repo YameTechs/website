@@ -1,29 +1,17 @@
 {% extends "base.html" %}
+
 {% block head %}
   <link
     rel="stylesheet"
     href="{{ url_for('static', filename='css/home.css') }}"
   />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
 {% endblock %}
+
 {% block content %}
   <!-- first section -->
   <div class="home-sec" id="homee">
     <div class="intro" style="order: 2">
-      <h2 style="color: white">
+      <h1 style="color: white">
         Hello! We are
         <em
           class="hello"
@@ -33,14 +21,13 @@
             font-size: 35px;
             font-family: 'Roboto', sans-serif;
           "
-          >YameTechs
-        </em>
-      </h2>
+          >YameTech</em
+        >
+      </h1>
       <p>
-        We are a team of young and enthusiastic developers who are passionate
-        about development.
+        We aer a team of young and enthusiastic developers who are passionate about
       </p>
-      <button href="{{ url_for('main.home') }}" class="know-more">Go to Portfolio</button>
+      <a href="{{ url_for('main.about') }}">Who are we?</a>
     </div>
     <div class="web-pic" style="order: 1">
       <img src="{{ url_for('static', filename='img/programmer.png') }}" />
@@ -60,22 +47,36 @@
     </div>
   </div>
   <!-- end first section -->
+
   <!-- second section -->
   <div class="projectss">
-    {% if projects %}
-      <h2>Here's the projects that we've done<br></h2>
-      <div class="owl-carousel owl-theme">
-        {% for project in projects %}
-          <div class="item">
-            <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
+  {% if projects %}
+    <h1><b>Here's some of the projects that we've done</b></h1>
+    <div class="projlist">
+      {% for project in projects %}
+        <div class="card">
+          <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
+          <div class="proj-text">
+            <h2>{{ project.title }}</h2>
+            <span>{{ project.description }}</span>
           </div>
-        {% endfor %}
+          <div class="projbtn">
+            <a href="{{ url_for('project.view', project_id=project.id) }}">
+              Take a closer look!<i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="to-proj">
+        <a href="{{ url_for('project.index') }}">To Projects<i class="fas fa-arrow-right"></i></a>
       </div>
-    {% else %}
-      <h2>We haven't done any projects yet<br></h2>
-    {% endif %}
+    </div>
+  {% else %}
+    <h1><b>We haven't done any projects yet</b></h1>
+  {% endif %}
   </div>
   <!-- endsecond section -->
+
   <!-- third section -->
   <div class="contacts">
     <div class="custom-shape-divider-top-1642926837">
@@ -93,47 +94,4 @@
     </div>
   </div>
   <!-- end third section -->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  <!-- end third section -->
-  <script type="text/javascript">
-    var owl = $('.owl-carousel');
-    owl.owlCarousel({
-      loop:true,
-      nav:true,
-      margin:10,
-      responsive:{
-          0:{
-              items:1
-          },
-          600:{
-              items:3
-          },
-          960:{
-              items:5
-          },
-          1200:{
-              items:6
-          }
-      }
-  });
-  owl.on('mousewheel', '.owl-stage', function (e) {
-      if (e.deltaY>0) {
-          owl.trigger('next.owl');
-      } else {
-          owl.trigger('prev.owl');
-      }
-      e.preventDefault();
-  });
-  </script>
 {% endblock content %}

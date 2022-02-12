@@ -75,4 +75,4 @@ def new():
     _db.session.commit()
     flash("Your project post has been created!", "success")
 
-    return redirect(url_for("project.index"))
+    return redirect(url_for("project.view", project_id=project.id))
