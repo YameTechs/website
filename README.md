@@ -1,11 +1,15 @@
 # Website
 
 [![Lints & Tests][lint_n_test.img]][lint_n_test.action]
+[![CodeQL][codeql.img]][codeql.action]
 [![Coverage][coverage.img]][coverage.coveralls]
 [![Black][black.img]][black.github]
 
 [lint_n_test.img]: https://github.com/YameTechs/website/actions/workflows/lint_n_test.yml/badge.svg
 [lint_n_test.action]: https://github.com/YameTechs/website/actions?query=workflow%3A%22Lint+%26+Test%22+branch%3Amain++
+
+[codeql.img]: https://github.com/YameTechs/website/actions/workflows/codeql-analysis.yml/badge.svg
+[codeql.action]: https://github.com/YameTechs/website/actions?query=branch%3Amain+workflow%3ACodeQL++
 
 [coverage.img]: https://coveralls.io/repos/github/YameTechs/website/badge.svg
 [coverage.coveralls]: https://coveralls.io/github/YameTechs/website
@@ -35,7 +39,7 @@ The official website for YameTechs
 - [ ] about
 - [ ] contacts
 - [ ] portfolio
-  - [ ] projects
+  - [x] projects
 - [ ] services
   - [x] CRUD operation on service post
   <!-- - [ ] bots (discord) -->
