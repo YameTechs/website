@@ -16,7 +16,7 @@
   </head>
   <body>
     <!-- Nav xection -->
-    <nav>
+    <nav class="navbar">
       <div class="container">
         <div class="logo">YameTech</div>
 
@@ -25,9 +25,24 @@
         </div>
 
         <div class="menu">
+          
+          <div class="userAcc_menu2">
+            <img src="{{ url_for('static', filename='img/default.jpeg') }}" class="profilepic">
+            <h3>UsernameHERE<br><span>email@emailHERE,com</span></h3>
+          </div>
+          
           <a href="/home/">Home</a>
           <a href="/abouts/">About</a>
           <a href="/projects/">Projects</a>
+          {% if current_user.is_authenticated %}
+            <a href="#"><i class="fas fa-user"></i>My Profile</a>
+            <a href="#"><i class="fas fa-cog"></i>Settings</a></li>
+            <a href="/logout/"><i class="fas fa-sign-out-alt"></i>Logout</a>
+          {% else %}
+            <a href="/login/"><i class="fas fa-sign-in-alt"></i>Login</a>
+            <a href="/register/"><i class="fas fa-sign-in-alt"></i>Register</a>
+          {% endif %}
+          
           <a href="/services/" id="reg">Try our Services</a>
         </div>
 

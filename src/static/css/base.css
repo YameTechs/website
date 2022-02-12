@@ -13,7 +13,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: .2s linear
 }
 
 body {
@@ -96,6 +95,10 @@ nav {
   
   color: var(--primary-textColor);
   background: none;
+}
+
+.menu .userAcc_menu2 {
+  display: none;
 }
 
 .userAcc_settings {
@@ -228,8 +231,10 @@ footer {
   nav {
     position: fixed;
     z-index: 1000;
-    background: rgb(0, 13, 26, 0.8);
-    border-bottom: 1px solid dimgray;
+  }
+  
+  nav.clicked {
+    background: #000d1a;
   }
   
   .container {
@@ -256,13 +261,57 @@ footer {
   
   .menu a {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
     margin: 10px;
     padding: .5rem 1rem;
   }
   
+  .menu i {
+    margin-right: 7px;
+  }
+  
+  .userAcc_menu2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    margin: 1rem;
+  }
+  
+  .userAcc_menu2 img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .userAcc_menu2 h3 {
+    font-size: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 0.8;
+  }
+  
+  .userAcc_menu2 span {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .userAcc_settings {
+    display: none;
+  }
+  
+  .userAcc_menu2.active {
+    display: flex;
+  }
+  
   .menu.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 }
 
