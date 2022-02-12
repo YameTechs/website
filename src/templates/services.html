@@ -1,6 +1,31 @@
-{% extends 'base.html' %}
 {% block head %}
-  <link rel="stylesheet" href="{{url_for('static', filename="css/services.css")}}" />
+  <link rel="stylesheet" href="{{url_for('static', filename="css/services.css")}}"/>
 {% endblock head %}
 {% block content %}
+  {% if current_user.is_authenticated and current_user.has_role("admin") %}
+    <form action="{{ url_for('service.new') }}", method="GET">
+      <input type="submit" value="New Service">
+    </form>
+    <br><br>
+  {% endif %}
+  {% if services %}
+    {% for service in services %}
+      <div>
+        {% if current_user.is_authenticated and current_user.has_role("admin") %}
+          <form action="{{ url_for('service.delete', service_id=service.id) }}", method="POST">
+            <input type="submit" value="delete">
+          </form>
+          <form action="{{ url_for('service.update', service_id=service.id) }}", method="GET">
+            <input type="submit" value="update">
+          </form>
+        {% endif %}
+        <h1>{{ service.title }}</h1>
+        <img src="{{ url_for('static', filename="service/" + service.image_file) }}">
+        <p>{{ service.description }}</p>
+        <p>price: {{ service.price }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    We don't have service for now pain...
+  {% endif %}
 {% endblock content %}

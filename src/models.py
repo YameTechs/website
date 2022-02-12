@@ -66,6 +66,18 @@ class Role(_db.Model):
         return f"Role({self.id=}, {self.name=})"
 
 
+class Service(_db.Model):
+    __tablename__ = "services"
+    id = _db.Column(_db.Integer, primary_key=True)
+    title = _db.Column(_db.String(69), nullable=False)
+    description = _db.Column(_db.Text)
+    price = _db.Column(_db.Integer, nullable=False)
+    image_file = _db.Column(_db.String(50), nullable=False, default="default.jpeg")
+
+    def __repr__(self):
+        return f"Service({self.id=}, {self.name=}, {self.price=})"
+
+
 @event.listens_for(Role.__table__, "after_create", once=True)
 def add_initial_roles(*args, **kwargs):
     verified_role = Role(name="verified", description="Verified users")
@@ -97,3 +109,4 @@ def add_initial_user_roles(*args, **kwargs):
     user = User.query.filter_by(email=current_app.config["MAIN_ADMIN_EMAIL"]).first()
     user.roles.append(admin_role)
     _db.session.commit()
+
