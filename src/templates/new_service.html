@@ -1,0 +1,35 @@
+<form method="POST" action="">
+  {{ form.hidden_tag() }}
+  <div class="form-element">
+    <label for="title">title</label>
+    {{ form.title(class="form-input", id="title", placeholder="Enter title") }}
+    {% for error in form.title.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+  </div>
+
+  <div class="form-element">
+    <label for="description">description</label>
+    {{ form.description(class="form-input", id="description", placeholder="Enter deezcription") }}
+    {% for error in form.description.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+  </div>
+
+  <div class="form-element">
+    <label for="price">price</label>
+    {{ form.price(class="form-input", id="price", placeholder="Enter price") }}
+    {% for error in form.price.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+  </div>
+
+  <div class="form-element">
+    <label for="image_file">image_file</label>
+    {{ form.image_file(class="form-input", id="image_file", placeholder="Enter image_file") }}
+    {% for error in form.image_file.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+  </div>
+  {{ form.submit() }}
+</form>

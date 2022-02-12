@@ -1,24 +1,17 @@
 from flask import Blueprint, render_template
 
+from src.models import Project
+
 main = Blueprint("main", __name__)
 
 
 @main.route("/")
 @main.route("/home/")
 def home():
-    return render_template("home.html")
-
-
-@main.route("/services/")
-def services():
-    return render_template("services.html")
+    projects = Project.query.all()[:2]
+    return render_template("home.html", projects=projects)
 
 
 @main.route("/abouts/")
 def about():
     return render_template("about.html")
-
-
-@main.route("/projects/")
-def projects():
-    return render_template("projects.html")

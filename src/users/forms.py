@@ -43,7 +43,7 @@ class RegistrationForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = EmailField("Email", validators=[DataRequired()])
-    password = PasswordField(validators=[DataRequired()])
+    password = PasswordField("Password", validators=[DataRequired()])
     remember = BooleanField("Remember Me")
     recaptcha = RecaptchaField()
     submit = SubmitField("Login")

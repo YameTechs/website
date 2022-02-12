@@ -10,7 +10,7 @@ class MyAdminView(ModelView):
         return current_user.is_authenticated and current_user.has_role("admin")
 
     def inaccessible_callback(self, name, **kwargs):
-        return abort(404)
+        abort(404)
 
 
 class MyAdminIndexView(AdminIndexView):
@@ -18,7 +18,7 @@ class MyAdminIndexView(AdminIndexView):
         return current_user.is_authenticated and current_user.has_role("admin")
 
     def inaccessible_callback(self, name, **kwargs):
-        return abort(404)
+        abort(404)
 
 
 # A class to make flask_admin work with flask Blueprints
