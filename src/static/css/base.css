@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 
 :root {
+  --primary-color: #000d1a;
   --primary-theme: linear-gradient(to right, #000d1a, #003366);
   --primary-textColor: #FFFFFF;
   --light-theme: linear-gradient(to right, white, #DDD);
@@ -24,12 +25,17 @@ body {
 /* navbar start */
 
 nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background:none;
   width: 100%;
   color: var(--primary-textColor);
+  z-index: 1000;
+}
+
+nav.scroll {
+  background: var(--primary-color);
 }
 
 .container {
@@ -226,6 +232,21 @@ footer {
   background-color: #161616;
 }
 
+@media (min-width: 1000px) {
+  .menu .logo {
+    font-size:  35px;
+    margin-left: 5rem;
+  }
+  
+  .menu a {
+    font-size: 25px;
+  }
+  
+  .userAcc_settings {
+    margin-right: 5rem;
+  }
+  
+}
 
 @media (max-width: 768px) {
   nav {
