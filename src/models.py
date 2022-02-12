@@ -78,6 +78,19 @@ class Service(_db.Model):
         return f"Service({self.id=}, {self.name=}, {self.price=})"
 
 
+class Project(_db.Model):
+    __tablename__ = "projects"
+    id = _db.Column(_db.Integer, primary_key=True)
+    title = _db.Column(_db.String(69), nullable=False)
+    description = _db.Column(_db.Text)
+    github_url = _db.Column(_db.String(200))
+    site_url = _db.Column(_db.String(200))
+    image_file = _db.Column(_db.String(50), nullable=False, default="default.jpeg")
+
+    def __repr__(self):
+        return f"Project({self.id=}, {self.name=}, {self.description=})"
+
+
 @event.listens_for(Role.__table__, "after_create", once=True)
 def add_initial_roles(*args, **kwargs):
     verified_role = Role(name="verified", description="Verified users")

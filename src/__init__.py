@@ -22,12 +22,14 @@ def create_app(config_class=Config):
     from src.error.handlers import error
     from src.main.routes import main
     from src.models import Role, User, user_role  # noqa
+    from src.project.routes import project
     from src.service.routes import service
     from src.users.routes import users
 
     app.register_blueprint(admin)
     app.register_blueprint(error)
     app.register_blueprint(main)
+    app.register_blueprint(project)
     app.register_blueprint(service)
     app.register_blueprint(users)
 

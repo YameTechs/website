@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from src.models import Service
+from src.models import Project
 
 main = Blueprint("main", __name__)
 
@@ -7,8 +7,8 @@ main = Blueprint("main", __name__)
 @main.route("/")
 @main.route("/home/")
 def home():
-    services = Service.query.all()
-    return render_template("home.html", services=services)
+    projects = Project.query.all()
+    return render_template("home.html", projects=projects)
 
 
 @main.route("/about/")

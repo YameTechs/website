@@ -30,6 +30,7 @@ def update(service_id):
         service.title = form.title.data
         service.description = form.description.data
         service.price = form.price.data
+        # service.image_file = form.image_file.data
         _db.session.commit()
         flash("Your post has been updated!", "success")
         return redirect(url_for("service.view", service_id=service_id))
@@ -37,6 +38,7 @@ def update(service_id):
         form.title.data = service.title
         form.description.data = service.description
         form.price.data = service.price
+        # form.image_file.data = service.image_file
 
     return render_template("new_service.html", form=form)
 

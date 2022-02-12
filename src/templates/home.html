@@ -62,12 +62,12 @@
   <!-- end first section -->
   <!-- second section -->
   <div class="projectss">
-    {% if services %}
+    {% if projects %}
       <h2>Here's the projects that we've done<br></h2>
       <div class="owl-carousel owl-theme">
-        {% for service in services %}
+        {% for project in projects %}
           <div class="item">
-            <img src="{{ url_for('static', filename="service/" + service.image_file) }}">
+            <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
           </div>
         {% endfor %}
       </div>
