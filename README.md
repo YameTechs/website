@@ -38,8 +38,8 @@ The official website for YameTechs
   - [ ] projects
 - [ ] services
   - [x] CRUD operation on service post
-  - [ ] bots (discord)
-  - [ ] websites
+  <!-- - [ ] bots (discord) -->
+  <!-- - [ ] websites -->
 - [ ] users
   - [ ] settings
     - [ ] backend
