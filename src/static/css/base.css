@@ -313,6 +313,7 @@ footer {
   
   .user_options {
     display: flex;
+    justify-content: center;
   }
   
   .userAcc_menu2 img {
@@ -324,14 +325,14 @@ footer {
   }
   
   .userAcc_menu2 h3 {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 500;
     cursor: pointer;
     line-height: 0.8;
   }
   
   .userAcc_menu2 span {
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
   }
   
