@@ -40,7 +40,6 @@
                   <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
                   <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 {% else %}
-                  <li><h3>You're not logged in</h3></li>
                   <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
                   <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
                 {% endif %}
