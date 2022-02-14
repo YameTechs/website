@@ -35,9 +35,11 @@ nav {
   width: 100%;
   color: var(--primary-textColor);
   z-index: 1000;
+  animation: navload;
+  animation-duration: 300ms;
+  animation-fill-mode: fowards;
+  animation-timing-function: ease-in;
 }
-
-
 
 .container {
   display: flex;
@@ -233,6 +235,20 @@ footer {
   background-color: #161616;
 }
 
+/* keyframes */
+@keyframes navload {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* media queries */
 @media (min-width: 1000px) {
   .menu .logo {
     font-size:  35px;
@@ -250,6 +266,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+  body {
+    margin-top: 40px;
+  }
+  
   nav {
     position: fixed;
     z-index: 1000;
