@@ -19,13 +19,16 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--primary-theme);
-  margin-top: 60px;
 }
 
 /* navbar start */
 
+header {
+  height: auto;
+}
+
 nav {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   background:none;
@@ -34,9 +37,7 @@ nav {
   z-index: 1000;
 }
 
-nav.scroll {
-  background: var(--primary-color);
-}
+
 
 .container {
   display: flex;
@@ -256,6 +257,10 @@ footer {
   
   nav.clicked {
     background: #000d1a;
+  }
+  
+  nav.scroll {
+    background: var(--primary-color);
   }
   
   .container {

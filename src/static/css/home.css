@@ -13,6 +13,7 @@ a {
   height: auto;
   background: none;
   z-index: 980;
+  min-height: 100vh;
 }
 
 .intro {

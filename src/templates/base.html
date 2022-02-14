@@ -16,63 +16,66 @@
   </head>
   <body>
     <!-- Nav xection -->
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">YameTech</div>
+    
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo">YameTech</div>
 
-        <div class="burgir">
-          <i class="fas fa-bars"></i>
-        </div>
+          <div class="burgir">
+            <i class="fas fa-bars"></i>
+          </div>
 
-        <div class="menu">
-          <div class="userAcc_menu2">
-            <div class="profile-name">
+          <div class="menu">
+            <div class="userAcc_menu2">
+              <div class="profile-name">
+                {% if current_user.is_authenticated %}
+                  <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
+                  <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
+                {% endif %}
+              </div>
+              <div class="user_options">
+                {% if current_user.is_authenticated %}
+                  <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
+                  <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
+                  <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                {% else %}
+                  <li><h3>You're not logged in</h3></li>
+                  <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+                  <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
+                {% endif %}
+              </div>
+            </div>
+            <a href="{{ url_for('main.home') }}">Home</a>
+            <a href="{{ url_for('main.about') }}">About</a>
+            <a href="{{ url_for('project.index') }}">Projects</a>
+            <a href="{{ url_for('service.index') }}" id="reg">Try our Services</a>
+          </div>
+          <div class="userAcc_settings">
+            <div class="userAcc_toggler" onclick="UserAccToggle();">
+              <i class="fas fa-user fa-lg"></i>
+            </div>
+            <div class="userAcc_menu">
               {% if current_user.is_authenticated %}
                 <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
                 <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
               {% endif %}
+              <ul>
+                {% if current_user.is_authenticated %}
+                  <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
+                  <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
+                  <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                {% else %}
+                  <li><h3>You're not logged in</h3></li>
+                  <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+                  <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
+                {% endif %}
+              </ul>
             </div>
-            <div class="user_options">
-              {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
-                <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
-                <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-              {% else %}
-                <li><h3>You're not logged in</h3></li>
-                <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-                <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
-              {% endif %}
-            </div>
-          </div>
-          <a href="{{ url_for('main.home') }}">Home</a>
-          <a href="{{ url_for('main.about') }}">About</a>
-          <a href="{{ url_for('project.index') }}">Projects</a>
-          <a href="{{ url_for('service.index') }}" id="reg">Try our Services</a>
-        </div>
-        <div class="userAcc_settings">
-          <div class="userAcc_toggler" onclick="UserAccToggle();">
-            <i class="fas fa-user fa-lg"></i>
-          </div>
-          <div class="userAcc_menu">
-            {% if current_user.is_authenticated %}
-              <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
-              <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
-            {% endif %}
-            <ul>
-              {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
-                <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
-                <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-              {% else %}
-                <li><h3>You're not logged in</h3></li>
-                <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-                <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
-              {% endif %}
-            </ul>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
     <!-- end nav section -->
 
