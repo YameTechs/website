@@ -6,13 +6,14 @@ a {
 
 .home-sec {
   display: flex;
+  gap: 20px;
   position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: auto;
   background: none;
   z-index: 980;
+  min-height: 100vh;
 }
 
 .intro {
@@ -20,11 +21,18 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 200px;
+  padding: 30px;
+  transform: scale(0);
+  animation: intro-load;
+  animation-duration: 600ms;
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
 
 .intro h1,
 .intro p {
-  margin: 20px;
   color: white;
 }
 
@@ -34,7 +42,8 @@ a {
   border-radius: 30px;
   padding: 9px 13px;
   cursor: pointer;
-  margin-bottom: 100px;
+  font-weight: 600;
+  margin-top: 10px;
 }
 
 .intro a:hover {
@@ -52,8 +61,14 @@ a {
 .web-pic img {
   align-items: center;
   justify-content: center;
-  height: min(300px, 150px);
-  width: min(300px, 150px);
+  height: min(300px, 200px);
+  width: min(300px, 200px);
+  transform: scale(0);
+  animation: homepic-load;
+  animation-duration: 600ms;
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
 
 .custom-shape-divider-bottom-1642833130 {
@@ -86,6 +101,15 @@ a {
   min-height: auto;
   background: #dddddd;
   padding: 10px;
+}
+
+.projectss h2 {
+  font-size: 1rem;
+}
+
+.projectss img {
+  height: 200px;
+  width: 200px;
 }
 
 .projlist {
@@ -193,9 +217,63 @@ a {
 .custom-shape-divider-top-1642926837 .shape-fill {
   fill: #dddddd;
 }
+
+
 img {
   float: left;
   width: 300px;
   height: 300px;
   object-fit: cover;
+}
+
+
+/* keyframes */
+@keyframes homepic-load {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px)
+                scale(0);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+                scale(1);
+  }
+}
+
+@keyframes intro-load {
+  0% {
+    opacity: 0;
+    transform: translateY(100px)
+                scale(0);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+                scale(1);
+  }
+}
+
+@media (min-width: 1000px) {
+  .home-sec {
+    display: grid;
+    grid-template-columns: 350px 300px;
+    gap: 10px;
+  }
+  
+  .projectss h2 {
+    font-size: 2rem;
+  }
+  
+  .web-pic {
+    min-height: 350px;
+    min-width: 350px;
+  }
+  
+  .web-pic img {
+    height: 350px;
+    width: 350px;
+  }
 }

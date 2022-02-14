@@ -1,27 +1,36 @@
-{% if current_user.is_authenticated and current_user.has_role("admin") %}
-  <form action="{{ url_for('project.new') }}", method="GET">
-    <input type="submit" value="New Service">
-  </form>
-  <br><br>
-{% endif %}
-{% if projects %}
-  {% for project in projects %}
-    <div>
-      {% if current_user.is_authenticated and current_user.has_role("admin") %}
-        <form action="{{ url_for('project.delete', project_id=project.id) }}", method="POST">
-          <input type="submit" value="delete">
-        </form>
-        <form action="{{ url_for('project.update', project_id=project.id) }}", method="GET">
-          <input type="submit" value="update">
-        </form>
-      {% endif %}
-      <h1>{{ project.title }}</h1>
-      <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
-      <p>{{ project.description }}</p>
-      <p>{{ project.github_url }}</p>
-      <p>{{ project.site_url }}</p>
-    </div>
-  {% endfor %}
-{% else %}
-  We don't have projects for now pain...
-{% endif %}
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+
+  {% if current_user.is_authenticated and current_user.has_role("admin") %}
+    <form action="{{ url_for('project.new') }}", method="GET">
+      <input type="submit" value="New Service">
+    </form>
+    <br><br>
+  {% endif %}
+  {% if projects %}
+    {% for project in projects %}
+      <div>
+        {% if current_user.is_authenticated and current_user.has_role("admin") %}
+          <form action="{{ url_for('project.delete', project_id=project.id) }}", method="POST">
+            <input type="submit" value="delete">
+          </form>
+          <form action="{{ url_for('project.update', project_id=project.id) }}", method="GET">
+            <input type="submit" value="update">
+          </form>
+        {% endif %}
+        <h1>{{ project.title }}</h1>
+        <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
+        <p>{{ project.description }}</p>
+        <p>{{ project.github_url }}</p>
+        <p>{{ project.site_url }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    We don't have projects for now pain...
+  {% endif %}
+
+{% endblock content %}

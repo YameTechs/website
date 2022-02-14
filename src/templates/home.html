@@ -10,27 +10,27 @@
 {% block content %}
   <!-- first section -->
   <div class="home-sec" id="homee">
-    <div class="intro" style="order: 2">
-      <h1 style="color: white">
-        Hello! We are
-        <em
+    <div class="web-pic">
+      <img src="{{ url_for('static', filename='img/programmer.png') }}" />
+    </div>
+    
+    <div class="intro">
+      <div class="intro-text">
+        <h1 style="color: white">
+          Hello! We are <em
           class="hello"
           style="
             letter-spacing: 2px;
             color: white;
             font-size: 35px;
             font-family: 'Roboto', sans-serif;
-          "
-          >YameTech</em
-        >
-      </h1>
-      <p>
-        We aer a team of young and enthusiastic developers who are passionate about
-      </p>
-      <a href="{{ url_for('main.about') }}">Who are we?</a>
-    </div>
-    <div class="web-pic" style="order: 1">
-      <img src="{{ url_for('static', filename='img/programmer.png') }}" />
+          ">YameTech</em>
+        </h1>
+        <p>
+          We are a team of young and enthusiastic developers who are passionate about programming.
+        </p>
+      </div>
+      <a href="{{ url_for('main.about') }}">Wanna know more?</a>
     </div>
     <div class="custom-shape-divider-bottom-1642833130">
       <svg
@@ -72,7 +72,8 @@
       </div>
     </div>
   {% else %}
-    <h1><b>We haven't done any projects yet</b></h1>
+    <h2>We haven't done any projects yet</h2>
+    <img src="{{url_for('static', filename='img/soon.png')}}">
   {% endif %}
   </div>
   <!-- endsecond section -->
