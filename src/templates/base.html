@@ -56,8 +56,10 @@
             </div>
             <div class="userAcc_menu">
               {% if current_user.is_authenticated %}
-                <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
-                <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
+                <div class="userr">
+                  <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
+                  <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
+                </div>
               {% endif %}
               <ul>
                 {% if current_user.is_authenticated %}
@@ -65,7 +67,7 @@
                   <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
                   <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 {% else %}
-                  <li><h3>You're not logged in</h3></li>
+                  <h3>You're not logged in</h3>
                   <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
                   <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
                 {% endif %}
