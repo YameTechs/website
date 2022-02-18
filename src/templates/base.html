@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>YameTech</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yametech</title>
     <script
       src="https://kit.fontawesome.com/03853e84a6.js"
       crossorigin="anonymous"
@@ -11,61 +11,86 @@
     <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/base.css') }}"
-    />
+      href="{{ url_for('static', filename='css/base.css') }}" />
     {% block head %} {% endblock %}
   </head>
   <body>
-    
     <!-- Nav xection -->
-    <nav>
-      <div class="container">
-        <div class="logo">YameTech</div>
+    
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo">YameTech</div>
 
-        <div class="burgir">
-          <i class="fas fa-bars"></i>
-        </div>
-
-        <div class="menu">
-          <a href="{{ url_for('main.home') }}">Home</a>
-          <a href="#sectionAbout">About</a>
-          <a href="{{ url_for('main.home') }}">Projects</a>
-          <a href="{{ url_for('main.services') }}" id="reg">Try our Services</a>
-        </div>
-
-        <div class="userAcc_settings">
-          <div class="userAcc_toggler" onclick="UserAccToggle();">
-            <i class="fas fa-user-circle fa-2x"></i>
+          <div class="burgir">
+            <i class="fas fa-bars"></i>
           </div>
-          <div class="userAcc_menu">
-            {% if current_user.is_authenticated %}
-              <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
-              <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
-            {% endif %}
-            <ul>
+
+          <div class="menu">
+            <div class="userAcc_menu2">
+              <div class="profile-name">
+                {% if current_user.is_authenticated %}
+                  <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
+                  <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
+                {% endif %}
+              </div>
+              <div class="user_options">
+                {% if current_user.is_authenticated %}
+                  <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
+                  <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
+                  <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                {% else %}
+                  <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+                  <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
+                {% endif %}
+              </div>
+            </div>
+            <a href="{{ url_for('main.home') }}">Home</a>
+            <a href="{{ url_for('main.about') }}">About</a>
+            <a href="{{ url_for('project.index') }}">Projects</a>
+            <a href="{{ url_for('service.index') }}" id="reg">Try our Services</a>
+          </div>
+          <div class="userAcc_settings">
+            <div class="userAcc_toggler" onclick="UserAccToggle();">
+              <i class="fas fa-user fa-lg"></i>
+            </div>
+            <div class="userAcc_menu">
               {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
-                <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
-                <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-              {% else %}
-                <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-                <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
+                <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
+                <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
               {% endif %}
-            </ul>
+              <ul>
+                {% if current_user.is_authenticated %}
+                  <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
+                  <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
+                  <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                {% else %}
+                  <li><h3>You're not logged in</h3></li>
+                  <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+                  <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
+                {% endif %}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
+
     <!-- end nav section -->
 
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
-          <span>{{ message }}</span>
+          <div class="flash-msg" role="alert">
+            <p>{{ message }}</p>
+            <button onclick="FlashDismiss();"><img src="{{ url_for ('static', filename='img/icons/close.png')}}"></button>
+          </div>
         {% endfor %}
       {% endif %}
     {% endwith %}
+  {% block content %} {% endblock content %}
 
+<<<<<<< HEAD
     {% block content %} {% endblock content %}
     <script>
       function UserAccToggle() {
@@ -81,5 +106,31 @@
         <li>dunno</li>
       </ul>
     </footer>
+=======
+  <footer>
+    <p>Contact Informations:<br>
+      <!-- ul , l etc i need to add-->
+      <a href="mailto:hege@example.com">hege@example.com</a>
+      <a href="facebook.com">
+    </p>
+  </footer>
+
+  <script>
+    function UserAccToggle() {
+      const toggler = document.querySelector('.userAcc_menu');
+      toggler.classList.toggle('active')
+    }
+
+    function FlashDismiss() {
+      const toggler = document.querySelector('.flash-msg');
+      toggler.classList.toggle('disappear')
+    }
+
+    window.addEventListener('scroll', function(){
+      var nav = document.querySelector("nav");
+      nav.classList.toggle('scroll', window.scrollY > 0)
+    })
+  </script>
+>>>>>>> upstream/main
   </body>
 </html>

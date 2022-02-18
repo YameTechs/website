@@ -1,14 +1,19 @@
+a {
+  text-decoration: none;
+}
+
 /* first section */
 
 .home-sec {
   display: flex;
+  gap: 20px;
   position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: auto;
   background: none;
   z-index: 980;
+  min-height: 100vh;
 }
 
 .intro {
@@ -16,6 +21,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 200px;
+  padding: 30px;
+  transform: scale(0);
+  animation: intro-load;
+  animation-duration: 600ms;
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
 .about {
   margin: 0 auto;
@@ -26,15 +39,21 @@
 }
 .intro h1,
 .intro p {
-  margin: 20px;
   color: white;
 }
 
-.intro button {
+.intro a {
+  background: #DDD;
+  color: black;
   border-radius: 30px;
   padding: 9px 13px;
   cursor: pointer;
-  margin-bottom: 100px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.intro a:hover {
+  color: blue;
 }
 
 .web-pic {
@@ -48,8 +67,14 @@
 .web-pic img {
   align-items: center;
   justify-content: center;
-  height: min(300px, 150px);
-  width: min(300px, 150px);
+  height: min(300px, 200px);
+  width: min(300px, 200px);
+  transform: scale(0);
+  animation: homepic-load;
+  animation-duration: 600ms;
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
 
 .custom-shape-divider-bottom-1642833130 {
@@ -81,7 +106,91 @@
   align-items: center;
   min-height: auto;
   background: #dddddd;
-  margin: 0;
+  padding: 10px;
+}
+
+.projectss h2 {
+  font-size: 1rem;
+}
+
+.projectss img {
+  height: 200px;
+  width: 200px;
+}
+
+.projlist {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 3rem;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+}
+
+.card {
+  background-color: #DDD;
+  border: 1px solid gray;
+  display: block;
+  width: 250px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+
+}
+
+.card img {
+  background-size: cover;
+  object-fit: cover;
+  object-position: center;
+  height: 200px;
+  width: auto;
+}
+
+.card .proj-text {
+  margin: 15px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.card .proj-text h2 {
+  letter-spacing: 3px;
+}
+
+.card .projbtn {
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .projbtn a {
+  font-size: 18px;
+  color: #000d1a;
+}
+
+.projlist .to-proj {
+  width: auto;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.to-proj a {
+  background: #003366;
+  color: white;
+  border-radius: 20px;
+  padding: 9px 12px;
+}
+
+.projbtn a:hover {
+  color: blue
+}
+
+.to-proj a:hover {
+  color: black;
+  background: lightblue;
 }
 
 /* third section */
@@ -114,9 +223,63 @@
 .custom-shape-divider-top-1642926837 .shape-fill {
   fill: #dddddd;
 }
+
+
 img {
   float: left;
   width: 300px;
   height: 300px;
   object-fit: cover;
+}
+
+
+/* keyframes */
+@keyframes homepic-load {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px)
+                scale(0);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+                scale(1);
+  }
+}
+
+@keyframes intro-load {
+  0% {
+    opacity: 0;
+    transform: translateY(100px)
+                scale(0);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+                scale(1);
+  }
+}
+
+@media (min-width: 1000px) {
+  .home-sec {
+    display: grid;
+    grid-template-columns: 350px 300px;
+    gap: 10px;
+  }
+  
+  .projectss h2 {
+    font-size: 2rem;
+  }
+  
+  .web-pic {
+    min-height: 350px;
+    min-width: 350px;
+  }
+  
+  .web-pic img {
+    height: 350px;
+    width: 350px;
+  }
 }

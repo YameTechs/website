@@ -1,17 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap");
 
+:root {
+  --primary-color: #000d1a;
+  --primary-theme: linear-gradient(to right, #000d1a, #003366);
+  --primary-textColor: #ffffff;
+  --light-theme: linear-gradient(to right, white, #ddd);
+  --light-textColor: #000000;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: 0.2s linear;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(to right, #000d1a, #003366);
-  margin-top: 60px;
+  background: var(--primary-theme);
 }
 footer {
   font-family: "Poppins", sans-serif;
@@ -23,16 +29,25 @@ footer {
   padding: 3px;
   background: linear-gradient(to right, #161616, #585858);
 }
+
 /* navbar start */
 
+header {
+  height: auto;
+}
+
 nav {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   background: none;
   width: 100%;
-  color: white;
+  color: var(--primary-textColor);
   z-index: 1000;
+  animation: navload;
+  animation-duration: 300ms;
+  animation-fill-mode: fowards;
+  animation-timing-function: ease-in;
 }
 
 .container {
@@ -46,7 +61,7 @@ nav {
   margin: 0.5rem;
   margin-left: 3rem;
   font-family: "Roboto", sans-serif;
-  font-size: 28px;
+  font-size: 2rem;
   font-weight: 600;
   letter-spacing: 2px;
   cursor: none;
@@ -69,14 +84,13 @@ nav {
 
 .menu {
   display: flex;
-
   padding: 0;
 }
 
 .menu a {
-  font-size: 11px;
+  font-size: 1rem;
   text-decoration: none;
-  color: white;
+  color: var(--primary-textColor);
   padding: 9px 17px;
   margin: 0.2rem;
   border-radius: 25px;
@@ -92,12 +106,17 @@ nav {
 #reg {
   border: 1px solid white;
   background: #ddd;
-  color: black;
+  color: var(--light-textColor);
 }
 
 .menu #reg:hover {
-  color: white;
+  color: var(--primary-textColor);
   background: none;
+}
+
+.menu .userAcc_menu2 {
+  display: none;
+  list-style: none;
 }
 
 .userAcc_settings {
@@ -125,11 +144,12 @@ nav {
   padding: 10px 20px;
   border-radius: 10px;
   background: #ddd;
-  color: black;
+  color: var(--light-textColor);
   width: 250px;
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
+  z-index: 1000;
   transform: translateY(-10px);
   transition: transform 200ms 0 ease-in-out;
 }
@@ -184,12 +204,90 @@ nav {
   transform: translateY(0);
 }
 
+.flash-msg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff2cc;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 9px 13px;
+}
+
+.flash-msg button {
+  background: none;
+  outline: none;
+  border: none;
+  color: black;
+  padding: 9px 13px;
+  cursor: pointer;
+}
+
+.flash-msg button img {
+  height: 11px;
+  width: 11px;
+}
+
+.flash-msg.disappear {
+  display: none;
+}
+
+footer {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #f2f2f7;
+  text-align: center;
+  padding: 3px;
+  background-color: #161616;
+}
+
+/* keyframes */
+@keyframes navload {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* media queries */
+@media (min-width: 1000px) {
+  .menu .logo {
+    font-size: 35px;
+    margin-left: 5rem;
+  }
+
+  .menu a {
+    font-size: 25px;
+  }
+
+  .userAcc_settings {
+    margin-right: 5rem;
+  }
+}
+
 @media (max-width: 768px) {
+  body {
+    margin-top: 40px;
+  }
+
   nav {
     position: fixed;
     z-index: 1000;
-    background: rgb(0, 13, 26, 0.8);
-    border-bottom: 1px solid dimgray;
+  }
+
+  nav.clicked {
+    background: #000d1a;
+  }
+
+  nav.scroll {
+    background: var(--primary-color);
   }
 
   .container {
@@ -216,79 +314,72 @@ nav {
 
   .menu a {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
     margin: 10px;
     padding: 0.5rem 1rem;
   }
 
+  .menu i {
+    margin-right: 7px;
+  }
+
+  .userAcc_menu2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 1rem;
+  }
+
+  .userAcc_menu2 .profile-name {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .user_options {
+    display: flex;
+    justify-content: center;
+  }
+
+  .userAcc_menu2 img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .userAcc_menu2 h3 {
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 0.8;
+  }
+
+  .userAcc_menu2 span {
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .userAcc_settings {
+    display: none;
+  }
+
+  .userAcc_menu2.active {
+    display: flex;
+  }
+
   .menu.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 }
 
 /* navbar end */
-@media (min-width: 760px) {
-  nav {
-    z-index: 1000;
-    background: rgb(0, 13, 26, 0.8);
-    border-bottom: 1.5px solid dimgray;
-  }
-
-  .logo {
-    margin: 0.5rem;
-    margin-right: 30rem;
-    font-family: "Roboto", sans-serif;
-    font-size: 40px;
-    font-weight: 590px;
-    letter-spacing: 2px;
-    cursor: text;
-    color: white;
-    position: relative;
-    left: 20px;
-  }
-
-  .menu {
-    position: absolute;
-    display: flex;
-    right: 150px;
-    padding: 0;
-  }
-
-  .menu a {
-    font-size: 15px;
-    text-decoration: none;
-    color: white;
-    padding: 9px 17px;
-    margin: 0.2rem;
-    border-radius: 50px;
-    transition: 0.4s ease;
-  }
-  .menu a:hover,
-  .menu.is-active {
-    background-color: #ddd;
-    color: black;
-  }
-  /*
-  .theService {
-    display: flex;
-  }
-
-  .theService a {
-    z-index: 1000;
-    background-color: rgb(16, 15, 119);
-    position: fixed;
-    top: 500px;
-    left: -25px;
-    font-size: 20px;
-
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    transform: rotate(90deg);
-    padding: 10px 10px;
-  }
-  .theService a:hover,
-  .theService {
-    background-color: black;
-    color: White;
-  }*/
-}
