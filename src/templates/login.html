@@ -30,7 +30,10 @@
       </div>
 
       <div class="form-element">
-        {{ form.recaptcha(class="recap") }}
+        {{ form.recaptcha(class="recap") }} 
+        {% for error in form.recaptcha.error %}
+        <span> {{error}} </span>
+        {% endfor %}
       </div>
 
       <div class="form-element">

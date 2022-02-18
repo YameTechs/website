@@ -248,8 +248,9 @@ nav {
   }
 
   .menu {
+    position: absolute;
     display: flex;
-
+    right: 150px;
     padding: 0;
   }
 
