@@ -6,22 +6,37 @@
 {% block content %}
 
 
-
-
-
-
 <div class = 'zeTexts'>
   <h1>Try our Services:</h1>
 </div>
-<div class='btns'>
-  <ul>
-    <li>Website</li>
+  
+<div class="whiteLine"></div>
 
-  </ul>
+<div class='btns'>
+  <div class="website-btn">
+    <p>Website</p>
+  </div>
+
+  <div class="dcbots-btn">
+    <p>Discord Bots</p>
+  </div>
 
 </div>
+
 <div class="theModal">
-    <div class="modalContent"></div>
+    <div class="modalContent">
+      <div class="xbtn">+</div>
+      <div class="form-container">
+        <h1>Tell us about your Website:</h1>
+        <form action="" method="POST"></form>
+          <div class="desc-form">
+
+          </div>
+      </div>
+
+      </form>
+      
+    </div>
 </div>
 
 
@@ -55,7 +70,9 @@
       </div>
     {% endfor %}
   {% else %}
+  <div class="notLoggedIn">
     We don't have service for now pain...
+  </div>
   {% endif %}
 
 

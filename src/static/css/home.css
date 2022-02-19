@@ -30,20 +30,18 @@ a {
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
 }
-.about {
-  margin: 0 auto;
-  border-radius: 10px;
+
+.intro h1 {
+  font-size: 33px;
   color: white;
-  width: 70vw;
-  background: none;
 }
-.intro h1,
 .intro p {
   color: white;
+  font-size: 25px;
 }
 
 .intro a {
-  background: #DDD;
+  background: #ddd;
   color: black;
   border-radius: 30px;
   padding: 9px 13px;
@@ -122,12 +120,12 @@ a {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 3rem;
-  margin-bottom: .5rem;
-  margin-top: .5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .card {
-  background-color: #DDD;
+  background-color: #ddd;
   border: 1px solid gray;
   display: block;
   width: 250px;
@@ -135,7 +133,6 @@ a {
   display: flex;
   flex-direction: column;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
-
 }
 
 .card img {
@@ -185,7 +182,7 @@ a {
 }
 
 .projbtn a:hover {
-  color: blue
+  color: blue;
 }
 
 .to-proj a:hover {
@@ -224,7 +221,6 @@ a {
   fill: #dddddd;
 }
 
-
 img {
   float: left;
   width: 300px;
@@ -232,33 +228,28 @@ img {
   object-fit: cover;
 }
 
-
 /* keyframes */
 @keyframes homepic-load {
   0% {
     opacity: 0;
-    transform: translateY(-100px)
-                scale(0);
+    transform: translateY(-100px) scale(0);
   }
-  
+
   100% {
     opacity: 1;
-    transform: translateX(0)
-                scale(1);
+    transform: translateX(0) scale(1);
   }
 }
 
 @keyframes intro-load {
   0% {
     opacity: 0;
-    transform: translateY(100px)
-                scale(0);
+    transform: translateY(100px) scale(0);
   }
-  
+
   100% {
     opacity: 1;
-    transform: translateX(0)
-                scale(1);
+    transform: translateX(0) scale(1);
   }
 }
 
@@ -268,18 +259,32 @@ img {
     grid-template-columns: 350px 300px;
     gap: 10px;
   }
-  
+
   .projectss h2 {
     font-size: 2rem;
   }
-  
+
   .web-pic {
     min-height: 350px;
     min-width: 350px;
   }
-  
+
   .web-pic img {
     height: 350px;
     width: 350px;
   }
+}
+
+/*Footer*/
+footer {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #f2f2f7;
+  text-align: center;
+  padding: 3px;
+  background: linear-gradient(to right, #161616, #585858);
+  position: absolute;
+  width: 100%;
 }

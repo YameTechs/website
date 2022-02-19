@@ -1,42 +1,120 @@
 .zeTexts {
-  text-align: Center;
-  padding: 15px;
+  position: relative;
+  left: 80px;
+  top: 43px;
   letter-spacing: 1px;
-  display: block;
+  display: flex;
+  flex-direction: column;
   color: white;
   font-size: 20px;
-  line-height: 100px;
-  transition-duration: 0.2s;
-  transition-property: font-size, font-weight, line-height, margin-top;
+  margin: auto;
 }
 .zeTexts h1 {
   text-align: left;
-  padding: 5px 5px 5px 5px;
+}
+
+/* Unauthenticated */
+.notLoggedIn {
+  font-size: 23px;
+  align-items: center;
+  color: white;
+  padding: 15px 15px 15px 15px;
+  position: absolute;
+  left: 47px;
+  top: 215px;
+  display: none;
+}
+
+/*White line seperator or something*/
+.whiteLine {
+  display: flex;
+  background-color: white;
+  width: 90%;
+  height: 2px;
+  position: relative;
+  margin: auto;
+  top: 64px;
 }
 
 /* service buttons */
 .btns {
-  position: relative;
-  left: 221px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  height: 635px;
+  position: relative;
+  top: 120px;
+  border-radius: 21px;
+  background-color: slategrey;
+  margin: auto;
+
+  align-items: center;
+}
+
+.website-btn {
+  display: flex;
   text-align: center;
-  width: 864px;
-  height: 364px;
-  font-size: 30px;
-  color: rgb(255, 255, 255);
-  background-color: black;
+  justify-content: center;
 }
-.btns :hover {
-  cursor: pointer;
-}
-.btns ul {
-  padding: 28px 16px;
-  border-radius: 5px;
-  list-style: none;
-  background-color: rgb(255, 255, 255);
+
+.website-btn p {
+  position: relative;
   color: rgb(0, 0, 0);
+  font-size: 35px;
+  padding: 10px 10px 10px 10px;
+  width: 250px;
+  height: 80px;
+  margin-top: 35px;
+  border: 2px solid rgb(161, 161, 161);
+  border-radius: 15px;
+  background-color: whitesmoke;
 }
+.website-btn p:hover {
+  background-image: url("../img/backgrounds/website-img.jpg");
+  background-size: 247px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: -28px;
+  background-color: rgb(21, 11, 109);
+  cursor: pointer;
+  border-color: white;
+  color: rgb(46, 45, 45);
+  transition: 0.2s ease-out;
+}
+
+.dcbots-btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.dcbots-btn p {
+  position: relative;
+  background-color: whitesmoke;
+  color: rgb(0, 0, 0);
+  font-size: 35px;
+  padding: 10px 10px 10px 10px;
+  width: 250px;
+  height: 80px;
+  margin-top: 35px;
+  border: 2px solid rgb(161, 161, 161);
+  border-radius: 15px;
+  justify-content: center;
+}
+.dcbots-btn p:hover {
+  background-image: url("../img/backgrounds/discord.png");
+  background-size: 247px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: -28px;
+  background-color: rgb(21, 11, 109);
+  cursor: pointer;
+  border-color: white;
+  color: white;
+  transition: 0.2s ease-out;
+}
+
+/* The Forms */
 .theModal {
   width: 100%;
   height: 100%;
@@ -45,17 +123,48 @@
   justify-content: center;
   position: absolute;
   top: 0;
+  align-items: center;
+  display: none;
 }
 .modalContent {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 255, 255);
+  width: 1225px;
+  height: 700px;
+  background-color: rgb(160, 160, 160);
+  border-radius: 6px;
+  align-items: center;
   position: relative;
-  justify-content: center;
+  top: 107px;
 }
-footer {
+
+.xbtn {
+  transform: rotate(45deg);
+  font-size: 45px;
   position: absolute;
+  top: -16px;
+  right: 6px;
+  cursor: pointer;
+}
+
+.form-container {
+  position: relative;
+  top: 0px;
+  margin: 34px;
+  font-size: 17px;
+}
+.desc-form {
+  position: relative;
+  background-color: white;
+  margin: 0px;
+  padding: 20px;
+  border-radius: 15px;
+  height: 100px;
+  width: 100px;
+}
+
+footer {
+  position: relative;
   width: 100%;
   height: auto;
-  bottom: 0;
+  font-size: 30px;
+  bottom: 0px;
 }
