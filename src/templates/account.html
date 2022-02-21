@@ -1,21 +1,43 @@
 {% extends "base.html" %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/account.css')}}">
+  
+{% endblock head %}
+
 {% block content %}
-    {% for x in ['id', 'date_joined', 'email', 'image_file', 'password', 'username'] %}
-      <h1>{{ x }}</h1>
-      <p>{{ getattr(current_user, x) }}</p>
-    {% endfor %}
-    <h1>Account</h1>
-    {% if current_user.has_role('verified') %}
-      <p>You are verified</p>
-    {% else %}
-      <p>You are not verified</p>
-      <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        {{ form.submit() }}
-      </form>
-    {% endif %}
-    <h1>Role</h1>
-    {% for role in current_user.roles %}
-      <p>{{ role.name }}</p>
-    {% endfor %}
+  <div class="user-dashboard">
+    <div class="ud-left">
+      <div class="ud-profile">
+        <div class="ud-prof-pic">
+          <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
+          <div class="ud-prof-text">
+            <h1>{{ current_user.username }}</h1>
+            <span>{{ current_user.email }}</span>
+          </div>
+        </div>
+        <hr>
+        <div class="ud-settings">
+          <a href="#"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
+          <a href="#"><i class="fa-solid fa-cart-shopping"></i>Bought Services</a>
+          <a href="#"><i class="fas fa-user-check"></i>Verify Account</a>
+          <a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a>
+          <a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ud-right">
+      <div class="pending-serv">
+        <h3>Something will be put here</h3>
+        <ul>
+          <li>test</li>
+          <li>test</li>
+          <li>test</li>
+        </ul>
+      </div>
+    </div>
+    
+    
+  </div>
 {% endblock content %}

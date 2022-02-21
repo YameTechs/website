@@ -1,0 +1,76 @@
+/* I WILL CLEAN THIS MESSY CODE AFTER -pred */
+
+.user-dashboard {
+  display: flex;
+  color: white;
+  height: min(100vh);
+}
+
+.ud-left {
+  height: auto;
+  background-color: #274472;
+  width: 300px;
+}
+
+.ud-profile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70%;
+  padding: 20px;
+  gap: 10px;
+}
+
+.ud-profile i {
+  margin-right: 5px;
+}
+
+.ud-prof-pic {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.ud-prof-text {
+  font-size: .8rem;
+  display: block;
+}
+
+.ud-profile .ud-settings{
+  display: flex;
+  flex-direction: column;
+}
+
+.ud-settings a {
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  padding: 9px 10px;
+  color: white;
+  border-radius: 15px;
+  transition: 200ms ease-in;
+}
+
+.ud-settings a:hover {
+  transform: translateX(10px);
+  background-color: #B3D8E0;
+  color: black;
+}
+
+.ud-profile .profilepic {
+  border-radius: 15px; 
+  object-fit: cover;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ud-right {
+  width: 100%;
+  height: auto;
+  background-color: #738FA7; 
+  padding: 30px;
+}
+
+.ud-right .pending-serv ul {
+  list-style: none;
+}
