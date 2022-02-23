@@ -1,8 +1,7 @@
 {% extends "base.html" %}
-
+{%block title%}MyProfile{%endblock%}
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename='css/account.css')}}">
-  
 {% endblock head %}
 
 {% block content %}
@@ -20,7 +19,7 @@
         <div class="ud-settings">
           <a href="#"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
           <a href="#"><i class="fa-solid fa-cart-shopping"></i>Bought Services</a>
-          <a href="#"><i class="fas fa-user-check"></i>Verify Account</a>
+          <a href="/verify-user/"><i class="fas fa-user-check"></i>Verify Account</a>
           <a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a>
           <a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
         </div>
@@ -28,14 +27,8 @@
     </div>
     
     <div class="ud-right">
-      <div class="pending-serv">
-        <h3>Something will be put here</h3>
-        <ul>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
-        </ul>
-      </div>
+      {% block right%}
+      {% endblock %}
     </div>
     
     
