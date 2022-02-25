@@ -58,3 +58,10 @@ class RequestResetFrom(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is None:
             raise ValidationError("there is no account with that email!")
+
+
+class EditUserDataForm(FlaskForm):
+    username = StringField(validators=[Length(min=3, max=25)])
+    email = EmailField()
+    password = PasswordField()
+    submit = SubmitField()

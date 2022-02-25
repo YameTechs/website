@@ -1,5 +1,6 @@
 /* I WILL CLEAN THIS MESSY CODE AFTER -pred */
 
+/* left side start */
 .user-dashboard {
   display: flex;
   color: white;
@@ -13,6 +14,8 @@
 }
 
 .ud-profile {
+  position: sticky;
+  top: 15px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -63,13 +66,22 @@
   overflow: hidden;
   cursor: pointer;
 }
+/* left side end*/
 
+
+/* right side start */
 .ud-right {
   width: 100%;
   height: auto;
   background-color: #738FA7; 
-  padding: 30px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
-/* */
+.ud-right .editProfile {
+  height: 100%;
+}
 
+
+
+/* right end */

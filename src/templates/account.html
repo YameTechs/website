@@ -2,6 +2,7 @@
 {%block title%}MyProfile{%endblock%}
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename='css/account.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/editprofile.css')}}">
 {% endblock head %}
 
 {% block content %}
@@ -17,9 +18,9 @@
         </div>
         <hr>
         <div class="ud-settings">
-          <a href="#"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
-          <a href="#"><i class="fa-solid fa-cart-shopping"></i>Bought Services</a>
-          <a href="/verify-user/"><i class="fas fa-user-check"></i>Verify Account</a>
+          <a href="#edit-Profile"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
+          <a href="#Bought-Serv"><i class="fa-solid fa-cart-shopping"></i>Bought Services</a>
+          <a href="#"><i class="fas fa-user-check"></i>Verify Account</a>
           <a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a>
           <a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
         </div>
@@ -27,8 +28,57 @@
     </div>
     
     <div class="ud-right">
-      {% block right%}
-      {% endblock %}
+      <section class="editProfile" id="edit-Profile">
+        <h2>Edit Profile</h2>
+        <div class="user-data">
+          <form method="POST" action="">
+            {{ editform.hidden_tag() }}
+        
+            <div class="form-element">
+              <label for="username">Username</label>
+              {{ editform.username(class="form-input", id="username", value=current_user.username) }}
+              {% for error in editform.email.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+        
+            <div class="form-element">
+              <label for="emaill">Email</label>
+              {{ editform.email(class="form-input", id="emaill", value=current_user.email) }}
+              {% for error in editform.email.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+        
+            <div class="form-element">
+              <label for="passs">Password</label>
+              {{ editform.password(class="form-input", id="passs", value=current_user.password) }}
+              {% for error in editform.password.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+        
+            <div class="form-element">
+              {{ editform.submit(class="form-submit") }}
+            </div>
+          </form>
+        
+          {% if current_user.has_role('verified') %}
+          <p>You are verified</p>
+          {% else %}
+          <p>You are not verified</p>
+          <form method="POST" action="">
+            {{ form.hidden_tag() }}
+        
+            {{ form.submit() }}
+          </form>
+          {% endif %}
+        </div>
+      </section>
+      
+      <section class="BoughtServ" id="Bought-Serv">
+        <h1>helo</h1>
+      </section>
     </div>
     
     

@@ -38,7 +38,7 @@
               </div>
               <div class="user_options">
                 {% if current_user.is_authenticated %}
-                  <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
+                  <li><a href="{{ url_for('users.account', id=current_user.id) }}"><i class="fas fa-user"></i>My Profile</a></li>
                   <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
                   <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 {% else %}
@@ -65,7 +65,7 @@
               {% endif %}
               <ul>
                 {% if current_user.is_authenticated %}
-                  <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
+                  <li><a href="{{ url_for('users.account', id=current_user.id) }}"><i class="fas fa-user"></i>My Profile</a></li>
                   <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
                   <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 {% else %}

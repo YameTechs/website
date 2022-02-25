@@ -9,6 +9,7 @@ from src.users.forms import (
     RequestResetFrom,
     ResendEmailButton,
     ResetPasswordForm,
+    EditUserDataForm,
 )
 from src.users.utils import send_user_email
 from src.utils import logout_required
@@ -16,9 +17,9 @@ from src.utils import logout_required
 users = Blueprint("users", __name__)
 
 
-@users.route("/account/", methods=["POST", "GET"])
+@users.route("/account/<int:id>", methods=["POST", "GET"])
 @login_required
-def account():
+def account(id):
     form = ResendEmailButton()
 
     if not (form.validate_on_submit() and form.submit.data):
@@ -36,9 +37,7 @@ def account():
     )
 
     flash("An email has been send with your verification link!")
-
     return render_template("account.html", getattr=getattr, form=form)
-
 
 @users.route("/login/", methods=["POST", "GET"])
 @logout_required
