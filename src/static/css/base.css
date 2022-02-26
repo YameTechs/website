@@ -16,10 +16,6 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--primary-theme);
@@ -205,6 +201,11 @@ nav {
 }
 
 .flash-msg {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  transform: translate(-10%, -10%);
+  width: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -212,6 +213,7 @@ nav {
   margin: 20px;
   border-radius: 5px; 
   padding: 9px 13px;
+  z-index: 5;
 }
 
 

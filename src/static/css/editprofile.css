@@ -1,7 +1,12 @@
 /* start edituser */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .editProfile {
   padding: 20px;
+  height: 100%;
   color: black;
 }
 

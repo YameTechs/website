@@ -31,37 +31,6 @@
       <section class="editProfile" id="edit-Profile">
         <h2>Edit Profile</h2>
         <div class="user-data">
-          <form method="POST" action="">
-            {{ editform.hidden_tag() }}
-        
-            <div class="form-element">
-              <label for="username">Username</label>
-              {{ editform.username(class="form-input", id="username", value=current_user.username) }}
-              {% for error in editform.email.errors %}
-              <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-        
-            <div class="form-element">
-              <label for="emaill">Email</label>
-              {{ editform.email(class="form-input", id="emaill", value=current_user.email) }}
-              {% for error in editform.email.errors %}
-              <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-        
-            <div class="form-element">
-              <label for="passs">Password</label>
-              {{ editform.password(class="form-input", id="passs", value=current_user.password) }}
-              {% for error in editform.password.errors %}
-              <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-        
-            <div class="form-element">
-              {{ editform.submit(class="form-submit") }}
-            </div>
-          </form>
         
           {% if current_user.has_role('verified') %}
           <p>You are verified</p>
@@ -77,7 +46,14 @@
       </section>
       
       <section class="BoughtServ" id="Bought-Serv">
-        <h1>helo</h1>
+        <h2>Pending Services</h2>
+        <div class="penging-list">
+          <ul>
+            <li>WEBSITE</li>
+            <li>APP</li>
+            <li>PROGRAMSDA</li>
+          </ul>
+        </div>
       </section>
     </div>
     

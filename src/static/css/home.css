@@ -12,7 +12,7 @@ a {
   align-items: center;
   justify-content: center;
   background: none;
-  z-index: 980;
+  z-index: 1;
   min-height: 100vh;
 }
 
