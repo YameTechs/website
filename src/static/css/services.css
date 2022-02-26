@@ -1,18 +1,3 @@
-.zeTexts {
-  position: relative;
-  left: 80px;
-  top: 43px;
-  letter-spacing: 1px;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  font-size: 20px;
-  margin: auto;
-}
-.zeTexts h1 {
-  text-align: left;
-}
-
 /* Unauthenticated */
 .notLoggedIn {
   font-size: 23px;
@@ -25,6 +10,17 @@
   display: none;
 }
 
+.zetext {
+  display: flex;
+  position: relative;
+  top: 45px;
+  font-size: 1.7rem;
+  color: white;
+  margin: auto;
+  width: 87%;
+  cursor: pointer;
+}
+
 /*White line seperator or something*/
 .whiteLine {
   display: flex;
@@ -35,32 +31,42 @@
   margin: auto;
   top: 64px;
 }
+.whiteLine p {
+  display: flex;
+  color: white;
+  font-size: 1.5rem;
+
+  margin: 10px 10px 10px 10px;
+}
 
 /* service buttons */
 .btns {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  height: 635px;
+  width: 80vw;
+  height: 50vh;
   position: relative;
-  top: 120px;
+  top: 18vh;
   border-radius: 21px;
   background-color: slategrey;
   margin: auto;
-
   align-items: center;
 }
 
 .website-btn {
+  text-decoration: none;
+  width: 50%;
+  height: 30%;
   display: flex;
   text-align: center;
   justify-content: center;
 }
 
-.website-btn p {
+.website-btn a {
+  text-decoration: none;
   position: relative;
   color: rgb(0, 0, 0);
-  font-size: 35px;
+  font-size: 2rem;
   padding: 10px 10px 10px 10px;
   width: 250px;
   height: 80px;
@@ -69,7 +75,7 @@
   border-radius: 15px;
   background-color: whitesmoke;
 }
-.website-btn p:hover {
+.website-btn a:hover {
   background-image: url("../img/backgrounds/website-img.jpg");
   background-size: 247px;
   background-repeat: no-repeat;
@@ -83,16 +89,19 @@
 }
 
 .dcbots-btn {
+  width: 50%;
+  height: 30%;
   display: flex;
   text-align: center;
   justify-content: center;
 }
 
-.dcbots-btn p {
+.dcbots-btn a {
+  text-decoration: none;
   position: relative;
   background-color: whitesmoke;
   color: rgb(0, 0, 0);
-  font-size: 35px;
+  font-size: 2rem;
   padding: 10px 10px 10px 10px;
   width: 250px;
   height: 80px;
@@ -114,51 +123,77 @@
   transition: 0.2s ease-out;
 }
 
-/* The Forms */
-.theModal {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+/*Outside Layer*/
+.outside-layer {
+  z-index: 10;
   display: flex;
-  justify-content: center;
   position: absolute;
   top: 0;
-  align-items: center;
-  display: none;
-}
-.modalContent {
-  width: 1225px;
-  height: 700px;
-  background-color: rgb(160, 160, 160);
-  border-radius: 6px;
-  align-items: center;
-  position: relative;
-  top: 107px;
+  transform: scale(0);
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
 }
 
-.xbtn {
-  transform: rotate(45deg);
-  font-size: 45px;
+.outside-layer.overlay {
+  transform: scale(1);
+  transition: ease-in-out;
+}
+
+/* The Forms */
+
+.theModal {
+  z-index: 1000;
+  display: flex;
+  width: 80%;
+  height: 70%;
+  justify-content: center;
   position: absolute;
-  top: -16px;
-  right: 6px;
-  cursor: pointer;
+  top: 20%;
+  left: 10%;
+  transform: scale(0);
+  align-items: center;
 }
 
-.form-container {
-  position: relative;
-  top: 0px;
-  margin: 34px;
-  font-size: 17px;
+.theModal.active {
+  display: flex;
+  transform: scale(1);
 }
-.desc-form {
-  position: relative;
-  background-color: white;
-  margin: 0px;
-  padding: 20px;
-  border-radius: 15px;
-  height: 100px;
-  width: 100px;
+
+.modalContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(189, 189, 189);
+  border-radius: 6px;
+  border: 3px solid rgb(5, 21, 168);
+  width: 85%;
+  height: 80%;
+  display: flex;
+}
+.modalContent .header {
+  height: fit-content;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modalContent .header .title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.modalContent .header .xbtn {
+  color: black;
+  text-decoration: none;
+  position: absolute;
+  right: 10px;
+  top: -2px;
+  cursor: pointer;
+  font-size: 45px;
+  background: none;
+  outline: none;
+  border: none;
 }
 
 footer {
@@ -167,4 +202,24 @@ footer {
   height: auto;
   font-size: 30px;
   bottom: 0px;
+}
+
+@media (max-width: 560px) {
+  .dcbots-btn a {
+    font-size: 1.5rem;
+    margin: auto;
+    padding: auto;
+  }
+  .modalContent {
+    top: 57%;
+  }
+
+  .modalContent .header .title {
+    max-height: 60%;
+    font-size: 25px;
+  }
+  .modalContent .header .xbtn {
+    font-size: 45px;
+    top: -5px;
+  }
 }

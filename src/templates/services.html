@@ -2,42 +2,45 @@
 
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename="css/services.css")}}"/>
+  <script src="{{ url_for('static', filename='js/web-create-form.js') }}" defer></script>
 {% endblock head %}
 {% block content %}
 
+<h1 class="zetext">Try our Services:</h1>
 
-<div class = 'zeTexts'>
-  <h1>Try our Services:</h1>
+<div class="whiteLine">
+  <p>To use the service just click the button and fill up the form inside.</p>
 </div>
-  
-<div class="whiteLine"></div>
+
+
 
 <div class='btns'>
   <div class="website-btn">
-    <p>Website</p>
+    <a href="#" id="web-button">Website</a>
   </div>
 
   <div class="dcbots-btn">
-    <p>Discord Bots</p>
+    <a href="#">Discord Bots</a>
   </div>
 
 </div>
 
-<div class="theModal">
+<div class='outside-layer'></div>
+
+<div class="theModal" id="web-form">
     <div class="modalContent">
-      <div class="xbtn">+</div>
-      <div class="form-container">
-        <h1>Tell us about your Website:</h1>
-        <form action="" method="POST"></form>
-          <div class="desc-form">
-
-          </div>
+      <div class="header">
+        <div class="title"> Tell us about your Website</div>
+        <a href='#' class="xbtn" id="close">&times;</a>
       </div>
+    
+      <div class="desc-form">
 
-      </form>
-      
+      </div>
     </div>
 </div>
+
+
 
 
 
