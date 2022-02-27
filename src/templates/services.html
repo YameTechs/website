@@ -27,16 +27,33 @@
 
 <div class='outside-layer'></div>
 
-<div class="theModal" id="web-form">
+<div class="theModal active" id="web-form">
     <div class="modalContent">
+
       <div class="header">
-        <div class="title"> Tell us about your Website</div>
+        <div class="title"> Tell us something about your Website</div>
         <a href='#' class="xbtn" id="close">&times;</a>
       </div>
     
-      <div class="desc-form">
+      <div class="body">
+
+        <div name="title">
+          <form class="web-title" action="">
+            <label for="web-title">Title of your Website</label>
+            <input type="text" name="web-title" placeholder="(ex: Keyboard Shortcuts)"><br>
+          </form> 
+        </div>
+
+      
+        <div class="desc-form">
+          <form action="">
+          <label for="description"> Please fill in the description</label>
+          <textarea name="description" id="desc" placeholder="(ex: it has keyboard buttons...)"></textarea>
+          </form>
+        </div>
 
       </div>
+
     </div>
 </div>
 

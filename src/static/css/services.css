@@ -140,7 +140,7 @@
   transition: ease-in-out;
 }
 
-/* The Forms */
+/* The Forms Modal */
 
 .theModal {
   z-index: 1000;
@@ -165,25 +165,27 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(189, 189, 189);
-  border-radius: 6px;
+  background: #ddd;
+  border-radius: 15px;
   border: 3px solid rgb(5, 21, 168);
   width: 85%;
   height: 80%;
-  display: flex;
 }
+
+/* Texts and buttons and form to fill*/
 .modalContent .header {
+  padding: 15px 10px;
+  width: 100%;
   height: fit-content;
   padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .modalContent .header .title {
-  font-size: 30px;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 .modalContent .header .xbtn {
+  margin-left: 20px;
+  position: relative;
   color: black;
   text-decoration: none;
   position: absolute;
@@ -196,6 +198,77 @@
   border: none;
 }
 
+/* Body */
+.modalContent .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 40px;
+  width: 100%;
+  height: 75%;
+}
+
+/* For the title area */
+.modalContent .body .web-title form {
+  margin: auto;
+  width: 100%;
+}
+
+.modalContent .body .web-title label {
+  margin: 20px 20px 10px 20px;
+  color: black;
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.modalContent .body .web-title input {
+  margin: 15px 15px 15px 60px;
+  border-radius: 20px;
+  border: 1px solid#aaa;
+  width: 55%;
+  height: 35px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.modalContent .body .web-title input::placeholder {
+  margin: auto;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+/* Description form*/
+.modalContent .body .desc-form form {
+  margin: auto;
+  width: 100%;
+  display: flex;
+}
+.modalContent .body .desc-form label {
+  margin: 20px 20px 10px 20px;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.modalContent .body .desc-form textarea {
+  margin: 15px 15px 15px 38px;
+  border-radius: 20px;
+  border: 2px #aaa;
+  width: 55%;
+  height: 150px;
+  font-size: 16px;
+  resize: none;
+  padding: 10px 10px 10px 10px;
+}
+
+.modalContent .body .desc-form textarea::placeholder {
+  margin: auto;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 200;
+}
+
 footer {
   position: relative;
   width: 100%;
@@ -204,7 +277,7 @@ footer {
   bottom: 0px;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 760px) {
   .dcbots-btn a {
     font-size: 1.5rem;
     margin: auto;
@@ -216,10 +289,43 @@ footer {
 
   .modalContent .header .title {
     max-height: 60%;
-    font-size: 25px;
+    font-size: 20px;
   }
+
   .modalContent .header .xbtn {
-    font-size: 45px;
+    font-size: 40px;
     top: -5px;
+  }
+
+  .modalContent .body {
+    padding: 5px 5px;
+  }
+
+  .modalContent .body .web-title label {
+    width: fit-content;
+    font-size: 1rem;
+    font-weight: 550;
+  }
+
+  .modalContent .body .web-title input::placeholder {
+    font-size: 14px;
+  }
+
+  .modalContent .body .desc-form form {
+    display: block;
+  }
+
+  .modalContent .body .desc-form label {
+    font-size: 1rem;
+    font-weight: 550;
+  }
+  .modalContent .body .desc-form textarea {
+    margin-left: 60px;
+  }
+}
+
+@media (min-width: 760px) and (max-width: 1250px) {
+  .modalContent .body .desc-form form {
+    display: block;
   }
 }
