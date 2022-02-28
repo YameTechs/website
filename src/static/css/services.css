@@ -21,7 +21,8 @@
   cursor: pointer;
 }
 
-/*White line seperator or something*/
+/*White line seperator or something and text*/
+
 .whiteLine {
   display: flex;
   background-color: white;
@@ -40,6 +41,7 @@
 }
 
 /* service buttons */
+
 .btns {
   display: flex;
   flex-direction: column;
@@ -123,7 +125,8 @@
   transition: 0.2s ease-out;
 }
 
-/*Outside Layer*/
+/* Outside Layer */
+
 .outside-layer {
   z-index: 10;
   display: flex;
@@ -140,7 +143,7 @@
   transition: ease-in-out;
 }
 
-/* The Forms Modal */
+/* Modal 1*/
 
 .theModal {
   z-index: 1000;
@@ -172,14 +175,47 @@
   height: 80%;
 }
 
+/* Modals 2 */
+
+.theModal2 {
+  z-index: 1000;
+  display: flex;
+  width: 80%;
+  height: 70%;
+  justify-content: center;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  transform: scale(0);
+  align-items: center;
+}
+
+.theModal2.active {
+  display: flex;
+  transform: scale(1);
+}
+
+.modalContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ddd;
+  border-radius: 15px;
+  border: 3px solid rgb(5, 21, 168);
+  width: 85%;
+  height: 80%;
+}
+
 /* Texts and buttons and form to fill*/
+
 .modalContent .header {
   padding: 15px 10px;
   width: 100%;
   height: fit-content;
   padding: 10px 15px;
 }
-.modalContent .header .title {
+.modalContent .header .titleHeader {
   font-size: 1.8rem;
   font-weight: bold;
 }
@@ -199,6 +235,7 @@
 }
 
 /* Body */
+
 .modalContent .body {
   display: flex;
   flex-direction: column;
@@ -209,19 +246,22 @@
 }
 
 /* For the title area */
-.modalContent .body .web-title form {
+
+.modalContent .body .title form {
   margin: auto;
   width: 100%;
 }
 
-.modalContent .body .web-title label {
-  margin: 20px 20px 10px 20px;
+.modalContent .body .title label {
+  width: 226px;
+  height: 32px;
+  margin: 20px 200px 10px 20px;
   color: black;
   font-size: 1.45rem;
   font-weight: 500;
 }
 
-.modalContent .body .web-title input {
+.modalContent .body .title input {
   margin: 15px 15px 15px 60px;
   border-radius: 20px;
   border: 1px solid#aaa;
@@ -231,7 +271,7 @@
   text-align: center;
 }
 
-.modalContent .body .web-title input::placeholder {
+.modalContent .body .title input::placeholder {
   margin: auto;
   justify-content: center;
   font-size: 16px;
@@ -239,6 +279,7 @@
 }
 
 /* Description form*/
+
 .modalContent .body .desc-form form {
   margin: auto;
   width: 100%;
@@ -254,7 +295,7 @@
 .modalContent .body .desc-form textarea {
   margin: 15px 15px 15px 38px;
   border-radius: 20px;
-  border: 2px #aaa;
+  border: 2px rgb(0, 0, 0);
   width: 55%;
   height: 150px;
   font-size: 16px;
@@ -287,7 +328,7 @@ footer {
     top: 57%;
   }
 
-  .modalContent .header .title {
+  .modalContent .header .titleHeader {
     max-height: 60%;
     font-size: 20px;
   }
@@ -301,13 +342,13 @@ footer {
     padding: 5px 5px;
   }
 
-  .modalContent .body .web-title label {
+  .modalContent .body .title label {
     width: fit-content;
     font-size: 1rem;
     font-weight: 550;
   }
 
-  .modalContent .body .web-title input::placeholder {
+  .modalContent .body .title input::placeholder {
     font-size: 14px;
   }
 

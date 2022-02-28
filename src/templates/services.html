@@ -20,27 +20,29 @@
   </div>
 
   <div class="dcbots-btn">
-    <a href="#">Discord Bots</a>
+    <a href="#" id="dc-btn" >Discord Bots</a>
   </div>
 
 </div>
 
 <div class='outside-layer'></div>
 
-<div class="theModal" id="web-form">
-    <div class="modalContent">
 
+
+<div class="theModal" id="web-form">
+
+    <div class="modalContent">
       <div class="header">
-        <div class="title"> Tell us something about your Website</div>
-        <a href='#' class="xbtn" id="close">&times;</a>
+        <div class="titleHeader"> Tell us something about your Website</div>
+        <a href='#' data-close="" class="xbtn" id="close">&times;</a>
       </div>
     
       <div class="body">
 
         <div name="title">
-          <form class="web-title" action="">
-            <label for="web-title">Title of your Website</label>
-            <input type="text" name="web-title" placeholder="(ex: Keyboard Shortcuts)"><br>
+          <form class="title" action="">
+            <label for="title">Title</label>
+            <input type="text" name="title" placeholder="(ex: Keyboard Shortcuts)"><br>
           </form> 
         </div>
 
@@ -57,7 +59,35 @@
     </div>
 </div>
 
+<div class="theModal2" id="web-form2">
+  <div class="modalContent">
 
+    <div class="header">
+      <div class="titleHeader"> Tell us something about your Discord Bot</div>
+      <a href='#' data-close="" class="xbtn" id="close2">&times;</a>
+    </div>
+  
+    <div class="body">
+
+      <div name="title">
+        <form class="title" action="">
+          <label for="dc-title">Title</label>
+          <input type="text" name="dc-title" placeholder="(ex: Jarvis)"><br>
+        </form> 
+      </div>
+
+    
+      <div class="desc-form">
+        <form action="">
+        <label for="description"> Please fill in the description</label>
+        <textarea name="description" id="desc" placeholder="(ex: He is able to kick people by command...)"></textarea>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
 
 
