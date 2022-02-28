@@ -2,7 +2,7 @@
 {%block title%}MyProfile{%endblock%}
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename='css/account.css')}}">
-  <link rel="stylesheet" href="{{url_for('static', filename='css/editprofile.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/account2.css')}}">
 {% endblock head %}
 
 {% block content %}
@@ -20,8 +20,6 @@
         <div class="ud-settings">
           <a href="#edit-Profile"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
           <a href="#Bought-Serv"><i class="fa-solid fa-cart-shopping"></i>Bought Services</a>
-          <a href="#"><i class="fas fa-user-check"></i>Verify Account</a>
-          <a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a>
           <a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
         </div>
       </div>
@@ -31,27 +29,42 @@
       <section class="editProfile" id="edit-Profile">
         <h2>Edit Profile</h2>
         <div class="user-data">
-        
-          {% if current_user.has_role('verified') %}
-          <p>You are verified</p>
-          {% else %}
-          <p>You are not verified</p>
-          <form method="POST" action="">
-            {{ form.hidden_tag() }}
-        
-            {{ form.submit() }}
+          <form method="POST">
+            <div class="form-element">
+              <label for="username"><b>Username</b></label>
+              {{ editdata.username(class="form-input", id="username", value=current_user.username) }}
+              {% for error in editdata.username.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            
+            <div class="form-element">
+              <label for="email"><b>Email</b></label>
+              {{ editdata.email(class="form-input", id="emaill", value=current_user.email) }}
+              {% for error in editdata.email.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            
+            <div class="form-element">
+              {{ editdata.submit(class="form-submit", placeholder="SUBMIT") }}
+              {% for error in editdata.email.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
           </form>
-          {% endif %}
+          
+          
         </div>
       </section>
       
       <section class="BoughtServ" id="Bought-Serv">
         <h2>Pending Services</h2>
-        <div class="penging-list">
+        <div class="pending-list">
           <ul>
-            <li>WEBSITE</li>
-            <li>APP</li>
-            <li>PROGRAMSDA</li>
+            <li>*in development*</li>
+            <li>*in development*</li>
+            <li>*in development*</li>
           </ul>
         </div>
       </section>

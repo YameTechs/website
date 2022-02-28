@@ -17,27 +17,27 @@ from src.utils import logout_required
 users = Blueprint("users", __name__)
 
 
-@users.route("/account/<int:id>", methods=["POST", "GET"])
+@users.route("/account/", methods=["POST", "GET"])
 @login_required
-def account(id):
-    form = ResendEmailButton()
-
-    if not (form.validate_on_submit() and form.submit.data):
-        return render_template("account.html", getattr=getattr, form=form)
-
-    msg_body = (
+def account():
+  editdata = EditUserDataForm()
+  form = ResendEmailButton()
+  if not (form.validate_on_submit() and form.submit.data):
+    return render_template("account.html", getattr=getattr, form=form, editdata=editdata)
+    
+  msg_body = (
         "To verify your account, visit the following link:\n"
         "{}\n"
         "If you did not make this request then simply ignore this email and no "
         "changes will be made"
-    )
-
-    send_user_email(
+  )
+    
+  send_user_email(
         current_user, "Account Verification", msg_body, "users.verify_token"
-    )
-
-    flash("An email has been send with your verification link!")
-    return render_template("account.html", getattr=getattr, form=form)
+  )
+    
+  flash("An email has been send with your verification link!")
+  return redirect("account.html", getattr=getattr, form=form, editdata=editdata)
 
 @users.route("/login/", methods=["POST", "GET"])
 @logout_required
