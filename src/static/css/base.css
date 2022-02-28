@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap");
 
 :root {
   --primary-color: #000d1a;
   --primary-theme: linear-gradient(to right, #000d1a, #003366);
-  --primary-textColor: #FFFFFF;
-  --light-theme: linear-gradient(to right, white, #DDD);
+  --primary-textColor: #ffffff;
+  --light-theme: linear-gradient(to right, white, #ddd);
   --light-textColor: #000000;
-  
 }
 
 * {
@@ -17,7 +16,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: var(--primary-theme);
 }
 
@@ -31,7 +30,7 @@ nav {
   position: relative;
   top: 0;
   left: 0;
-  background:none;
+  background: none;
   width: 100%;
   color: var(--primary-textColor);
   z-index: 1000;
@@ -49,9 +48,9 @@ nav {
 }
 
 .logo {
-  margin: .5rem;
+  margin: 0.5rem;
   margin-left: 3rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -60,7 +59,7 @@ nav {
 
 .burgir {
   position: absolute;
-  top: .75rem;
+  top: 0.75rem;
   right: 1.5rem;
   display: none;
   flex-direction: column;
@@ -83,24 +82,24 @@ nav {
   text-decoration: none;
   color: var(--primary-textColor);
   padding: 9px 17px;
-  margin: .2rem;
+  margin: 0.2rem;
   border-radius: 25px;
-  transition: .4s ease;
+  transition: 0.4s ease;
 }
 
-.menu a:hover, .menu.is-active{
+.menu a:hover,
+.menu.is-active {
   background-color: #ddd;
   color: black;
 }
 
 #reg {
   border: 1px solid white;
-  background: #DDD;
+  background: #ddd;
   color: var(--light-textColor);
 }
 
 .menu #reg:hover {
-  
   color: var(--primary-textColor);
   background: none;
 }
@@ -175,7 +174,7 @@ nav {
   cursor: pointer;
   padding: 10px 20px;
   color: dimgray;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
 .userAcc_settings .userAcc_menu i {
@@ -201,17 +200,16 @@ nav {
   align-items: center;
   background: #fff2cc;
   margin: 20px;
-  border-radius: 5px; 
+  border-radius: 5px;
   padding: 9px 13px;
 }
-
 
 .flash-msg button {
   background: none;
   outline: none;
   border: none;
   color: black;
-  padding: 9px 13px; 
+  padding: 9px 13px;
   cursor: pointer;
 }
 
@@ -241,7 +239,7 @@ footer {
     opacity: 0;
     transform: translateY(-10px);
   }
-  
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -251,47 +249,105 @@ footer {
 /* media queries */
 @media (min-width: 1000px) {
   .menu .logo {
-    font-size:  35px;
+    font-size: 35px;
     margin-left: 5rem;
   }
-  
+
   .menu a {
     font-size: 25px;
   }
-  
+
   .userAcc_settings {
-    margin-right: 5rem;
+    margin-right: 3rem;
+    transform: scale(1.3);
   }
-  
+
+  .logo {
+    margin: 0.5rem;
+    margin-right: 30rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 50px;
+    font-weight: 590px;
+    letter-spacing: 2px;
+    cursor: text;
+    color: white;
+    position: relative;
+    left: 70px;
+  }
+
+  .menu {
+    position: absolute;
+    display: flex;
+    right: 150px;
+    padding: 0;
+  }
+
+  .menu a {
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    padding: 9px 17px;
+    margin: 0.2rem;
+    border-radius: 50px;
+    transition: 0.4s ease;
+  }
+  .menu a:hover,
+  .menu.is-active {
+    background-color: #ddd;
+    color: black;
+  }
+  /*
+  .theService {
+    display: flex;
+  }
+
+  .theService a {
+    z-index: 1000;
+    background-color: rgb(16, 15, 119);
+    position: fixed;
+    top: 500px;
+    left: -25px;
+    font-size: 20px;
+
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transform: rotate(90deg);
+    padding: 10px 10px;
+  }
+  .theService a:hover,
+  .theService {
+    background-color: black;
+    color: White;
+  }*/
 }
 
 @media (max-width: 768px) {
   body {
     margin-top: 40px;
   }
-  
+
   nav {
     position: fixed;
     z-index: 1000;
   }
-  
+
   nav.clicked {
     background: #000d1a;
   }
-  
+
   nav.scroll {
     background: var(--primary-color);
   }
-  
+
   .container {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .burgir {
     display: flex;
   }
-  
+
   .menu {
     display: none;
     background-color: #000d1a;
@@ -300,24 +356,24 @@ footer {
     text-align: center;
     z-index: 1000;
   }
-  
+
   .logo {
     margin-left: 30px;
   }
-  
+
   .menu a {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 15px;
     margin: 10px;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
   }
-  
+
   .menu i {
     margin-right: 7px;
   }
-  
+
   .userAcc_menu2 {
     display: flex;
     align-items: center;
@@ -327,7 +383,7 @@ footer {
     height: auto;
     margin: 1rem;
   }
-  
+
   .userAcc_menu2 .profile-name {
     padding: 10px;
     display: flex;
@@ -335,12 +391,12 @@ footer {
     align-items: center;
     gap: 20px;
   }
-  
+
   .user_options {
     display: flex;
     justify-content: center;
   }
-  
+
   .userAcc_menu2 img {
     height: 100px;
     width: 100px;
@@ -348,27 +404,27 @@ footer {
     overflow: hidden;
     cursor: pointer;
   }
-  
+
   .userAcc_menu2 h3 {
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
     line-height: 0.8;
   }
-  
+
   .userAcc_menu2 span {
     font-size: 15px;
     cursor: pointer;
   }
-  
+
   .userAcc_settings {
     display: none;
   }
-  
+
   .userAcc_menu2.active {
     display: flex;
   }
-  
+
   .menu.active {
     display: flex;
     flex-direction: column;
@@ -376,4 +432,3 @@ footer {
 }
 
 /* navbar end */
-
