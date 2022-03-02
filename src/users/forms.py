@@ -14,10 +14,6 @@ class ResetPasswordForm(FlaskForm):
     submit = SubmitField("Sign Up")
 
 
-class ResendEmailButton(FlaskForm):
-    submit = SubmitField("Send Verification Email")
-
-
 class RegistrationForm(FlaskForm):
     username = StringField(
         "Username", validators=[DataRequired(), Length(min=3, max=25)]
@@ -58,10 +54,3 @@ class RequestResetFrom(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is None:
             raise ValidationError("there is no account with that email!")
-
-
-class EditUserDataForm(FlaskForm):
-    username = StringField(validators=[Length(min=3, max=25)])
-    email = EmailField()
-    password = PasswordField()
-    submit = SubmitField()
