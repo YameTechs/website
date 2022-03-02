@@ -4,12 +4,12 @@ from flask_login import current_user, login_required, login_user, logout_user
 from src import _bcrypt, _db
 from src.models import Role, User
 from src.users.forms import (
+    EditUserDataForm,
     LoginForm,
     RegistrationForm,
     RequestResetFrom,
     ResendEmailButton,
     ResetPasswordForm,
-    EditUserDataForm,
 )
 from src.users.utils import send_user_email
 from src.utils import logout_required
@@ -20,24 +20,27 @@ users = Blueprint("users", __name__)
 @users.route("/account/", methods=["POST", "GET"])
 @login_required
 def account():
-  editdata = EditUserDataForm()
-  form = ResendEmailButton()
-  if not (form.validate_on_submit() and form.submit.data):
-    return render_template("account.html", getattr=getattr, form=form, editdata=editdata)
-    
-  msg_body = (
+    editdata = EditUserDataForm()
+    form = ResendEmailButton()
+    if not (form.validate_on_submit() and form.submit.data):
+        return render_template(
+            "account.html", getattr=getattr, form=form, editdata=editdata
+        )
+
+    msg_body = (
         "To verify your account, visit the following link:\n"
         "{}\n"
         "If you did not make this request then simply ignore this email and no "
         "changes will be made"
-  )
-    
-  send_user_email(
+    )
+
+    send_user_email(
         current_user, "Account Verification", msg_body, "users.verify_token"
-  )
-    
-  flash("An email has been send with your verification link!")
-  return redirect("account.html", getattr=getattr, form=form, editdata=editdata)
+    )
+
+    flash("An email has been send with your verification link!")
+    return redirect("account.html", getattr=getattr, form=form, editdata=editdata)
+
 
 @users.route("/login/", methods=["POST", "GET"])
 @logout_required
