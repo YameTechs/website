@@ -24,83 +24,89 @@
             color: white;
             font-size: 35px;
             font-family: 'Roboto', sans-serif;
-          ">YameTech</em>
-        </h1>
-        <p>
-          We are a team of young and enthusiastic developers who are passionate about programming.
-        </p>
-      </div>
-      <a href="{{ url_for('main.about') }}">Wanna know more?</a>
+          "
+          >YameTech</em
+        >
+      </h1>
+      <p>
+        We are a team of young and enthusiastic developers who are passionate
+        about programming.
+      </p>
     </div>
-    <div class="custom-shape-divider-bottom-1642833130">
-      <svg
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 120"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-          class="shape-fill"
-        ></path>
-      </svg>
-    </div>
+    <a href="{{ url_for('main.about') }}">Wanna know more?</a>
   </div>
-  <!-- end first section -->
+  <div class="custom-shape-divider-bottom-1642833130">
+    <svg
+      data-name="Layer 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+        class="shape-fill"
+      ></path>
+    </svg>
+  </div>
+</div>
+<!-- end first section -->
 
-  <!-- second section -->
-  <div class="projectss">
+<!-- second section -->
+<div class="projectss">
   {% if projects %}
-    <h1><b>Here's some of the projects that we've done</b></h1>
-    <div class="projlist">
-      {% for project in projects %}
-        <div class="card">
-          <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
-          <div class="proj-text">
-            <h2>{{ project.title }}</h2>
-            <span>{{ project.description }}</span>
-          </div>
-          <div class="projbtn">
-            <a href="{{ url_for('project.view', project_id=project.id) }}">
-              Take a closer look!<i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      {% endfor %}
-      <div class="to-proj">
-        <a href="{{ url_for('project.index') }}">To Projects<i class="fas fa-arrow-right"></i></a>
+  <h1><b>Here's some of the projects that we've done</b></h1>
+  <div class="projlist">
+    {% for project in projects %}
+    <div class="card">
+      <img src="{{ url_for('static', filename="project/" + project.image_file)
+      }}">
+      <div class="proj-text">
+        <h2>{{ project.title }}</h2>
+        <span>{{ project.description }}</span>
+      </div>
+      <div class="projbtn">
+        <a href="{{ url_for('project.view', project_id=project.id) }}">
+          Take a closer look!<i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
-  {% else %}
-    <h2>We haven't done any projects yet</h2>
-    <img src="{{url_for('static', filename='img/soon.png')}}">
-  {% endif %}
-  </div>
-  <!-- endsecond section -->
-
-  <!-- third section -->
-  <div class="contacts">
-    <div class="custom-shape-divider-top-1642926837">
-      <svg
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 120"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          class="shape-fill"
-        ></path>
-      </svg>
+    {% endfor %}
+    <div class="to-proj">
+      <a href="{{ url_for('project.index') }}"
+        >To Projects<i class="fas fa-arrow-right"></i
+      ></a>
     </div>
   </div>
-  <!-- end third section -->
-  <footer>
-    <p>&copy;Contact Informations:<br /></p>
-    <ul>
-      <li><a href="#">discord</a></li>
-      <li>yt(?)</li>
-      <li>dunno</li>
-    </ul>
-  </footer>
+  {% else %}
+  <h2>We haven't done any projects yet</h2>
+  <img src="{{url_for('static', filename='img/soon.png')}}" />
+  {% endif %}
+</div>
+<!-- endsecond section -->
+
+<!-- third section -->
+<div class="contacts">
+  <div class="custom-shape-divider-top-1642926837">
+    <svg
+      data-name="Layer 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+        class="shape-fill"
+      ></path>
+    </svg>
+  </div>
+</div>
+<!-- end third section -->
+<footer>
+  <p>&copy;Contact Informations:<br /></p>
+  <ul>
+    <li><a href="#">discord</a></li>
+    <li>yt(?)</li>
+    <li>dunno</li>
+  </ul>
+</footer>
 {% endblock content %}

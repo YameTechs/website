@@ -2,8 +2,70 @@
 {%block title%}Services{%endblock%}
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename="css/services.css")}}"/>
+  <script src="{{ url_for('static', filename='js/web-create-form.js') }}" defer></script>
 {% endblock head %}
 {% block content %}
+
+<h1 class="zetext">Try our Services:</h1>
+
+<div class="whiteLine">
+  <p>To use the service just click the button and fill up the form inside.</p>
+</div>
+
+
+
+<div class='btns'>
+  <div class="website-btn">
+    <a href="#" id="web-button">Website</a>
+  </div>
+
+  <div class="dcbots-btn">
+    <a href="#">Discord Bots</a>
+  </div>
+
+</div>
+
+<div class='outside-layer'></div>
+
+<div class="theModal" id="web-form">
+    <div class="modalContent">
+
+      <div class="header">
+        <div class="title"> Tell us something about your Website</div>
+        <a href='#' class="xbtn" id="close">&times;</a>
+      </div>
+    
+      <div class="body">
+
+        <div name="title">
+          <form class="web-title" action="">
+            <label for="web-title">Title of your Website</label>
+            <input type="text" name="web-title" placeholder="(ex: Keyboard Shortcuts)"><br>
+          </form> 
+        </div>
+
+      
+        <div class="desc-form">
+          <form action="">
+          <label for="description"> Please fill in the description</label>
+          <textarea name="description" id="desc" placeholder="(ex: it has keyboard buttons...)"></textarea>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
   {% if current_user.is_authenticated and current_user.has_role("admin") %}
     <form action="{{ url_for('service.new') }}", method="GET">
       <input type="submit" value="New Service">
@@ -28,6 +90,10 @@
       </div>
     {% endfor %}
   {% else %}
+  <div class="notLoggedIn">
     We don't have service for now pain...
+  </div>
   {% endif %}
+
+
 {% endblock content %}

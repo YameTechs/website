@@ -1,0 +1,331 @@
+/* Unauthenticated */
+.notLoggedIn {
+  font-size: 23px;
+  align-items: center;
+  color: white;
+  padding: 15px 15px 15px 15px;
+  position: absolute;
+  left: 47px;
+  top: 215px;
+  display: none;
+}
+
+.zetext {
+  display: flex;
+  position: relative;
+  top: 45px;
+  font-size: 1.7rem;
+  color: white;
+  margin: auto;
+  width: 87%;
+  cursor: pointer;
+}
+
+/*White line seperator or something*/
+.whiteLine {
+  display: flex;
+  background-color: white;
+  width: 90%;
+  height: 2px;
+  position: relative;
+  margin: auto;
+  top: 64px;
+}
+.whiteLine p {
+  display: flex;
+  color: white;
+  font-size: 1.5rem;
+
+  margin: 10px 10px 10px 10px;
+}
+
+/* service buttons */
+.btns {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: 50vh;
+  position: relative;
+  top: 18vh;
+  border-radius: 21px;
+  background-color: slategrey;
+  margin: auto;
+  align-items: center;
+}
+
+.website-btn {
+  text-decoration: none;
+  width: 50%;
+  height: 30%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.website-btn a {
+  text-decoration: none;
+  position: relative;
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  padding: 10px 10px 10px 10px;
+  width: 250px;
+  height: 80px;
+  margin-top: 35px;
+  border: 2px solid rgb(161, 161, 161);
+  border-radius: 15px;
+  background-color: whitesmoke;
+}
+.website-btn a:hover {
+  background-image: url("../img/backgrounds/website-img.jpg");
+  background-size: 247px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: -28px;
+  background-color: rgb(21, 11, 109);
+  cursor: pointer;
+  border-color: white;
+  color: rgb(46, 45, 45);
+  transition: 0.2s ease-out;
+}
+
+.dcbots-btn {
+  width: 50%;
+  height: 30%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.dcbots-btn a {
+  text-decoration: none;
+  position: relative;
+  background-color: whitesmoke;
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  padding: 10px 10px 10px 10px;
+  width: 250px;
+  height: 80px;
+  margin-top: 35px;
+  border: 2px solid rgb(161, 161, 161);
+  border-radius: 15px;
+  justify-content: center;
+}
+.dcbots-btn p:hover {
+  background-image: url("../img/backgrounds/discord.png");
+  background-size: 247px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: -28px;
+  background-color: rgb(21, 11, 109);
+  cursor: pointer;
+  border-color: white;
+  color: white;
+  transition: 0.2s ease-out;
+}
+
+/*Outside Layer*/
+.outside-layer {
+  z-index: 10;
+  display: flex;
+  position: absolute;
+  top: 0;
+  transform: scale(0);
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+}
+
+.outside-layer.overlay {
+  transform: scale(1);
+  transition: ease-in-out;
+}
+
+/* The Forms Modal */
+
+.theModal {
+  z-index: 1000;
+  display: flex;
+  width: 80%;
+  height: 70%;
+  justify-content: center;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  transform: scale(0);
+  align-items: center;
+}
+
+.theModal.active {
+  display: flex;
+  transform: scale(1);
+}
+
+.modalContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ddd;
+  border-radius: 15px;
+  border: 3px solid rgb(5, 21, 168);
+  width: 85%;
+  height: 80%;
+}
+
+/* Texts and buttons and form to fill*/
+.modalContent .header {
+  padding: 15px 10px;
+  width: 100%;
+  height: fit-content;
+  padding: 10px 15px;
+}
+.modalContent .header .title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.modalContent .header .xbtn {
+  margin-left: 20px;
+  position: relative;
+  color: black;
+  text-decoration: none;
+  position: absolute;
+  right: 10px;
+  top: -2px;
+  cursor: pointer;
+  font-size: 45px;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+/* Body */
+.modalContent .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 40px;
+  width: 100%;
+  height: 75%;
+}
+
+/* For the title area */
+.modalContent .body .web-title form {
+  margin: auto;
+  width: 100%;
+}
+
+.modalContent .body .web-title label {
+  margin: 20px 20px 10px 20px;
+  color: black;
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.modalContent .body .web-title input {
+  margin: 15px 15px 15px 60px;
+  border-radius: 20px;
+  border: 1px solid#aaa;
+  width: 55%;
+  height: 35px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.modalContent .body .web-title input::placeholder {
+  margin: auto;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+/* Description form*/
+.modalContent .body .desc-form form {
+  margin: auto;
+  width: 100%;
+  display: flex;
+}
+.modalContent .body .desc-form label {
+  margin: 20px 20px 10px 20px;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.modalContent .body .desc-form textarea {
+  margin: 15px 15px 15px 38px;
+  border-radius: 20px;
+  border: 2px #aaa;
+  width: 55%;
+  height: 150px;
+  font-size: 16px;
+  resize: none;
+  padding: 10px 10px 10px 10px;
+}
+
+.modalContent .body .desc-form textarea::placeholder {
+  margin: auto;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  font-size: 30px;
+  bottom: 0px;
+}
+
+@media (max-width: 760px) {
+  .dcbots-btn a {
+    font-size: 1.5rem;
+    margin: auto;
+    padding: auto;
+  }
+  .modalContent {
+    top: 57%;
+  }
+
+  .modalContent .header .title {
+    max-height: 60%;
+    font-size: 20px;
+  }
+
+  .modalContent .header .xbtn {
+    font-size: 40px;
+    top: -5px;
+  }
+
+  .modalContent .body {
+    padding: 5px 5px;
+  }
+
+  .modalContent .body .web-title label {
+    width: fit-content;
+    font-size: 1rem;
+    font-weight: 550;
+  }
+
+  .modalContent .body .web-title input::placeholder {
+    font-size: 14px;
+  }
+
+  .modalContent .body .desc-form form {
+    display: block;
+  }
+
+  .modalContent .body .desc-form label {
+    font-size: 1rem;
+    font-weight: 550;
+  }
+  .modalContent .body .desc-form textarea {
+    margin-left: 60px;
+  }
+}
+
+@media (min-width: 760px) and (max-width: 1250px) {
+  .modalContent .body .desc-form form {
+    display: block;
+  }
+}
