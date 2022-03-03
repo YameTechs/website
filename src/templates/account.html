@@ -29,7 +29,7 @@
       <section class="editProfile" id="edit-Profile">
         <h2>Edit Profile</h2>
         <div class="user-data">
-          <form method="POST">
+          <form method="POST" action="/account/edit-data/{{ current_user.id }}">
             <div class="form-element">
               <label for="username"><b>Username</b></label>
               {{ editdata.username(class="form-input", id="username", value=current_user.username) }}

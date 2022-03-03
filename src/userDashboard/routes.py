@@ -12,7 +12,9 @@ dashboard = Blueprint("dashboard", __name__)
 @dashboard.route("/account/", methods=["POST", "GET"])
 @login_required
 def index():
-    return render_template("account.html")
+    editdata = EditUserDataForm()
+    form = ResendEmailButton()
+    return render_template("account.html", getattr=getattr, form=form, editdata=editdata)
 
 
 @dashboard.route("/account/verify/", methods=["POST", "GET"])
@@ -20,7 +22,7 @@ def index():
 def verify():
     form = ResendEmailButton()
     if not (form.validate_on_submit() and form.submit.data):
-        return render_template("account.html", getattr=getattr, form=form)
+        return render_template(url_for(index), getattr=getattr, form=form)
 
     msg_body = (
         "To verify your account, visit the following link:\n"
@@ -34,4 +36,24 @@ def verify():
     )
 
     flash("An email has been send with your verification link!")
-    return redirect("account.html", getattr=getattr, form=form)
+    return redirect(url_for(index), getattr=getattr, form=form)
+
+
+@dashboard.route("/account/edit-data/<int:id>", methods=["POST", "GET"])
+@login_required
+def edit_Data(id):
+  editdata = EditUserDataForm()
+  data = User.query.get_or_404(id)
+  
+  if editdata.validate_on_submit():
+    data.username = request.username["username"]
+    data.email = request.email["email"]
+    try:
+      _db.session.commit()
+      flash("Updated Successfully")
+      return redirect(url_for(index), getattr=getattr, editdata=editdata, data=data)
+    except:
+      flash("Something went wrong. Try again")
+      return redirect(url_for(index), getattr=getattr, editdata=editdata, data=data)
+  else:
+    return redirect(url_for(index), getattr=getattr, editdata=editdata, data=data)
