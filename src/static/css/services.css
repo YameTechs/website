@@ -309,6 +309,29 @@
   font-size: 16px;
   font-weight: 200;
 }
+/* Submit */
+.middle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.passSubmit {
+  cursor: pointer;
+  font-size: 1.4rem;
+  width: 15%;
+  height: 50px;
+  margin: auto;
+  border-radius: 25px;
+  background-color: rgb(77, 77, 77);
+  border: 2px solid rgb(0, 0, 0);
+  color: white;
+}
+
+.passSubmit:hover {
+  color: black;
+  background-color: aqua;
+  transition: ease-in;
+}
 
 footer {
   position: relative;
@@ -368,5 +391,14 @@ footer {
 @media (min-width: 760px) and (max-width: 1250px) {
   .modalContent .body .desc-form form {
     display: block;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 1150px) and (min-height: 350px) and (max-height: 650px) {
+  .btns {
+    top: 28vh;
+  }
+  .dcbots-btn a {
+    margin-top: 40px;
   }
 }
