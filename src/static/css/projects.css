@@ -1,0 +1,12 @@
+.projects-sec {
+  height: 100vh;
+  width: 100%;
+  background-color: #738FA7;
+  display: grid;
+  place-items: center;
+}
+
+.not-available h1 {
+  color: white;
+  font-weight: 900;
+}
