@@ -51,6 +51,12 @@
   padding: 10px 20px;
 }
 
+.logreg-form .form-input:focus {
+  border:1px solid #738FA7;
+  box-shadow: 0 0 5px #738FA7;
+  box-shadow: inset 0 0 5px #738FA7;
+}
+
 .logreg-form #remem {
   margin-right: 5px;
 }
