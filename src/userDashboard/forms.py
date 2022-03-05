@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import EmailField, PasswordField, StringField, SubmitField
-from wtforms.validators import EqualTo, Length, ValidationError
+from wtforms.validators import Length
 
 
 class EditUserDataForm(FlaskForm):

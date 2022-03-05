@@ -1,8 +1,8 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
-from flask_login import current_user, login_required, login_user, logout_user
+from flask_login import current_user, login_required
 
-from src import _bcrypt, _db
-from src.models import Role, User
+from src import _db
+from src.models import User
 from src.userDashboard.forms import EditUserDataForm, ResendEmailButton
 from src.users.utils import send_user_email
 
@@ -14,7 +14,9 @@ dashboard = Blueprint("dashboard", __name__)
 def index():
     editdata = EditUserDataForm()
     form = ResendEmailButton()
-    return render_template("account.html", getattr=getattr, form=form, editdata=editdata)
+    return render_template(
+        "account.html", getattr=getattr, form=form, editdata=editdata
+    )
 
 
 @dashboard.route("/account/verify/", methods=["POST", "GET"])
@@ -42,18 +44,22 @@ def verify():
 @dashboard.route("/account/edit-data/<int:id>", methods=["POST", "GET"])
 @login_required
 def edit_Data(id):
-  editdata = EditUserDataForm()
-  data = User.query.get_or_404(id)
-  
-  if editdata.validate_on_submit():
-    data.username = request.username["username"]
-    data.email = request.email["email"]
-    try:
-      _db.session.commit()
-      flash("Updated Successfully")
-      return redirect(url_for(index), getattr=getattr, editdata=editdata, data=data)
-    except:
-      flash("Something went wrong. Try again")
-      return redirect(url_for(index), getattr=getattr, editdata=editdata, data=data)
-  else:
-    return redirect(url_for(index), getattr=getattr, editdata=editdata, data=data)
+    editdata = EditUserDataForm()
+    data = User.query.get_or_404(id)
+
+    if editdata.validate_on_submit():
+        data.username = request.username["username"]
+        data.email = request.email["email"]
+        try:
+            _db.session.commit()
+            flash("Updated Successfully")
+            return redirect(
+                url_for(index), getattr=getattr, editdata=editdata, data=data
+            )
+        except:
+            flash("Something went wrong. Try again")
+            return redirect(
+                url_for(index), getattr=getattr, editdata=editdata, data=data
+            )
+    else:
+        return redirect(url_for(index), getattr=getattr, editdata=editdata, data=data)
