@@ -50,7 +50,8 @@ def edit_Data(id):
     if editdata.validate_on_submit():
         data.username = request.username["username"]
         data.email = request.email["email"]
-        try:
+        #please fix thanks
+        """try:
             _db.session.commit()
             flash("Updated Successfully")
             return redirect(
@@ -60,6 +61,6 @@ def edit_Data(id):
             flash("Something went wrong. Try again")
             return redirect(
                 url_for(index), getattr=getattr, editdata=editdata, data=data
-            )
+            )"""
     else:
         return redirect(url_for(index), getattr=getattr, editdata=editdata, data=data)
