@@ -37,7 +37,7 @@
       </div>
     
       <div class="form-element">
-        <label for="site_url">Site URLl</label>
+        <label for="site_url">Site URL</label>
         {{ form.site_url(class="form-input", id="site_url", placeholder="Enter site url") }}
         {% for error in form.site_url.errors %}
         <span>{{ error }}</span>
@@ -50,6 +50,7 @@
           {{ form.image_file(class="form-input fileField", id="image_file", placeholder="Enter image_file") }}
         </div>
         <div class="botPart">
+          <input type="reset" value="Reset" class="form-submit" id="resetBtn">
           {{ form.submit(class="form-submit") }}
         </div>
         {% for error in form.image_file.errors %}

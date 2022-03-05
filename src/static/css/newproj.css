@@ -62,3 +62,27 @@
   letter-spacing: 1px;
   background-color: #75E6DA;
 }
+
+.bottom #resetBtn {
+  background: none;
+  color: white;
+  border: 1px solid #75E6DA;
+}
+
+
+/* media queries */
+@media (min-width: 400px) {
+  .newProj {
+    padding: 5px;
+  }
+  
+  .newProj-form {
+    padding: 10px;
+  }
+  
+  .bottom .form-submit {
+    font-weight: 0;
+    font-size: 15px;
+    padding: 9px 13px;
+  }
+}
