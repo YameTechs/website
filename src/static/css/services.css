@@ -200,6 +200,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 15px;
   background: #ddd;
   border-radius: 15px;
   border: 3px solid rgb(5, 21, 168);
@@ -341,19 +342,30 @@ footer {
   bottom: 0px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1000px) {
+  .whiteLine p {
+    font-size: 1.2rem;
+  }
+
+  .btns {
+    top: 25vh;
+  }
+
   .dcbots-btn a {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: auto;
+    margin-top: 31px;
     padding: auto;
   }
   .modalContent {
+    padding: 5px;
     top: 57%;
   }
 
   .modalContent .header .titleHeader {
     max-height: 60%;
-    font-size: 20px;
+    font-size: 15px;
+    margin-bottom: 15px;
   }
 
   .modalContent .header .xbtn {
@@ -366,13 +378,18 @@ footer {
   }
 
   .modalContent .body .title label {
+    margin-top: 12px;
     width: fit-content;
     font-size: 1rem;
     font-weight: 550;
   }
 
+  .modalContent .body .title input {
+    margin-top: 5px;
+  }
+
   .modalContent .body .title input::placeholder {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .modalContent .body .desc-form form {
@@ -383,8 +400,21 @@ footer {
     font-size: 1rem;
     font-weight: 550;
   }
+
   .modalContent .body .desc-form textarea {
     margin-left: 60px;
+    height: 120px;
+  }
+  .modalContent .body .desc-form textarea::placeholder {
+    font-size: 12px;
+  }
+
+  .passSubmit {
+    position: relative;
+    top: -7.5px;
+    font-size: 1rem;
+    width: 26%;
+    height: 27px;
   }
 }
 
