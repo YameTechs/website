@@ -38,7 +38,7 @@ The official website for YameTechs
   - [x] database view
 - [ ] about
 - [ ] contacts
-- [ ] portfolio
+- [x] portfolio
   - [x] projects
 - [ ] services
   - [x] CRUD operation on service post
@@ -48,8 +48,8 @@ The official website for YameTechs
   - [ ] settings
     - [ ] backend
     - [ ] frontend
-  - [ ] account
-    - [ ] UI
+  - [x] account
+    - [x] UI
   - [x] forgotten password
     - [x] verify email (email)
   - [x] login
