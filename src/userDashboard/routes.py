@@ -1,7 +1,7 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
 
-from src import _db
+# Lint = error because unused // from src import _db
 from src.models import User
 from src.userDashboard.forms import EditUserDataForm, ResendEmailButton
 from src.users.utils import send_user_email
@@ -51,16 +51,16 @@ def edit_Data(id):
         data.username = request.username["username"]
         data.email = request.email["email"]
         #please fix thanks
-        """try:
-            _db.session.commit()
-            flash("Updated Successfully")
-            return redirect(
-                url_for(index), getattr=getattr, editdata=editdata, data=data
-            )
-        except:
-            flash("Something went wrong. Try again")
-            return redirect(
-                url_for(index), getattr=getattr, editdata=editdata, data=data
-            )"""
+        #try:
+        #    _db.session.commit()
+        #    flash("Updated Successfully")
+        #    return redirect(
+        #        url_for(index), getattr=getattr, editdata=editdata, data=data
+        #    )
+        #except:
+        #    flash("Something went wrong. Try again")
+        #    return redirect(
+        #        url_for(index), getattr=getattr, editdata=editdata, data=data
+        #   )
     else:
         return redirect(url_for(index), getattr=getattr, editdata=editdata, data=data)

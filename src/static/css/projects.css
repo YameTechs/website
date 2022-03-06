@@ -1,16 +1,19 @@
 .projects-sec {
-  height: auto;
+  min-height: 100vh;
   width: 100%;
   padding: 50px;
   background-color: #738FA7;
   display: grid;
   grid-template-columns: auto auto auto auto;
+  place-items: center;
   row-gap: 30px;
 }
 
 .not-available h1 {
   color: white;
   font-weight: 900;
+  border-left: 3px solid #DDD;
+  padding-left: 3px;
 }
 
 .ProjBtn {

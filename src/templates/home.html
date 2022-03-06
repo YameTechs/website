@@ -85,7 +85,7 @@
 <!-- endsecond section -->
 
 <!-- third section -->
-<div class="contacts">
+<div class="feedback">
   <div class="custom-shape-divider-top-1642926837">
     <svg
       data-name="Layer 1"
@@ -98,6 +98,29 @@
         class="shape-fill"
       ></path>
     </svg>
+  </div>
+  
+  <div class="feedbackForm">
+    <h3>Give us your feedback!</h3>
+    <!-- PLEASE ADD BACKEND THANKS -->
+    <form>
+      <div class="feedbackElement">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-input" value="{{current_user.username}}">
+      </div>
+      <div class="feedbackElement">
+        <label for="email">Email</label>
+        <input type="text" id="email" class="form-input" value="{{current_user.email}}">
+      </div>
+      <div class="feedbackElement">
+        <label for="feedbackText">Your Feedback</label>
+        <textarea id="feedbackText" cols="30" rows="3" class="form-input"></textarea>
+      </div>
+      <div class="feedbackElement botPart">
+        <input type="reset" value="Reset" class="form-submit">
+        <input type="submit" value="Submit" class="form-submit">
+      </div>
+    </form>
   </div>
 </div>
 <!-- end third section -->

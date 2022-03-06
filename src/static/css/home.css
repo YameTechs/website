@@ -37,7 +37,7 @@ a {
 }
 .intro p {
   color: white;
-  font-size: 25px;
+  font-size: 1.5;
 }
 
 .intro a {
@@ -46,7 +46,6 @@ a {
   border-radius: 30px;
   padding: 9px 13px;
   cursor: pointer;
-  font-weight: 600;
   margin-top: 10px;
 }
 
@@ -108,7 +107,7 @@ a {
 }
 
 .projectss h2 {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .projectss img {
@@ -193,7 +192,7 @@ a {
 
 /* third section */
 
-.contacts {
+.feedback {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -220,6 +219,62 @@ a {
 
 .custom-shape-divider-top-1642926837 .shape-fill {
   fill: #dddddd;
+}
+
+.feedbackForm {
+  color: white;
+  padding: 100px;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedbackForm .feedbackElement {
+  margin: 5px;
+}
+
+.feedbackForm h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.feedbackForm label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feedbackForm .form-input {
+  display: block;
+  width: 100%;
+  padding: 9px 13px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.feedbackForm .form-input:focus {
+  box-shadow: 0 0 10px #DDD;
+}
+
+.feedbackForm .form-submit {
+  font-weight: 600;
+  margin-top: 10px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  border: 2px solid white;
+  transition: border 200ms ease-in-out;
+}
+
+.feedbackForm .form-submit:hover {
+  border: 2px solid #738FA7;
+}
+
+.feedbackForm .botPart {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 
 /*Footer*/
