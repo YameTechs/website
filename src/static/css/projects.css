@@ -1,0 +1,120 @@
+.projects-sec {
+  min-height: 100vh;
+  width: 100%;
+  padding: 50px;
+  background-color: #738FA7;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  place-items: center;
+  row-gap: 30px;
+}
+
+.not-available h1 {
+  color: white;
+  font-weight: 900;
+  border-left: 3px solid #DDD;
+  padding-left: 3px;
+}
+
+.ProjBtn {
+  padding: 9px 13px;
+  border-radius: 5px;
+  border: none;
+}
+
+.cardBtn {
+  background: ghostwhite;
+  color: #274472;
+  border: solid #274472;
+  transition: 200ms ease-in;
+  cursor: pointer;
+}
+
+.cardBtn:hover {
+  background: #274472;
+  color: white;
+}
+
+.addProj {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  transition: 100ms ease-in;
+  cursor: pointer;
+}
+
+.addProj:hover {
+  font-size: 15px;
+  box-shadow: 5px 5px 10px #274472;
+  color: #274472;
+}
+
+/* PROJ CARDS */
+.ProjCard {
+  padding: 20px;
+  width: 200px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  background: #DDD;
+  border-radius: 10px;
+  box-shadow: 10px 10px 0px rgba(0, 0, 0, .5);
+}
+
+.ProjCard h2 {
+  color: #274472;
+}
+
+.ProjCard img {
+  height: auto;
+  width: auto;
+  object-fit: cover;
+}
+
+
+.ProjCard .ProjForms {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* media queries */
+@media (min-width: 400px) {
+  .projects-sec {
+    grid-template-columns: auto;
+  }
+  
+  .ProjCard {
+    width: 300px;
+  }
+}
+
+@media (min-width: 800px) {
+  .projects-sec {
+    grid-template-columns: auto auto auto; 
+  }
+  
+  .ProjCard {
+    width: 200px;
+  }
+}
+
+@media (min-width: 900px) {
+  .projects-sec {
+    grid-template-columns: auto auto auto; 
+  }
+  .ProjCard {
+    width: 250px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .projects-sec {
+    grid-template-columns: auto auto auto auto auto; 
+  }
+  .ProjCard {
+    width: 350px;
+  }
+}
