@@ -1,5 +1,11 @@
 .form-container {
   padding: 50px 300px;
+  opacity: 0;
+  animation: form-onload;
+  animation-duration: 500ms;
+  animation-delay: 200ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
 
 .logreg-form {
@@ -27,6 +33,12 @@
 
 .logreg-form .form-element {
   margin-top: 10px;
+  transform: scale(0);
+  animation: formelement-load;
+  animation-duration: 300ms;
+  animation-delay: 200ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
 }
 
 .logreg-form .form-input {
@@ -37,6 +49,12 @@
   border: 1px solid #aaa;
   border-radius: 20px;
   padding: 10px 20px;
+}
+
+.logreg-form .form-input:focus {
+  border:1px solid #738FA7;
+  box-shadow: 0 0 5px #738FA7;
+  box-shadow: inset 0 0 5px #738FA7;
 }
 
 .logreg-form #remem {
@@ -71,5 +89,27 @@
 @media (max-width: 768px) {
   .form-container {
     padding: 20px 30px;
+  }
+}
+
+@keyframes formelement-load {
+  0% {
+    transform: scale(0);
+  }
+  
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes form-onload {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px)
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0)
   }
 }

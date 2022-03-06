@@ -1,21 +1,78 @@
 {% extends "base.html" %}
+{%block title%}MyProfile{%endblock%}
+{% block head %}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/account.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/account2.css')}}">
+{% endblock head %}
+
 {% block content %}
-    {% for x in ['id', 'date_joined', 'email', 'image_file', 'password', 'username'] %}
-      <h1>{{ x }}</h1>
-      <p>{{ getattr(current_user, x) }}</p>
-    {% endfor %}
-    <h1>Account</h1>
-    {% if current_user.has_role('verified') %}
-      <p>You are verified</p>
-    {% else %}
-      <p>You are not verified</p>
-      <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        {{ form.submit() }}
-      </form>
-    {% endif %}
-    <h1>Role</h1>
-    {% for role in current_user.roles %}
-      <p>{{ role.name }}</p>
-    {% endfor %}
+  <div class="user-dashboard">
+    <div class="ud-left">
+      <div class="ud-profile">
+        <div class="ud-prof-pic">
+          <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
+          <div class="ud-prof-text">
+            <h1>{{ current_user.username }}</h1>
+            <span>{{ current_user.email }}</span>
+          </div>
+        </div>
+        <hr>
+        <div class="ud-settings">
+          <a href="#edit-Profile"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
+          <a href="#Bought-Serv"><i class="fa-solid fa-cart-shopping"></i>Bought Services</a>
+          <a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ud-right">
+      <section class="editProfile" id="edit-Profile">
+        <h2>Edit Profile</h2>
+        <div class="user-data">
+          <form method="POST" action="{{ url_for('dashboard.edit_Data', id=current_user.id)}}">
+            <div class="form-element">
+              <label for="username"><b>Username</b></label>
+              {{ editdata.username(class="form-input", id="username", value=current_user.username) }}
+              {% for error in editdata.username.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            
+            <div class="form-element">
+              <label for="email"><b>Email</b></label>
+              {{ editdata.email(class="form-input", id="emaill", value=current_user.email) }}
+              {% for error in editdata.email.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            
+            <div class="form-element">
+              {{ editdata.submit(class="form-submit", placeholder="SUBMIT") }}
+              {% for error in editdata.email.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            
+            <div class="form-element temp">
+              <label for="verify"><b>Verify your account</b></label>
+              {{ form.submit(id="verify", class="form-submit") }}
+            </div>
+          </form>
+        </div>
+      </section>
+      
+      <section class="BoughtServ" id="Bought-Serv">
+        <h2>Pending Services</h2>
+        <div class="pending-list">
+          <ul>
+            <li>*in development*</li>
+            <li>*in development*</li>
+            <li>*in development*</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    
+    
+  </div>
 {% endblock content %}
