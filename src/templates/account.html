@@ -52,6 +52,11 @@
               <span>{{ error }}</span>
               {% endfor %}
             </div>
+            
+            <div class="form-element temp">
+              <label for="verify"><b>Verify your account</b></label>
+              {{ form.submit(id="verify", class="form-submit") }}
+            </div>
           </form>
         </div>
       </section>

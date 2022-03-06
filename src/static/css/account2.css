@@ -46,10 +46,15 @@ html {
   border: none;
   border-radius: 10px;
   padding: 9px 13px;
-  width: 30%;
+  width: auto;
   background-color: dimgray;
   color: white;
   font-weight: 600;
+}
+
+.temp {
+  display: block;
+  margin-top: 5px;
 }
 /* emd edituser */
 
