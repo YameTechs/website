@@ -86,7 +86,7 @@
         {% for message in messages %}
           <div class="flash-msg" role="alert">
             <p>{{ message }}</p>
-            <button onclick="FlashDismiss();"><img src="{{ url_for ('static', filename='img/icons/close.png')}}"></button>
+            <button onclick="FlashDismiss();"><i class="fa-solid fa-xmark fa-2x"></i></button>
           </div>
         {% endfor %}
       {% endif %}

@@ -51,27 +51,28 @@
 .not-available h1 {
   color: #003366;
   font-weight: 900;
-  border-left: 3px solid #DDD;
+  border-left: 3px solid #003366;
   padding-left: 3px;
 }
 
 .ProjBtn {
   padding: 9px 13px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
 }
 
 .cardBtn {
-  background: ghostwhite;
-  color: #274472;
-  border: solid #274472;
-  transition: 200ms ease-in;
-  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 3px;
+  margin: 3px;
 }
 
 .cardBtn:hover {
-  background: #274472;
   color: white;
+  border: 2px solid white;
 }
 
 .addProj {
@@ -80,14 +81,16 @@
   right: 40px;
   transition: 100ms ease-in;
   cursor: pointer;
-  color: white;
-  background-color: #003366;
+  color: #000d1a;
+  background-color: #DDD;
+  font-weight: 700;
+  z-index: 2;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .addProj:hover {
-  background-color: #DDD;
-  color: black;
-  box-shadow: inset 0 0 5px #003366;
+  background-color: #003366;
+  color: #DDD;
 }
 
 /* PROJ CARDS */
@@ -119,7 +122,6 @@
 }
 
 .ProjCard .projcard-text h2 {
-  background: #000d1a;
   border-left: 3px solid #DDD;
   padding-right: 10px;
   padding-left: 10px;
@@ -137,6 +139,10 @@
 /* media queries */
 @media (min-width: 400px) {
   
+  .projects-intro h2 {
+    padding: 50px;
+  }
+  
   .projects-area {
     padding: 30px;
     row-gap: 30px;
@@ -145,6 +151,12 @@
   .ProjCard {
     height: min(200px);
     width: 350px;
+  }
+}
+
+@media (min-width: 800px) {
+  .ProjCard {
+    width: 400px;
   }
 }
 

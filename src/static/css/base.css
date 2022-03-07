@@ -204,33 +204,29 @@ nav {
 }
 
 .flash-msg {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  transform: translate(-10%, -10%);
-  width: 95%;
+  color: #DDD;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff2cc;
-  margin: 20px;
-  border-radius: 5px;
+  background: none;
+  border: 2px solid #75E6DA;
   padding: 9px 13px;
   z-index: 5;
+}
+
+.flash-msg p {
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .flash-msg button {
   background: none;
   outline: none;
   border: none;
-  color: black;
+  color: white;
   padding: 9px 13px;
   cursor: pointer;
-}
-
-.flash-msg button img {
-  height: 11px;
-  width: 11px;
 }
 
 .flash-msg.disappear {
