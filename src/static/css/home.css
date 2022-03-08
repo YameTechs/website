@@ -328,6 +328,17 @@ footer {
   .to-proj {
     height: auto;
   }
+  
+  .feedback {
+    min-height: auto;
+  }
+  
+  .feedbackForm {
+    height: auto;
+    min-height: auto;
+    width: 100%;
+    padding: 100px 20px;
+  }
 }
 
 @media (min-width: 800px) {
