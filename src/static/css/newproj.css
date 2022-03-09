@@ -2,7 +2,7 @@
   height: auto;
   width: 100%;
   color: white;
-  background-color: #738FA7;
+  background: none;
   padding: 50px;
 }
 
@@ -73,16 +73,27 @@
 /* media queries */
 @media (min-width: 400px) {
   .newProj {
-    padding: 5px;
+    padding-top: 10px;
+    padding: 10px;
   }
   
   .newProj-form {
-    padding: 10px;
+    padding: 5px 15px;
   }
   
   .bottom .form-submit {
     font-weight: 0;
     font-size: 15px;
     padding: 9px 13px;
+  }
+}
+
+@media (min-width: 800px) {
+  .newProj {
+    padding: 50px;
+  }
+  
+  .newProj-form {
+    padding: 10px 60px;
   }
 }

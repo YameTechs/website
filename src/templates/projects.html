@@ -6,41 +6,47 @@
 
 {% block content %}
 
-  <div class="projects-sec">
-
-    {% if projects %}
-      {% for project in projects %}
-      <div class="ProjCard">
-        <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
+  <div class="projects-intro">
+    <h2>Our Projects</h2>
+    <div class="custom-shape-divider-bottom-1646554980">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+    {% if current_user.is_authenticated and current_user.has_role("admin") %}
+    <div class="addProject">
+      <form action="{{ url_for('project.new') }}" , method="GET">
+        <input type="submit" value="Add project" class="ProjBtn addProj">
+      </form>
+    </div>
+    {% endif %}
+  </div>
+  <div class="projects-area">
+  {% if projects %}
+  {% for project in projects %}
+    <div class="ProjCard">
+      <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
+      <div class="projcard-text">
         <h2>{{ project.title }}</h2>
         <p>{{ project.description }}</p>
         <p>{{ project.github_url }}</p>
         <p>{{ project.site_url }}</p>
-        <br>
         {% if current_user.is_authenticated and current_user.has_role("admin") %}
         <div class="ProjForms">
           <form action="{{ url_for('project.delete', project_id=project.id) }}" , method="POST">
-            <input type="submit" value="Delete" class="ProjBtn cardBtn">
+            <input type="submit" value="Delete" class="cardBtn">
           </form>
           <form action="{{ url_for('project.update', project_id=project.id) }}" , method="GET">
-            <input type="submit" value="Update" class="ProjBtn cardBtn">
+            <input type="submit" value="Update" class="cardBtn">
           </form>
         </div>
         {% endif %}
       </div>
-      
-      {% endfor %}
+    </div>
+    {% endfor %}
     {% else %}
-      <div class="not-available">
-        <h1>We're still thinking what project to make.</h1>
-      </div>
-    {% endif %}
-    {% if current_user.is_authenticated and current_user.has_role("admin") %}
-    <div class="addProject">
-      
-      <form action="{{ url_for('project.new') }}" , method="GET">
-        <input type="submit" value="Add project" class="ProjBtn addProj">
-      </form>
+    <div class="not-available">
+      <h1>We're still thinking what project to make.</h1>
     </div>
     {% endif %}
   </div>
