@@ -4,6 +4,7 @@
   height: auto;
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -76,16 +77,13 @@
 }
 
 .addProj {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
+  position: relative;
+  top: -50px;
   transition: 100ms ease-in;
   cursor: pointer;
-  color: #000d1a;
-  background-color: #DDD;
-  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
   z-index: 2;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .addProj:hover {
@@ -103,7 +101,7 @@
   transform: skewX(-5deg);
   background: linear-gradient(to right, #000d1a, #003366);
   border-radius: 10px;
-  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.8);
 }
 
 .ProjCard img {
