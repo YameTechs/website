@@ -1,43 +1,63 @@
-<form method="POST" action="">
-  {{ form.hidden_tag() }}
-  <div class="form-element">
-    <label for="title">title</label>
-    {{ form.title(class="form-input", id="title", placeholder="Enter title") }}
-    {% for error in form.title.errors %}
-      <span>{{ error }}</span>
-    {% endfor %}
-  </div>
+{% extends 'base.html'%}
+{%block title %}Add Project{%endblock%}
 
-  <div class="form-element">
-    <label for="description">description</label>
-    {{ form.description(class="form-input", id="description", placeholder="Enter deezcription") }}
-    {% for error in form.description.errors %}
-      <span>{{ error }}</span>
-    {% endfor %}
-  </div>
+{%block head%}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/newproj.css')}}">
+{% endblock %}
 
-  <div class="form-element">
-    <label for="github_url">github_url</label>
-    {{ form.github_url(class="form-input", id="github_url", placeholder="Enter github url") }}
-    {% for error in form.github_url.errors %}
-      <span>{{ error }}</span>
-    {% endfor %}
+{% block content %}
+<div class="newProj">
+  <h2>Add a new project</h2>
+  <hr />
+  <div class="newProj-form">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <div class="form-element">
+        <label for="title">Project Name</label>
+        {{ form.title(class="form-input", id="title", placeholder="Enter title") }}
+        {% for error in form.title.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    
+      <div class="form-element">
+        <label for="description">Description</label>
+        {{ form.description(class="form-input", id="description", placeholder="Enter deezcription") }}
+        {% for error in form.description.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    
+      <div class="form-element">
+        <label for="github_url">Github URL</label>
+        {{ form.github_url(class="form-input", id="github_url", placeholder="Enter github url") }}
+        {% for error in form.github_url.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    
+      <div class="form-element">
+        <label for="site_url">Site URL</label>
+        {{ form.site_url(class="form-input", id="site_url", placeholder="Enter site url") }}
+        {% for error in form.site_url.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    
+      <div class="form-element bottom">
+        <div>
+          <label for="image_file">Thumbnail</label>
+          {{ form.image_file(class="form-input fileField", id="image_file", placeholder="Enter image_file") }}
+        </div>
+        <div class="botPart">
+          <input type="reset" value="Reset" class="form-submit" id="resetBtn">
+          {{ form.submit(class="form-submit") }}
+        </div>
+        {% for error in form.image_file.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    </form>
   </div>
-
-  <div class="form-element">
-    <label for="site_url">site_url</label>
-    {{ form.site_url(class="form-input", id="site_url", placeholder="Enter site url") }}
-    {% for error in form.site_url.errors %}
-      <span>{{ error }}</span>
-    {% endfor %}
-  </div>
-
-  <div class="form-element">
-    <label for="image_file">image_file</label>
-    {{ form.image_file(class="form-input", id="image_file", placeholder="Enter image_file") }}
-    {% for error in form.image_file.errors %}
-      <span>{{ error }}</span>
-    {% endfor %}
-  </div>
-  {{ form.submit() }}
-</form>
+</div>
+{% endblock %}

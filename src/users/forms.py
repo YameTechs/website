@@ -14,10 +14,6 @@ class ResetPasswordForm(FlaskForm):
     submit = SubmitField("Sign Up")
 
 
-class ResendEmailButton(FlaskForm):
-    submit = SubmitField("Send Verification Email")
-
-
 class RegistrationForm(FlaskForm):
     username = StringField(
         "Username", validators=[DataRequired(), Length(min=3, max=25)]

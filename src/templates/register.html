@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{%block title%}Register{%endblock%}
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename="css/forms.css")}}" />
 {% endblock head %}
@@ -49,11 +50,6 @@
         </div>
     
       </form>
-      <div class="form-element">
-        {{ form.recaptcha(class="recap") }}
-        {% for error in form.recaptcha.error %}
-        <span>{{error}}</span>
-        {%endfor%}
         <a href="{{ url_for("users.login") }}">Already have an account? Login now!</a>
       </div>
     </div>

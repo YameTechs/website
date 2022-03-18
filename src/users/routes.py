@@ -1,5 +1,5 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
-from flask_login import current_user, login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user
 
 from src import _bcrypt, _db
 from src.models import Role, User
@@ -7,37 +7,12 @@ from src.users.forms import (
     LoginForm,
     RegistrationForm,
     RequestResetFrom,
-    ResendEmailButton,
     ResetPasswordForm,
 )
 from src.users.utils import send_user_email
 from src.utils import logout_required
 
 users = Blueprint("users", __name__)
-
-
-@users.route("/account/", methods=["POST", "GET"])
-@login_required
-def account():
-    form = ResendEmailButton()
-
-    if not (form.validate_on_submit() and form.submit.data):
-        return render_template("account.html", getattr=getattr, form=form)
-
-    msg_body = (
-        "To verify your account, visit the following link:\n"
-        "{}\n"
-        "If you did not make this request then simply ignore this email and no "
-        "changes will be made"
-    )
-
-    send_user_email(
-        current_user, "Account Verification", msg_body, "users.verify_token"
-    )
-
-    flash("An email has been send with your verification link!")
-
-    return render_template("account.html", getattr=getattr, form=form)
 
 
 @users.route("/login/", methods=["POST", "GET"])
@@ -52,6 +27,7 @@ def login():
     if user and _bcrypt.check_password_hash(user.password, form.password.data):
         login_user(user, remember=form.remember.data)
         next_page = request.args.get("next")
+        flash("You're logged in!")
         return redirect(next_page or url_for("main.home"))
 
     flash("incorrect data!")
@@ -61,6 +37,7 @@ def login():
 @users.route("/logout/")
 def logout():
     logout_user()
+    flash("You logged out!")
     return redirect(url_for("main.home"))
 
 

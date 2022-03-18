@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
-
+{%block title%}About{%endblock%}
 {% block head %}
-<link rel="stylesheet" href="{{url_for('static', filename="css/about.css")}}">
-
+  <link rel="stylesheet" href="{{url_for('static', filename="css/about.css")}}">
 {% endblock head %}
 
 {% block content %}
-
-  <h1>abouts</h1>
-  <!-- This is just the base, still in progress -->
-  <div class="about">
-    <h2 id="sectionAbout">About</h2>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores dolor
-      eligendi adipisci iste. Eos quas a totam dolorum quibusdam corrupti unde.
-      Sunt laboriosam quasi odit facilis, illo officia quibusdam? Quisquam!
-    </p>
-  </div>
+<!-- This is just the base, still in progress -->
+<div class="about">
+  <h2 id="sectionAbout">About</h2>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores dolor
+    eligendi adipisci iste. Eos quas a totam dolorum quibusdam corrupti unde.
+    Sunt laboriosam quasi odit facilis, illo officia quibusdam? Quisquam!
+  </p>
+</div>
 
 {% endblock %}
