@@ -1,20 +1,23 @@
-{% extends "base.html" %} {% block head %}
-<link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='css/home.css') }}"
-/>
-{% endblock %} {% block content %}
-<!-- first section -->
-<div class="home-sec" id="homee">
-  <div class="web-pic">
-    <img src="{{ url_for('static', filename='img/programmer.png') }}" />
-  </div>
+{% extends "base.html" %}
+{%block title%}Home{%endblock%}
+{% block head %}
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/home.css') }}"
+  />
+{% endblock %}
 
-  <div class="intro">
-    <div class="intro-text">
-      <h1 style="color: white">
-        Hello! We are
-        <em
+{% block content %}
+  <!-- first section -->
+  <div class="home-sec" id="homee">
+    <div class="web-pic">
+      <img src="{{ url_for('static', filename='img/programmer.png') }}" />
+    </div>
+    
+    <div class="intro">
+      <div class="intro-text">
+        <h1 style="color: white">
+          Hello! We are <em
           class="hello"
           style="
             letter-spacing: 2px;
@@ -82,7 +85,7 @@
 <!-- endsecond section -->
 
 <!-- third section -->
-<div class="contacts">
+<div class="feedback">
   <div class="custom-shape-divider-top-1642926837">
     <svg
       data-name="Layer 1"
@@ -96,14 +99,29 @@
       ></path>
     </svg>
   </div>
+  
+  <div class="feedbackForm">
+    <h3>Give us your feedback!</h3>
+    <!-- PLEASE ADD BACKEND THANKS -->
+    <form>
+      <div class="feedbackElement">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-input" value="{{current_user.username}}">
+      </div>
+      <div class="feedbackElement">
+        <label for="email">Email</label>
+        <input type="text" id="email" class="form-input" value="{{current_user.email}}">
+      </div>
+      <div class="feedbackElement">
+        <label for="feedbackText">Your Feedback</label>
+        <textarea id="feedbackText" cols="30" rows="3" class="form-input"></textarea>
+      </div>
+      <div class="feedbackElement botPart">
+        <input type="reset" value="Reset" class="form-submit">
+        <input type="submit" value="Submit" class="form-submit">
+      </div>
+    </form>
+  </div>
 </div>
 <!-- end third section -->
-<footer>
-  <p>&copy;Contact Informations:<br /></p>
-  <ul>
-    <li><a href="#">discord</a></li>
-    <li>yt(?)</li>
-    <li>dunno</li>
-  </ul>
-</footer>
 {% endblock content %}

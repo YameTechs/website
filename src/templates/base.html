@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yametech</title>
+    <title>YameTech - {% block title%}{%endblock%}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script
       src="https://kit.fontawesome.com/03853e84a6.js"
       crossorigin="anonymous"
@@ -12,6 +13,7 @@
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/base.css') }}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     {% block head %} {% endblock %}
   </head>
   <body>
@@ -36,7 +38,7 @@
               </div>
               <div class="user_options">
                 {% if current_user.is_authenticated %}
-                  <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
+                  <li><a href="{{ url_for('dashboard.index', id=current_user.id) }}"><i class="fas fa-user"></i>My Profile</a></li>
                   <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
                   <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 {% else %}
@@ -56,16 +58,17 @@
             </div>
             <div class="userAcc_menu">
               {% if current_user.is_authenticated %}
-                <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
-                <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
+                <div class="userr">
+                  <img src="{{ url_for('static', filename='img/' + current_user.image_file) }}" class="profilepic">
+                  <h3>{{ current_user.username }}<br><span>{{ current_user.email }}</span></h3>
+                </div>
               {% endif %}
               <ul>
                 {% if current_user.is_authenticated %}
-                  <li><a href="{{ url_for('users.account') }}"><i class="fas fa-user"></i>My Profile</a></li>
-                  <li><a href="{{ url_for('users.settings') }}"><i class="fas fa-cog"></i>Settings</a></li>
+                  <li><a href="{{ url_for('dashboard.index', id=current_user.id) }}"><i class="fas fa-user"></i>My Profile</a></li>
                   <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 {% else %}
-                  <li><h3>You're not logged in</h3></li>
+                  <h3>You're not logged in</h3>
                   <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
                   <li><a href="{{ url_for('users.register') }}"><i class="fas fa-sign-in-alt"></i>Register</a></li>
                 {% endif %}
@@ -83,14 +86,21 @@
         {% for message in messages %}
           <div class="flash-msg" role="alert">
             <p>{{ message }}</p>
-            <button onclick="FlashDismiss();"><img src="{{ url_for ('static', filename='img/icons/close.png')}}"></button>
+            <button onclick="FlashDismiss();"><i class="fa-solid fa-xmark fa-2x"></i></button>
           </div>
         {% endfor %}
       {% endif %}
     {% endwith %}
   {% block content %} {% endblock content %}
 
-
+  <footer>
+      <p>&copy;Contact Informations:<br /></p>
+      <ul>
+          <li><a href="#">discord</a></li>
+          <li>yt(?)</li>
+          <li>dunno</li>
+      </ul>
+  </footer>
 
   <script>
     function UserAccToggle() {

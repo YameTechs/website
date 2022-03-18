@@ -1,0 +1,165 @@
+.projects-intro {
+  position: relative;
+  width: 100%;
+  height: auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-intro h2 {
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 2.5rem;
+  padding-top: 20px;
+  padding-bottom: 35px;
+}
+
+.custom-shape-divider-bottom-1646554980 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1646554980 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 55px;
+}
+
+.custom-shape-divider-bottom-1646554980 .shape-fill {
+  fill: #DDDDDD;
+}
+
+.projects-area {
+  min-height: 100vh;
+  width: 100%;
+  padding: 50px;
+  background: #DDD;
+  display: grid;
+  grid-template-columns: auto;
+  place-items: center;
+  row-gap: 70px;
+}
+
+.not-available h1 {
+  color: #003366;
+  font-weight: 900;
+  border-left: 3px solid #003366;
+  padding-left: 3px;
+}
+
+.ProjBtn {
+  padding: 9px 13px;
+  border-radius: 10px;
+  border: none;
+}
+
+.cardBtn {
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 3px;
+  margin: 3px;
+}
+
+.cardBtn:hover {
+  color: white;
+  border: 2px solid white;
+}
+
+.addProj {
+  position: relative;
+  top: -50px;
+  transition: 100ms ease-in;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
+  z-index: 2;
+}
+
+.addProj:hover {
+  background-color: #003366;
+  color: #DDD;
+}
+
+/* PROJ CARDS */
+.ProjCard {
+  position: relative;
+  color: white;
+  display: flex;
+  height: min(300px);
+  width: 600px;
+  transform: skewX(-5deg);
+  background: linear-gradient(to right, #000d1a, #003366);
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.8);
+}
+
+.ProjCard img {
+  height: auto;
+  width: auto;
+  object-fit: cover;
+}
+
+.ProjCard .projcard-text {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: normal;
+  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.ProjCard .projcard-text h2 {
+  border-left: 3px solid #DDD;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.ProjCard .projcard-text p {
+  font-size: calc(1rem - .1rem);
+}
+
+.ProjCard .ProjForms {
+  display: flex;
+}
+
+/* media queries */
+@media (min-width: 400px) {
+  
+  .projects-intro h2 {
+    padding: 50px;
+  }
+  
+  .projects-area {
+    padding: 30px;
+    row-gap: 30px;
+  }
+  
+  .ProjCard {
+    height: min(200px);
+    width: 350px;
+  }
+}
+
+@media (min-width: 800px) {
+  .ProjCard {
+    width: 400px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .projects-area {
+    grid-template-columns: auto auto;
+  }
+}

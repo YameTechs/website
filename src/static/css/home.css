@@ -6,13 +6,13 @@ a {
 
 .home-sec {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: none;
-  z-index: 980;
+  z-index: 1;
   min-height: 100vh;
 }
 
@@ -37,7 +37,7 @@ a {
 }
 .intro p {
   color: white;
-  font-size: 25px;
+  font-size: 1.5;
 }
 
 .intro a {
@@ -46,7 +46,6 @@ a {
   border-radius: 30px;
   padding: 9px 13px;
   cursor: pointer;
-  font-weight: 600;
   margin-top: 10px;
 }
 
@@ -108,7 +107,7 @@ a {
 }
 
 .projectss h2 {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .projectss img {
@@ -147,10 +146,11 @@ a {
   margin: 15px;
   padding: 10px;
   justify-content: center;
+  overflow-wrap: break-word;
 }
 
 .card .proj-text h2 {
-  letter-spacing: 3px;
+  letter-spacing: 1px;
 }
 
 .card .projbtn {
@@ -168,7 +168,7 @@ a {
 
 .projlist .to-proj {
   width: auto;
-  height: 400px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,13 +192,13 @@ a {
 
 /* third section */
 
-.contacts {
+.feedback {
   display: flex;
   position: relative;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: #00264d;
+  background: none;
 }
 
 .custom-shape-divider-top-1642926837 {
@@ -221,11 +221,74 @@ a {
   fill: #dddddd;
 }
 
-img {
-  float: left;
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
+.feedbackForm {
+  color: white;
+  padding: 100px;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedbackForm .feedbackElement {
+  margin: 5px;
+}
+
+.feedbackForm h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.feedbackForm label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feedbackForm .form-input {
+  display: block;
+  width: 100%;
+  padding: 9px 13px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.feedbackForm .form-input:focus {
+  box-shadow: 0 0 10px #DDD;
+}
+
+.feedbackForm .form-submit {
+  font-weight: 600;
+  margin-top: 10px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  border: 2px solid white;
+  transition: border 200ms ease-in-out;
+}
+
+.feedbackForm .form-submit:hover {
+  border: 2px solid #738FA7;
+}
+
+.feedbackForm .botPart {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+/*Footer*/
+footer {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #f2f2f7;
+  text-align: center;
+  padding: 3px;
+  background: linear-gradient(to right, #161616, #585858);
+  position: absolute;
+  width: 100%;
 }
 
 /* keyframes */
@@ -253,6 +316,45 @@ img {
   }
 }
 
+@media (min-width: 400px) {
+  .projlist {
+    grid-template-columns: auto;
+  }
+  
+  .card {
+    width: 250px;
+  }
+  
+  .to-proj {
+    height: auto;
+  }
+  
+  .feedback {
+    min-height: auto;
+  }
+  
+  .feedbackForm {
+    height: auto;
+    min-height: auto;
+    width: 100%;
+    padding: 100px 20px;
+  }
+}
+
+@media (min-width: 800px) {
+  .projlist {
+    grid-template-columns: auto auto auto;
+  }
+
+  .card {
+    width: 250px;
+  }
+
+  .to-proj {
+    height: auto;
+  }
+}
+
 @media (min-width: 1000px) {
   .home-sec {
     display: grid;
@@ -273,18 +375,4 @@ img {
     height: 350px;
     width: 350px;
   }
-}
-
-/*Footer*/
-footer {
-  font-family: "Poppins", sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: #f2f2f7;
-  text-align: center;
-  padding: 3px;
-  background: linear-gradient(to right, #161616, #585858);
-  position: absolute;
-  width: 100%;
 }

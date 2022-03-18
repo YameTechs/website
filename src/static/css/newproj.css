@@ -1,0 +1,99 @@
+.newProj {
+  height: auto;
+  width: 100%;
+  color: white;
+  background: none;
+  padding: 50px;
+}
+
+.newProj h2 {
+  margin-left: 1rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 2rem;
+}
+
+.newProj-form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 80px;
+  width: 100%;
+  justify-content: center;
+}
+
+.newProj-form .form-element {
+  margin-bottom: 5px;
+}
+
+.newProj-form label {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.newProj-form .form-input {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 9px 13px;
+  border-radius: 5px;
+}
+
+.newProj .fileField {
+  background-color: rgba(0, 0, 0, .5);
+  width: 220px;
+  margin-left: 20px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom .form-submit {
+  padding: 13px 16px;
+  margin-top: 20px;
+  border:none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  background-color: #75E6DA;
+}
+
+.bottom #resetBtn {
+  background: none;
+  color: white;
+  border: 1px solid #75E6DA;
+}
+
+
+/* media queries */
+@media (min-width: 400px) {
+  .newProj {
+    padding-top: 10px;
+    padding: 10px;
+  }
+  
+  .newProj-form {
+    padding: 5px 15px;
+  }
+  
+  .bottom .form-submit {
+    font-weight: 0;
+    font-size: 15px;
+    padding: 9px 13px;
+  }
+}
+
+@media (min-width: 800px) {
+  .newProj {
+    padding: 50px;
+  }
+  
+  .newProj-form {
+    padding: 10px 60px;
+  }
+}
