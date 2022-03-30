@@ -1,9 +1,10 @@
-from flask import Blueprint, render_template, flash, redirect, url_for, request
-from flask_login import login_required, current_user
-from .forms import UpdateAccountForm, ResendEmailButton
+from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask_login import current_user, login_required
+
 from src import _db
 from src.users.utils import send_user_email
 
+from .forms import ResendEmailButton, UpdateAccountForm
 
 dashboard = Blueprint("dashboard", __name__)
 
@@ -16,7 +17,7 @@ def index():
 
     # since resend email button form does not have an email we can use this to identify
     # which one is it.
-    if request.form.get('email') is None and request.form.get('submit'):
+    if request.form.get("email") is None and request.form.get("submit"):
         msg_body = (
             "To verify your account, visit the following link:\n"
             "{}\n\n"
@@ -50,7 +51,7 @@ def index():
         "account.html",
         title="Account",
         update_account_form=update_account_form,
-        resend_email_button_form=resend_email_button_form
+        resend_email_button_form=resend_email_button_form,
     )
 
     # image_file = url_for("static", filename=f"profile_pics/{current_user.image_file}")
