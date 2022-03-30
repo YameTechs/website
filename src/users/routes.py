@@ -1,5 +1,5 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
-from flask_login import login_required, login_user, logout_user
+from flask_login import login_user, logout_user
 
 from src import _bcrypt, _db
 from src.models import Role, User
@@ -24,6 +24,7 @@ def login():
         return render_template("login.html", form=form)
 
     user = User.query.filter_by(email=form.email.data).first()
+
     if user and _bcrypt.check_password_hash(user.password, form.password.data):
         login_user(user, remember=form.remember.data)
         next_page = request.args.get("next")
@@ -95,7 +96,7 @@ def request_token():
     return redirect(url_for("users.login"))
 
 
-@users.route("/reset_password/<token>", methods=["GET", "POST"])
+@users.route("/reset_password/<token>/", methods=["GET", "POST"])
 @logout_required
 def reset_password(token):
     user = User.get_user_by_token(token)
@@ -111,12 +112,6 @@ def reset_password(token):
     _db.session.commit()
     flash("Your password has been updated! You are now able to log in", "success")
     return redirect(url_for("users.login"))
-
-
-@users.route("/settings/", methods=["POST", "GET"])
-@login_required
-def settings():
-    return render_template("settings.html")
 
 
 @users.route("/verify_token/<token>/", methods=["POST", "GET"])
