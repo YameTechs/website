@@ -19,12 +19,12 @@ def create_app(config_class=Config):
 
     # Need to be here to avoid circular imports
     from src.admin.routes import admin
+    from src.dashboard.routes import dashboard
     from src.error.handlers import error
     from src.main.routes import main
     from src.models import Role, User, user_role  # noqa
     from src.project.routes import project
     from src.service.routes import service
-    from src.userDashboard.routes import dashboard
     from src.users.routes import users
 
     app.register_blueprint(admin)
