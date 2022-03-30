@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{%block title%}MyProfile{%endblock%}
+{% block title %}MyProfile{% endblock %}
 {% block head %}
-  <link rel="stylesheet" href="{{url_for('static', filename='css/account.css')}}">
-  <link rel="stylesheet" href="{{url_for('static', filename='css/account2.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/account2.css') }}">
 {% endblock head %}
 
 {% block content %}
@@ -20,47 +20,50 @@
         <div class="ud-settings">
           <a href="#edit-Profile"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
           <a href="#Bought-Serv"><i class="fa-solid fa-cart-shopping"></i>Bought Services</a>
-          <a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
         </div>
       </div>
     </div>
-    
+
     <div class="ud-right">
       <section class="editProfile" id="edit-Profile">
         <h2>Edit Profile</h2>
         <div class="user-data">
-          <form method="POST" action="{{ url_for('dashboard.edit_Data', id=current_user.id)}}">
+          <form method="POST" action="">
+            {{ update_account_form.hidden_tag() }}
+
             <div class="form-element">
               <label for="username"><b>Username</b></label>
-              {{ editdata.username(class="form-input", id="username", value=current_user.username) }}
-              {% for error in editdata.username.errors %}
+              {{ update_account_form.username(class="form-input", id="username", value=current_user.username) }}
+              {% for error in update_account_form.username.errors %}
               <span>{{ error }}</span>
               {% endfor %}
             </div>
-            
+
             <div class="form-element">
               <label for="email"><b>Email</b></label>
-              {{ editdata.email(class="form-input", id="emaill", value=current_user.email) }}
-              {% for error in editdata.email.errors %}
+              {{ update_account_form.email(class="form-input", id="emaill", value=current_user.email) }}
+              {% for error in update_account_form.email.errors %}
               <span>{{ error }}</span>
               {% endfor %}
             </div>
-            
+
             <div class="form-element">
-              {{ editdata.submit(class="form-submit", placeholder="SUBMIT") }}
-              {% for error in editdata.email.errors %}
-              <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-            
-            <div class="form-element temp">
-              <label for="verify"><b>Verify your account</b></label>
-              {{ form.submit(id="verify", class="form-submit") }}
+              {{ update_account_form.submit(class="form-submit", placeholder="SUBMIT") }}
             </div>
           </form>
+
+          {% if not current_user.has_role('verified') %}
+          <form method="POST" action="">
+            <div class="form-element temp">
+              <label for="verify"><b>Verify your account</b></label>
+              {{ resend_email_button_form.submit(id="verify", class="form-submit") }}
+            </div>
+          </form>
+          {% endif %}
+
         </div>
       </section>
-      
+
       <section class="BoughtServ" id="Bought-Serv">
         <h2>Pending Services</h2>
         <div class="pending-list">
@@ -72,7 +75,7 @@
         </div>
       </section>
     </div>
-    
-    
+
+
   </div>
 {% endblock content %}

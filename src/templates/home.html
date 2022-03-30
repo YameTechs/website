@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{%block title%}Home{%endblock%}
+{% block title %}Home{% endblock %}
 {% block head %}
   <link
     rel="stylesheet"
@@ -13,7 +13,7 @@
     <div class="web-pic">
       <img src="{{ url_for('static', filename='img/programmer.png') }}" />
     </div>
-    
+
     <div class="intro">
       <div class="intro-text">
         <h1 style="color: white">
@@ -79,7 +79,7 @@
   </div>
   {% else %}
   <h2>We haven't done any projects yet</h2>
-  <img src="{{url_for('static', filename='img/soon.png')}}" />
+  <img src="{{ url_for('static', filename='img/soon.png') }}" />
   {% endif %}
 </div>
 <!-- endsecond section -->
@@ -99,7 +99,7 @@
       ></path>
     </svg>
   </div>
-  
+
   <div class="feedbackForm">
     <h3>Give us your feedback!</h3>
     <!-- PLEASE ADD BACKEND THANKS -->
