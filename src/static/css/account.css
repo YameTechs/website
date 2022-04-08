@@ -12,7 +12,7 @@ hr {
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
-    color: white;
+    color: #DDD;
 }
 
 .UserProfile {
@@ -82,4 +82,17 @@ hr {
 }
 .dashContainer .content {
     width: 50%;
+    overflow-y: scroll;
+}
+
+.content .themeWeb {
+    margin: 0 0 50px 0;
+}
+
+.content .editProfile {
+    margin: 0 0 50px 0;
+}
+
+.content .ServBought {
+    margin: 0 0 50px 0;
 }

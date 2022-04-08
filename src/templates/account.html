@@ -20,7 +20,7 @@
             {% if not current_user.has_role('verified') %}
                 <form method="POST" action="">
                     <div class="form-element temp">
-                        {{ resend_email_button_form.submit(id="verify", class="form-submit") }}
+                        {{ resend_email_button_form.submit(id="verify", class="form-submit ver") }}
                     </div>
                 </form>
             {% endif %}
@@ -30,7 +30,7 @@
         <div class="options">
             <div class="main-opt opt">
                 <a href="#"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
-                <a href="#"><i class="fa-solid fa-paintbrush"></i>Appearance</a>
+                <a href="#"><i class="fa-solid fa-paintbrush"></i>Themes</a>
             </div>
             <hr>
             <div class="serv-opt opt">
@@ -69,6 +69,42 @@
                     </form>
                 
                     
+                </div>
+            </div>
+            
+            <div class="themeWeb">
+                <h2>Themes</h2>
+                <hr>
+                <div class="themeContent">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="ServBought">
+                <h2>Bought Services</h2>
+                <hr>
+                <div class="boughtContent">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="ServTransactions">
+                <h2>Transactions</h2>
+                <hr>
+                <div class="transacContent">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
                 </div>
             </div>
         </div>
