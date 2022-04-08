@@ -1,81 +1,99 @@
-/* I WILL CLEAN THIS MESSY CODE AFTER -pred */
-
-/* left side start */
-.user-dashboard {
-  display: flex;
-  color: white;
-  height: min(100vh);
+hr {
+    margin-top: 7px;
+    margin-bottom: 7px;
 }
 
-.ud-left {
-  height: auto;
-  background-color: #274472;
-  width: 300px;
+.UserDashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    min-height: 100vh;
+    width: 100%;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #DDD;
+    scroll-behavior: smooth;
 }
 
-.ud-profile {
-  position: sticky;
-  top: 15px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 70%;
-  padding: 20px;
-  gap: 10px;
+.UserProfile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    height: auto;
 }
 
-.ud-profile i {
-  margin-right: 5px;
+.UserProfile .prof {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
-.ud-prof-pic {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.ud-prof-text {
-  font-size: .8rem;
-  display: block;
-}
-
-.ud-profile .ud-settings{
-  display: flex;
-  flex-direction: column;
-}
-
-.ud-settings a {
-  width: 100%;
-  text-align: left;
-  text-decoration: none;
-  padding: 9px 10px;
-  color: white;
-  border-radius: 15px;
-  transition: 200ms ease-in;
-}
-
-.ud-settings a:hover {
-  transform: translateX(10px);
-  background-color: #B3D8E0;
-  color: black;
-}
-
-.ud-profile .profilepic {
-  border-radius: 15px; 
+.UserProfile .profilepic {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
   object-fit: cover;
   overflow: hidden;
   cursor: pointer;
 }
-/* left side end*/
 
-
-/* right side start */
-.ud-right {
-  width: 100%;
-  height: auto;
-  background-color: #738FA7; 
-  overflow: hidden;
-  overflow-y: scroll;
+.UserProfile .verify {
+    padding-right: 30px;
 }
 
-/* right end */
+.dashContainer {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    gap: 30px;
+}
+
+.dashContainer .options {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashContainer .options .opt {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.dashContainer .options .serv-opt {
+    border-bottom: none;    
+}
+
+.dashContainer .options i {
+    padding-right: 5px;
+}
+
+.dashContainer .options a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 3px 15px;
+}
+
+.dashContainer .options a:hover {
+    border-left: 5px solid royalblue;
+}
+.dashContainer .content {
+    width: 50%;
+    overflow-y: scroll;
+}
+
+.content .themeWeb {
+    margin: 0 0 50px 0;
+}
+
+.content .editProfile {
+    margin: 0 0 50px 0;
+}
+
+.content .ServBought {
+    margin: 0 0 50px 0;
+}
