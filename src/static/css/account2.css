@@ -1,88 +1,27 @@
-/* start edituser */
-
-html {
-  scroll-behavior: smooth;
-}
-
-.editProfile {
-  padding: 20px;
-  height: 100%;
-  color: black;
-}
-
-.editProfile h2 {
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  color: white;
-  margin-left: 1rem;
-}
-
-.user-data {
-  gap: 20px;
-  margin: 1px;
-  padding: 100px;
-  height: 90%;
-  width: 100%;
-  border-radius: 20px;
-  background-color: #DDD;
-}
-
 .form-element .form-input {
-  display: block;
-  width: 50%;
-  border: 1px solid;
-  border-radius: 20px;
-  outline: none;
-  padding: 9px 13px;
-  margin: 4px;
+    display: block;
+    width: 90%;
+    margin: 5px 0 5px 0;
+    padding: 9px 13px;
+    outline: none;
+    border-radius: 5px;
 }
 
-.form-element label {
-  font-weight: 200;
+.form-element .form-input:focus {
+    box-shadow: inset 0 0 3px royalblue;
 }
 
 .form-element .form-submit {
-  margin-top: 10px;
-  border: none;
-  border-radius: 10px;
-  padding: 9px 13px;
-  width: auto;
-  background-color: dimgray;
-  color: white;
-  font-weight: 600;
+    padding: 5px 9px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
 }
 
-.temp {
-  display: block;
-  margin-top: 5px;
-}
-/* emd edituser */
-
-/* bought servr */
-
-.BoughtServ {
-  padding: 20px;
-  height: 100%;
-  color: black;
-}
-
-.BoughtServ h2 {
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  color: white;
-  margin-left: 1rem;
-}
-
-.pending-list {
-  gap: 20px;
-  margin: 1px;
-  height: 90%;
-  width: 100%;
-  border-radius: 20px;
-  background-color: #DDD;
-}
-
-.pending-list ul {
-  list-style: none;
-  margin: 10px;
+.ver {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #003366;
+    padding: 5px 9px;
 }
