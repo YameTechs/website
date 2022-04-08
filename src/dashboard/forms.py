@@ -42,4 +42,4 @@ class UpdateAccountForm(FlaskForm):
 
 
 class ResendEmailButton(FlaskForm):
-    submit = SubmitField("Send Verification Email")
+    submit = SubmitField("Verify my account!")
