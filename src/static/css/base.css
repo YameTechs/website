@@ -204,13 +204,13 @@ nav {
 }
 
 .flash-msg {
-  color: #DDD;
+  color: #ddd;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: none;
-  border: 2px solid #75E6DA;
+  border: 2px solid #75e6da;
   padding: 9px 13px;
   z-index: 5;
 }

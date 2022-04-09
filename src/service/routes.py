@@ -10,6 +10,7 @@ service = Blueprint("service", __name__)
 
 @service.route("/services/")
 def index():
+    forms = ServiceForm()
     services = Service.query.all()
     return render_template("services.html", services=services)
 
@@ -29,16 +30,16 @@ def update(service_id):
     if form.validate_on_submit():
         service.title = form.title.data
         service.description = form.description.data
-        service.price = form.price.data
-        # service.image_file = form.image_file.data
+        # service.price = form.price.data
+        service.file = form.file.data
         _db.session.commit()
         flash("Your post has been updated!", "success")
         return redirect(url_for("service.view", service_id=service_id))
     elif request.method == "GET":
         form.title.data = service.title
         form.description.data = service.description
-        form.price.data = service.price
-        # form.image_file.data = service.image_file
+        # form.price.data = service.price
+        form.file.data = service.file
 
     return render_template("new_service.html", form=form)
 
@@ -61,7 +62,8 @@ def new():
         return render_template("new_service.html", form=form)
 
     service = Service(
-        title=form.title.data, description=form.description.data, price=form.price.data
+        title=form.title.data,
+        description=form.description.data,  # price=form.price.data
     )
     _db.session.add(service)
     _db.session.commit()

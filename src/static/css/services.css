@@ -1,4 +1,6 @@
 /* Unauthenticated */
+
+/*
 .notLoggedIn {
   font-size: 23px;
   align-items: center;
@@ -9,426 +11,88 @@
   top: 215px;
   display: none;
 }
-
-.zetext {
+*/
+/* The Header */
+.zeTop {
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  padding: 30px;
   display: flex;
-  position: relative;
-  top: 45px;
-  font-size: 1.7rem;
+  flex-direction: column;
+}
+
+.zeTop .zetext {
+  display: flex;
+  font-size: 2rem;
   color: white;
   margin: auto;
   width: 87%;
-  cursor: pointer;
 }
 
-/*White line seperator or something and text*/
+/* In here contains the "New Service" button*/
 
-.whiteLine {
+.container1 {
   display: flex;
-  background-color: white;
-  width: 90%;
-  height: 2px;
+  justify-content: center;
   position: relative;
   margin: auto;
-  top: 64px;
-}
-.whiteLine p {
-  display: flex;
-  color: white;
-  font-size: 1.5rem;
-
-  margin: 10px 10px 10px 10px;
-}
-
-/* service buttons */
-
-.btns {
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-  height: 50vh;
-  position: relative;
-  top: 18vh;
-  border-radius: 21px;
-  background-color: slategrey;
-  margin: auto;
-  align-items: center;
-}
-
-.website-btn {
-  text-decoration: none;
-  width: 50%;
-  height: 30%;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-
-.website-btn a {
-  text-decoration: none;
-  position: relative;
-  color: rgb(0, 0, 0);
-  font-size: 2rem;
-  padding: 10px 10px 10px 10px;
-  width: 250px;
-  height: 80px;
-  margin-top: 35px;
-  border: 2px solid rgb(161, 161, 161);
-  border-radius: 15px;
-  background-color: whitesmoke;
-}
-.website-btn a:hover {
-  background-image: url("../img/backgrounds/website-img.jpg");
-  background-size: 247px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-y: -28px;
-  background-color: rgb(21, 11, 109);
-  cursor: pointer;
-  border-color: white;
-  color: rgb(46, 45, 45);
-  transition: 0.2s ease-out;
-}
-
-.dcbots-btn {
-  width: 50%;
-  height: 30%;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-
-.dcbots-btn a {
-  text-decoration: none;
-  position: relative;
-  background-color: whitesmoke;
-  color: rgb(0, 0, 0);
-  font-size: 2rem;
-  padding: 10px 10px 10px 10px;
-  width: 250px;
-  height: 80px;
-  margin-top: 35px;
-  border: 2px solid rgb(161, 161, 161);
-  border-radius: 15px;
-  justify-content: center;
-}
-.dcbots-btn p:hover {
-  background-image: url("../img/backgrounds/discord.png");
-  background-size: 247px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-y: -28px;
-  background-color: rgb(21, 11, 109);
-  cursor: pointer;
-  border-color: white;
-  color: white;
-  transition: 0.2s ease-out;
-}
-
-/* Outside Layer */
-
-.outside-layer {
-  z-index: 10;
-  display: flex;
-  position: absolute;
-  top: 0;
-  transform: scale(0);
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100%;
-}
-
-.outside-layer.overlay {
-  transform: scale(1);
-  transition: ease-in-out;
-}
-
-/* Modal 1*/
-
-.theModal {
-  z-index: 1000;
-  display: flex;
-  width: 80%;
-  height: 70%;
-  justify-content: center;
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  transform: scale(0);
-  align-items: center;
-}
-
-.theModal.active {
-  display: flex;
-  transform: scale(1);
-}
-
-.modalContent {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #ddd;
-  border-radius: 15px;
-  border: 3px solid rgb(5, 21, 168);
-  width: 85%;
-  height: 80%;
-}
-
-/* Modals 2 */
-
-.theModal2 {
-  z-index: 1000;
-  display: flex;
-  width: 80%;
-  height: 70%;
-  justify-content: center;
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  transform: scale(0);
-  align-items: center;
-}
-
-.theModal2.active {
-  display: flex;
-  transform: scale(1);
-}
-
-.modalContent {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 15px;
-  background: #ddd;
-  border-radius: 15px;
-  border: 3px solid rgb(5, 21, 168);
-  width: 85%;
-  height: 80%;
-}
-
-/* Texts and buttons and form to fill*/
-
-.modalContent .header {
-  padding: 15px 10px;
-  width: 100%;
-  height: fit-content;
-  padding: 10px 15px;
-}
-.modalContent .header .titleHeader {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-.modalContent .header .xbtn {
-  margin-left: 20px;
-  position: relative;
-  color: black;
-  text-decoration: none;
-  position: absolute;
-  right: 10px;
-  top: -2px;
-  cursor: pointer;
-  font-size: 45px;
-  background: none;
-  outline: none;
-  border: none;
-}
-
-/* Body */
-
-.modalContent .body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px 40px;
-  width: 100%;
-  height: 75%;
-}
-
-/* For the title area */
-
-.modalContent .body .title form {
-  margin: auto;
-  width: 100%;
-}
-
-.modalContent .body .title label {
-  width: 226px;
-  height: 32px;
-  margin: 20px 200px 10px 20px;
-  color: black;
-  font-size: 1.45rem;
-  font-weight: 500;
-}
-
-.modalContent .body .title input {
-  margin: 15px 15px 15px 60px;
-  border-radius: 20px;
-  border: 1px solid#aaa;
-  width: 55%;
-  height: 35px;
-  font-size: 1.1rem;
-  text-align: center;
-}
-
-.modalContent .body .title input::placeholder {
-  margin: auto;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 200;
-}
-
-/* Description form*/
-
-.modalContent .body .desc-form form {
-  margin: auto;
-  width: 100%;
-  display: flex;
-}
-.modalContent .body .desc-form label {
-  margin: 20px 20px 10px 20px;
-  color: black;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.modalContent .body .desc-form textarea {
-  margin: 15px 15px 15px 38px;
-  border-radius: 20px;
-  border: 2px rgb(0, 0, 0);
-  width: 55%;
-  height: 150px;
-  font-size: 16px;
-  resize: none;
-  padding: 10px 10px 10px 10px;
-}
-
-.modalContent .body .desc-form textarea::placeholder {
-  margin: auto;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 200;
-}
-/* Submit */
-.middle {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.passSubmit {
-  cursor: pointer;
-  font-size: 1.4rem;
-  width: 15%;
-  height: 50px;
-  margin: auto;
-  border-radius: 25px;
-  background-color: rgb(77, 77, 77);
-  border: 2px solid rgb(0, 0, 0);
-  color: white;
-}
-
-.passSubmit:hover {
-  color: black;
-  background-color: aqua;
-  transition: ease-in;
-}
-
-footer {
-  position: relative;
+  margin-bottom: 124px;
+  padding: 20px;
+  top: 125px;
   width: 100%;
   height: auto;
-  font-size: 30px;
-  bottom: 0px;
+  border-radius: 20px;
+  color: black;
+}
+.container1 .newservice input {
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  background-color: rgb(0, 10, 151);
+  color: white;
+  width: auto;
+  height: auto;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-@media (max-width: 1000px) {
-  .whiteLine p {
-    font-size: 1.2rem;
-  }
-
-  .btns {
-    top: 25vh;
-  }
-
-  .dcbots-btn a {
-    font-size: 1.3rem;
-    margin: auto;
-    margin-top: 31px;
-    padding: auto;
-  }
-  .modalContent {
-    padding: 5px;
-    top: 57%;
-  }
-
-  .modalContent .header .titleHeader {
-    max-height: 60%;
-    font-size: 15px;
-    margin-bottom: 15px;
-  }
-
-  .modalContent .header .xbtn {
-    font-size: 40px;
-    top: -5px;
-  }
-
-  .modalContent .body {
-    padding: 5px 5px;
-  }
-
-  .modalContent .body .title label {
-    margin-top: 12px;
-    width: fit-content;
-    font-size: 1rem;
-    font-weight: 550;
-  }
-
-  .modalContent .body .title input {
-    margin-top: 5px;
-  }
-
-  .modalContent .body .title input::placeholder {
-    font-size: 12px;
-  }
-
-  .modalContent .body .desc-form form {
-    display: block;
-  }
-
-  .modalContent .body .desc-form label {
-    font-size: 1rem;
-    font-weight: 550;
-  }
-
-  .modalContent .body .desc-form textarea {
-    margin-left: 60px;
-    height: 120px;
-  }
-  .modalContent .body .desc-form textarea::placeholder {
-    font-size: 12px;
-  }
-
-  .passSubmit {
-    position: relative;
-    top: -7.5px;
-    font-size: 1rem;
-    width: 26%;
-    height: 27px;
-  }
+.container1 .newservice input:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: 0.2s ease-out;
+  color: black;
 }
 
-@media (min-width: 760px) and (max-width: 1250px) {
-  .modalContent .body .desc-form form {
-    display: block;
-  }
+.custom-shape-divider-bottom-1646554980 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
 }
 
-@media (min-width: 650px) and (max-width: 1150px) and (min-height: 350px) and (max-height: 650px) {
-  .btns {
-    top: 28vh;
-  }
-  .dcbots-btn a {
-    margin-top: 40px;
-  }
+.custom-shape-divider-bottom-1646554980 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 55px;
+}
+
+.custom-shape-divider-bottom-1646554980 .shape-fill {
+  fill: #dddddd;
+}
+
+.orders {
+  width: 100%;
+  min-height: 100vh;
+  background: #dddddd;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: auto auto;
+  place-items: center;
+  row-gap: 70px;
 }
