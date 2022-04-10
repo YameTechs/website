@@ -10,8 +10,19 @@ service = Blueprint("service", __name__)
 
 @service.route("/services/")
 def index():
-    forms = ServiceForm()
+    form = ServiceForm()
     services = Service.query.all()
+
+    if not form.validate_on_submit():
+        return render_template("services.html", form=form)
+
+    service = Service(
+        title=form.title.data,
+        description=form.description.data,  # price=forms.price.data
+    )
+    _db.session.add(service)
+    _db.session.commit()
+    flash("Your post has been created!", "success")
     return render_template("services.html", services=services)
 
 
@@ -51,22 +62,4 @@ def delete(service_id):
     _db.session.delete(service)
     _db.session.commit()
     flash("Service post has been deleted!", "success")
-    return redirect(url_for("service.index"))
-
-
-@service.route("/services/new/", methods=["GET", "POST"])
-@admin_required
-def new():
-    form = ServiceForm()
-    if not form.validate_on_submit():
-        return render_template("new_service.html", form=form)
-
-    service = Service(
-        title=form.title.data,
-        description=form.description.data,  # price=form.price.data
-    )
-    _db.session.add(service)
-    _db.session.commit()
-    flash("Your post has been created!", "success")
-
     return redirect(url_for("service.index"))
