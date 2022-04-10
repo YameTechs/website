@@ -113,3 +113,41 @@ hr {
     height: auto;
     background-color: #001f3d;
 }
+
+/* ====================bought service ======================= */
+
+.boughtContent {
+    padding: 20px;
+}
+
+.boughtList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.boughtList .item {
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: royalblue;
+}
+
+.boughtList .item .item-left {
+}
+
+.boughtList .item .item-left {
+}
+
+.boughtList .item .item-left .boughtDate {
+    font-size: 0.8rem;
+}
+
+.boughtList .item .item-right .status {
+    padding: 5px 9px;
+    background-color: limegreen;
+    color: white;
+}
