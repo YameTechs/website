@@ -6,10 +6,9 @@ hr {
 .UserDashboard {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 5px;
     min-height: 100vh;
     width: 100%;
-    margin: 10px;
     padding: 20px;
     border-radius: 10px;
     color: #DDD;
@@ -20,14 +19,23 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
+    border-radius: 5px;
     height: auto;
+    padding: 5px 5px;
+    background-color: #001f3d;
 }
 
 .UserProfile .prof {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    padding-left: 30px;
+}
+
+
+.UserProfile .verify {
+    padding-right: 30px;
 }
 
 .UserProfile .profilepic {
@@ -39,21 +47,19 @@ hr {
   cursor: pointer;
 }
 
-.UserProfile .verify {
-    padding-right: 30px;
-}
-
 .dashContainer {
     display: flex;
     height: 100vh;
     width: 100%;
-    gap: 30px;
+    gap: 5px;
 }
 
 .dashContainer .options {
     width: 20%;
     display: flex;
     flex-direction: column;
+    padding: 5px 5px;
+    background-color: #001f3d;
 }
 
 .dashContainer .options .opt {
@@ -82,8 +88,11 @@ hr {
     border-left: 5px solid royalblue;
 }
 .dashContainer .content {
-    width: 50%;
+    width: 60%;
+    border-radius: 5px;
+    padding: 10px 10px;
     overflow-y: scroll;
+    background-color: #004487;
 }
 
 .content .themeWeb {
@@ -96,4 +105,49 @@ hr {
 
 .content .ServBought {
     margin: 0 0 50px 0;
+}
+
+.takeSpace {
+    width: 20%;
+    border-radius: 5px;
+    height: auto;
+    background-color: #001f3d;
+}
+
+/* ====================bought service ======================= */
+
+.boughtContent {
+    padding: 20px;
+}
+
+.boughtList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.boughtList .item {
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: royalblue;
+}
+
+.boughtList .item .item-left {
+}
+
+.boughtList .item .item-left {
+}
+
+.boughtList .item .item-left .boughtDate {
+    font-size: 0.8rem;
+}
+
+.boughtList .item .item-right .status {
+    padding: 5px 9px;
+    background-color: limegreen;
+    color: white;
 }
