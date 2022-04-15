@@ -18,7 +18,9 @@ def index():
 
     service = Service(
         title=form.title.data,
-        description=form.description.data,  # price=forms.price.data
+        description=form.description.data,
+        image_file=form.file.data,
+        # price=forms.price.data
     )
     _db.session.add(service)
     _db.session.commit()

@@ -110,7 +110,8 @@
   background-color: rgba(0, 0, 0, 0.6);
   transform: scale(0);
 }
-.overlay.open {
+.overlay.active {
+  display: flex;
   transform: scale(1);
   transition: ease-out;
 }
@@ -129,6 +130,7 @@
 }
 
 .modalContainer.open {
+  display: flex;
   transform: scale(1);
 }
 
@@ -148,27 +150,61 @@
 
 /* Header */
 .header {
+  margin-top: 5px;
   display: flex;
   justify-content: space-between;
+}
+
+.header h2 {
+  margin-left: 15px;
 }
 
 /* Close Button */
 .header .close {
   position: relative;
   right: 15px;
-  font-size: 20px;
+  font-size: 25px;
   color: rgb(5, 5, 5);
   font-weight: bold;
 }
 
 .header .close:hover {
-  border-radius: 30px;
+  border-radius: 30%;
   background-color: rgba(148, 148, 148, 0.8);
+  transition: ease-out;
   cursor: pointer;
 }
 
 /* Forms in the modals */
 
+.forms-container {
+  margin: auto;
+  height: 80%;
+  width: 90%;
+}
+
+.form-element {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-element label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+.form-element .form-input {
+  border: 2px;
+  border-radius: 20px;
+  padding: 9px 13px;
+  resize: none;
+  font-size: 15px;
+}
+
+/* for other devices */
 @media (max-width: 800px) {
   .modal {
     width: 90%;

@@ -12,12 +12,12 @@ const closeButton = document.getElementById("close");
 
 //Close button function
 closeButton.addEventListener("click", () => {
-  overlay.classList.toggle("open");
+  overlay.classList.toggle("active");
   modal.classList.toggle("open");
 });
 
 // When clicking it opens Function
 addingButton.addEventListener("click", () => {
-  overlay.classList.toggle("open");
+  overlay.classList.toggle("active");
   modal.classList.toggle("open");
 });

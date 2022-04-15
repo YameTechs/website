@@ -7,48 +7,52 @@
 {% block content %}
 
 
-<div class="overlay open" id="overlay"></div>
+<div class="overlay " id="overlay"></div>
 
-<div class="modalContainer open" id="modalForm">
+<div class="modalContainer " id="modalForm">
   
 
   <div class="modal">
+
     <div class="header">
       <h2 > Add order </h2>
-      <p class="close" id="close" >X</p>
+      <p class="close" id="close" >&times;</p>
     </div>
-    
-    <form method="POST" action="">
-      {{ form.hidden_tag() }}
+    <div class="forms-container">
 
-      <div class="form-element">
-        <label for="title">Title</label>
-        {{ form.title(class="form-input", id="title", placeholder="Enter title") }}
-        {% for error in form.title.errors %}
-        <span>{{ error }}</span>
-        {% endfor %}
-      </div>
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
 
-      <div class="form-element">
-        <label for="description">Description</label>
-        {{ form.description(class="form-input", id="description", placeholder="Enter
-        deezcription") }} {% for error in form.description.errors %}
-        <span>{{ error }}</span>
-        {% endfor %}
-      </div>
+        <div class="form-element">
+          <label for="title">Title</label>
+          {{ form.title(class="form-input", id="title", placeholder="Enter title") }}
+          {% for error in form.title.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
 
-      <div class="form-element">
-        <label for="file">file</label>
-        {{ form.file(class="form-input", id="file", placeholder="Enter
-        file") }} {% for error in form.file.errors %}
-        <span>{{ error }}</span>
-        {% endfor %}
-      </div>
+        <div class="form-element">
+          <label for="description">Description</label>
+          {{ form.description(class="form-input", id="description", placeholder="Enter deezcription") }} {% for error in form.description.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
 
-      {{ form.submit()}}
+        <div class="form-element">
+          <label for="file">File</label>
+          {{ form.file(class="form-input", id="file", placeholder="Enter
+          file") }} {% for error in form.file.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+
+        {{ form.submit()}}
 
 
-    </form>
+      </form>
+
+    </div> 
+
   </div>
    
 </div>
