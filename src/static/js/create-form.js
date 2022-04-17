@@ -21,3 +21,8 @@ addingButton.addEventListener("click", () => {
   overlay.classList.toggle("active");
   modal.classList.toggle("open");
 });
+
+overlay.addEventListener("click", () => {
+  modal.classList.toggle("open");
+  overlay.classList.toggle("active");
+});

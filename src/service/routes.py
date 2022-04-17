@@ -8,11 +8,10 @@ from src.utils import admin_required
 service = Blueprint("service", __name__)
 
 
-@service.route("/services/")
+@service.route("/services/", methods=["GET", "POST"])
 def index():
-    form = ServiceForm()
     services = Service.query.all()
-
+    form = ServiceForm()
     if not form.validate_on_submit():
         return render_template("services.html", form=form)
 
@@ -25,10 +24,11 @@ def index():
     _db.session.add(service)
     _db.session.commit()
     flash("Your post has been created!", "success")
+
     return render_template("services.html", services=services)
 
 
-@service.route("/services/<int:service_id>/view")
+@service.route("/services/<int:service_id>/view/")
 def view(service_id):
     services = [Service.query.get_or_404(service_id)]
     return render_template("services.html", services=services)
