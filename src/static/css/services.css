@@ -12,6 +12,7 @@
   display: none;
 }
 */
+
 /* The Header */
 .zeTop {
   position: absolute;
@@ -88,11 +89,186 @@
 
 .orders {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background: #dddddd;
   padding: 40px;
   display: grid;
   grid-template-columns: auto auto;
   place-items: center;
   row-gap: 70px;
+}
+
+/* Overlay */
+
+.overlay {
+  z-index: 10;
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: calc(100vh + 263px);
+}
+.overlay.active {
+  transition: 0.3s ease-in-out;
+  display: flex;
+}
+
+/* The modals*/
+
+.modalContainer {
+  position: absolute;
+  z-index: 1000;
+  width: 56%;
+  height: 52%;
+  top: 24%;
+  left: 22%;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modalContainer.open {
+  transition: 0.4s ease-in-out;
+  display: flex;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ddd;
+  border-radius: 15px;
+  border: 3px solid rgb(5, 21, 168);
+  width: 55%;
+  height: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Header */
+.header {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h2 {
+  margin-left: 15px;
+}
+
+/* Close Button */
+.header .close-button {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 10%;
+  right: 5px;
+  font-size: 25px;
+  color: rgb(5, 5, 5);
+  font-weight: bold;
+  border-radius: 80%;
+}
+
+.header .close-button:hover {
+  background-color: rgba(148, 148, 148, 0.8);
+  transition: ease-out;
+  cursor: pointer;
+
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Forms in the modals */
+
+.forms-container {
+  margin: auto;
+  height: 80%;
+  width: 90%;
+}
+
+.form-element {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-element label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+.form-element .form-input {
+  border: none;
+  border-radius: 20px;
+  padding: 9px 13px;
+  resize: none;
+  font-size: 15px;
+}
+.form-element .form-input:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* for File */
+.form-element-file {
+  width: 56%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-element-file label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+/* submit and reset */
+.btns {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin-top: 9%;
+  margin-bottom: 10px;
+}
+
+.reset-btn {
+  color: rgb(68, 68, 68);
+  font-size: 15px;
+  font-weight: 600;
+  background: none;
+  padding: 9px 13px;
+  border: 2px solid rgb(5, 21, 168);
+  border-radius: 20px;
+}
+.submit-btn {
+  color: rgb(68, 68, 68);
+  font-size: 16px;
+  font-weight: 600;
+  background: none;
+  padding: 9px 13px;
+  border: 2px solid rgb(5, 21, 168);
+  border-radius: 20px;
+}
+
+.reset-btn:hover {
+  color: rgb(0, 0, 0);
+  background: aquamarine;
+  transition: ease-out;
+  box-shadow: 0px 5px 13px rgba(5, 21, 168, 0.6);
+}
+.submit-btn:hover {
+  color: black;
+  background: aquamarine;
+  transition: ease-out;
+  box-shadow: 0px 5px 13px rgba(5, 21, 168, 0.6);
+}
+/* for other devices */
+@media (max-width: 800px) {
+  .modal {
+    width: 90%;
+  }
 }

@@ -1,8 +1,9 @@
-{% extends 'base.html' %}
-{%block title%}Services{%endblock%}
+{% extends "base.html" %}
+{%block title%} Services {%endblock%}
+
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename="css/services.css")}}"/>
-  <script src="{{ url_for('static', filename='js/web-create-form.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/create-form.js') }}" defer></script>
 {% endblock head %}
 {% block content %}
 
@@ -11,12 +12,65 @@
     <hr />
   </div>
 
+  <div class="overlay " id="overlay"></div>
+
+  <div class="modalContainer " id="modalForm">
+  
+    <div class="modal">
+  
+      <div class="header">
+        <h2 > Add order </h2>
+        <div class="close-button" id="close">
+          <span   >&times;</span>
+        </div>
+        
+      </div>
+      <div class="forms-container">
+  
+        <form method="POST" action="">
+          {{ form.hidden_tag() }}
+  
+          <div class="form-element">
+            <label for="title">Title</label>
+            {{ form.title(class="form-input", id="title", placeholder="Enter title") }}
+            {% for error in form.title.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+  
+          <div class="form-element">
+            <label for="description">Description</label>
+            {{ form.description(class="form-input", id="description", placeholder="Enter deezcription") }} {% for error in form.description.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+  
+          <div class="form-element-file">
+            <label for="file">File</label>
+            {{ form.file(class="form-input", id="file", placeholder="Enter
+            file") }} {% for error in form.file.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+          <div class="btns">
+            <input class="reset-btn " type="reset" value="Reset">
+            {{ form.submit(class="submit-btn" )}}
+          </div>  
+  
+        </form>
+  
+      </div> 
+  
+    </div>
+     
+  </div>
+
   <div class="container1">
 
     {% if current_user.is_authenticated and current_user.has_role("admin") %}
     <div class="newservice">
-      <form action="{{ url_for('service.new') }}", method="GET">
-        <input type="submit" value="New Service">
+      <form action=" ", method="GET">
+        <input id="adding" type="button" value="New Service">
       </form>
       <br><br>
     </div>
@@ -28,12 +82,8 @@
     </div>
   </div>
 
-  <div class="overlay"></div>
+  
 
-  <div class="modal" id="web-form">
-
-
-  </div>
 
   <div class="orders">
   

@@ -8,14 +8,27 @@ from src.utils import admin_required
 service = Blueprint("service", __name__)
 
 
-@service.route("/services/")
+@service.route("/services/", methods=["GET", "POST"])
 def index():
-    forms = ServiceForm()
     services = Service.query.all()
+    form = ServiceForm()
+    if not form.validate_on_submit():
+        return render_template("services.html", form=form)
+
+    service = Service(
+        title=form.title.data,
+        description=form.description.data,
+        image_file=form.file.data,
+        # price=forms.price.data
+    )
+    _db.session.add(service)
+    _db.session.commit()
+    flash("Your post has been created!", "success")
+
     return render_template("services.html", services=services)
 
 
-@service.route("/services/<int:service_id>/view")
+@service.route("/services/<int:service_id>/view/")
 def view(service_id):
     services = [Service.query.get_or_404(service_id)]
     return render_template("services.html", services=services)
@@ -51,22 +64,4 @@ def delete(service_id):
     _db.session.delete(service)
     _db.session.commit()
     flash("Service post has been deleted!", "success")
-    return redirect(url_for("service.index"))
-
-
-@service.route("/services/new/", methods=["GET", "POST"])
-@admin_required
-def new():
-    form = ServiceForm()
-    if not form.validate_on_submit():
-        return render_template("new_service.html", form=form)
-
-    service = Service(
-        title=form.title.data,
-        description=form.description.data,  # price=form.price.data
-    )
-    _db.session.add(service)
-    _db.session.commit()
-    flash("Your post has been created!", "success")
-
     return redirect(url_for("service.index"))
