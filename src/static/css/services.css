@@ -102,18 +102,15 @@
 
 .overlay {
   z-index: 10;
-  display: flex;
+  display: none;
   position: absolute;
-
-  transform: scale(0);
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: calc(100vh + 263px);
 }
-
 .overlay.active {
-  transform: scale(1);
-  transition: ease-in-out;
+  transition: 0.3s ease-in-out;
+  display: flex;
 }
 
 /* The modals*/
@@ -121,16 +118,17 @@
 .modalContainer {
   position: absolute;
   z-index: 1000;
-  display: none;
   width: 56%;
   height: 52%;
   top: 24%;
   left: 22%;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 
 .modalContainer.open {
+  transition: 0.4s ease-in-out;
   display: flex;
 }
 
@@ -170,10 +168,10 @@
   font-size: 25px;
   color: rgb(5, 5, 5);
   font-weight: bold;
+  border-radius: 80%;
 }
 
 .header .close-button:hover {
-  border-radius: 80%;
   background-color: rgba(148, 148, 148, 0.8);
   transition: ease-out;
   cursor: pointer;
@@ -216,8 +214,8 @@
 
 /* for File */
 .form-element-file {
-  width: 45%;
-  margin-bottom: 30px;
+  width: 56%;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -233,6 +231,8 @@
   display: flex;
   justify-content: space-between;
   height: 40px;
+  margin-top: 9%;
+  margin-bottom: 10px;
 }
 
 .reset-btn {
