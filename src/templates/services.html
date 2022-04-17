@@ -1,99 +1,120 @@
-{% extends 'base.html' %}
-{%block title%}Services{%endblock%}
+{% extends "base.html" %}
+{%block title%} Services {%endblock%}
+
 {% block head %}
   <link rel="stylesheet" href="{{url_for('static', filename="css/services.css")}}"/>
-  <script src="{{ url_for('static', filename='js/web-create-form.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/create-form.js') }}" defer></script>
 {% endblock head %}
 {% block content %}
 
-<h1 class="zetext">Try our Services:</h1>
-
-<div class="whiteLine">
-  <p>To use the service just click the button and fill up the form inside.</p>
-</div>
-
-
-
-<div class='btns'>
-  <div class="website-btn">
-    <a href="#" id="web-button">Website</a>
+  <div class="zeTop">
+    <h2 class="zetext">Order/Services:</h2>
+    <hr />
   </div>
 
-  <div class="dcbots-btn">
-    <a href="#">Discord Bots</a>
-  </div>
+  <div class="overlay " id="overlay"></div>
 
-</div>
-
-<div class='outside-layer'></div>
-
-<div class="theModal" id="web-form">
-    <div class="modalContent">
-
+  <div class="modalContainer " id="modalForm">
+  
+    <div class="modal">
+  
       <div class="header">
-        <div class="title"> Tell us something about your Website</div>
-        <a href='#' class="xbtn" id="close">&times;</a>
-      </div>
-    
-      <div class="body">
-
-        <div name="title">
-          <form class="web-title" action="">
-            <label for="web-title">Title of your Website</label>
-            <input type="text" name="web-title" placeholder="(ex: Keyboard Shortcuts)"><br>
-          </form> 
+        <h2 > Add order </h2>
+        <div class="close-button" id="close">
+          <span   >&times;</span>
         </div>
-
-      
-        <div class="desc-form">
-          <form action="">
-          <label for="description"> Please fill in the description</label>
-          <textarea name="description" id="desc" placeholder="(ex: it has keyboard buttons...)"></textarea>
-          </form>
-        </div>
-
+        
       </div>
-
+      <div class="forms-container">
+  
+        <form method="POST" action="">
+          {{ form.hidden_tag() }}
+  
+          <div class="form-element">
+            <label for="title">Title</label>
+            {{ form.title(class="form-input", id="title", placeholder="Enter title") }}
+            {% for error in form.title.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+  
+          <div class="form-element">
+            <label for="description">Description</label>
+            {{ form.description(class="form-input", id="description", placeholder="Enter deezcription") }} {% for error in form.description.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+  
+          <div class="form-element-file">
+            <label for="file">File</label>
+            {{ form.file(class="form-input", id="file", placeholder="Enter
+            file") }} {% for error in form.file.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+          <div class="btns">
+            <input class="reset-btn " type="reset" value="Reset">
+            {{ form.submit(class="submit-btn" )}}
+          </div>  
+  
+        </form>
+  
+      </div> 
+  
     </div>
-</div>
+     
+  </div>
+
+  <div class="container1">
+
+    {% if current_user.is_authenticated and current_user.has_role("admin") %}
+    <div class="newservice">
+      <form action=" ", method="GET">
+        <input id="adding" type="button" value="New Service">
+      </form>
+      <br><br>
+    </div>
+    {% endif %}
+    <div class="custom-shape-divider-bottom-1646554980">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+  </div>
+
+  
 
 
+  <div class="orders">
+  
+    {% if services %}
+      {% for service in services %}
+        <div>
+          {% if current_user.is_authenticated and current_user.has_role("admin") %}
+            <form action="{{ url_for('service.delete', service_id=service.id) }}", method="POST">
+              <input type="submit" value="delete">
+            </form>
+            <form action="{{ url_for('service.update', service_id=service.id) }}", method="GET">
+              <input type="submit" value="update">
+            </form>
+          {% endif %}
+          <h1>{{ service.title }}</h1>
+          <img src="{{ url_for('static', filename="service/" + service.image_file) }}">
+          <p>{{ service.description }}</p>
+          <p>price: {{ service.price }}</p>
+        </div>
+      {% endfor %}
+    {% else %}
+     
+    {% endif %}
+  </div>
 
-
-
-
-
-
-
-
-  {% if current_user.is_authenticated and current_user.has_role("admin") %}
-    <form action="{{ url_for('service.new') }}", method="GET">
-      <input type="submit" value="New Service">
-    </form>
-    <br><br>
-  {% endif %}
-  {% if services %}
-    {% for service in services %}
-      <div>
-        {% if current_user.is_authenticated and current_user.has_role("admin") %}
-          <form action="{{ url_for('service.delete', service_id=service.id) }}", method="POST">
-            <input type="submit" value="delete">
-          </form>
-          <form action="{{ url_for('service.update', service_id=service.id) }}", method="GET">
-            <input type="submit" value="update">
-          </form>
-        {% endif %}
-        <h1>{{ service.title }}</h1>
-        <img src="{{ url_for('static', filename="service/" + service.image_file) }}">
-        <p>{{ service.description }}</p>
-        <p>price: {{ service.price }}</p>
-      </div>
-    {% endfor %}
-  {% else %}
+  {% if not current_user.is_authenticated %}
   <div class="notLoggedIn">
-    We don't have service for now pain...
+    Blank :(
   </div>
   {% endif %}
+
 
 
 {% endblock content %}

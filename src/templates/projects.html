@@ -22,27 +22,27 @@
     </div>
   </div>
   <div class="projects-area">
-  {% if projects %}
-  {% for project in projects %}
-    <div class="ProjCard">
-      <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
-      <div class="projcard-text">
-        <h2>{{ project.title }}</h2>
-        <p>{{ project.description }}</p>
-        <p>{{ project.github_url }}</p>
-        <p>{{ project.site_url }}</p>
-        {% if current_user.is_authenticated and current_user.has_role("admin") %}
-        <div class="ProjForms">
-          <form action="{{ url_for('project.delete', project_id=project.id) }}" , method="POST">
-            <input type="submit" value="Delete" class="cardBtn">
-          </form>
-          <form action="{{ url_for('project.update', project_id=project.id) }}" , method="GET">
-            <input type="submit" value="Update" class="cardBtn">
-          </form>
+    {% if projects %}
+      {% for project in projects %}
+      <div class="ProjCard">
+        <img src="{{ url_for('static', filename="project/" + project.image_file) }}">
+        <div class="projcard-text">
+          <h2>{{ project.title }}</h2>
+          <p>{{ project.description }}</p>
+          <p>{{ project.github_url }}</p>
+          <p>{{ project.site_url }}</p>
+          {% if current_user.is_authenticated and current_user.has_role("admin") %}
+          <div class="ProjForms">
+            <form action="{{ url_for('project.delete', project_id=project.id) }}" , method="POST">
+              <input type="submit" value="Delete" class="cardBtn">
+            </form>
+            <form action="{{ url_for('project.update', project_id=project.id) }}" , method="GET">
+              <input type="submit" value="Update" class="cardBtn">
+            </form>
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
-    </div>
     {% endfor %}
     {% else %}
     <div class="not-available">
