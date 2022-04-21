@@ -126,14 +126,11 @@
   align-items: center;
   display: none;
 }
-
-.modalContainer.open {
-  transition: 0.4s ease-in-out;
+.modalContainer.active {
   display: flex;
 }
-
 .modal {
-  display: flex;
+  display: none;
   flex-direction: column;
   position: fixed;
   top: 50%;
@@ -145,17 +142,46 @@
   width: 55%;
   height: 50%;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+  overflow-y: auto;
+}
+.modal.open {
+  display: flex;
+}
+
+/* next modal */
+.modal2 {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ddd;
+  border-radius: 15px;
+  border: 3px solid rgb(5, 21, 168);
+  width: 55%;
+  height: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+  overflow-y: auto;
+}
+.modal2.open {
+  display: flex;
 }
 
 /* Header */
 .header {
-  margin-top: 5px;
+  padding-top: 5px;
+  border-top-right-radius: 11px;
+  border-top-left-radius: 11px;
+
   display: flex;
   justify-content: space-between;
+  background-color: rgb(191 191 191);
+  border-bottom: 1px solid rgb(118 118 118);
 }
 
 .header h2 {
-  margin-left: 15px;
+  margin-left: 22px;
 }
 
 /* Close Button */
@@ -163,26 +189,28 @@
   display: flex;
   justify-content: center;
   position: relative;
-  width: 10%;
-  right: 5px;
-  font-size: 25px;
+  width: 9%;
+  height: 90%;
+  right: 9px;
+  font-size: 27px;
   color: rgb(5, 5, 5);
   font-weight: bold;
-  border-radius: 80%;
+  border-radius: 20%;
 }
 
 .header .close-button:hover {
-  background-color: rgba(148, 148, 148, 0.8);
+  background-color: rgba(207, 207, 207, 0.8);
   transition: ease-out;
   cursor: pointer;
 
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 10px rgba(135, 135, 135, 0.7);
 }
 
 /* Forms in the modals */
 
 .forms-container {
   margin: auto;
+  margin-top: 13px;
   height: 80%;
   width: 90%;
 }
@@ -231,7 +259,7 @@
   display: flex;
   justify-content: space-between;
   height: 40px;
-  margin-top: 9%;
+  margin-top: 12%;
   margin-bottom: 10px;
 }
 
@@ -244,7 +272,7 @@
   border: 2px solid rgb(5, 21, 168);
   border-radius: 20px;
 }
-.submit-btn {
+.next-btn {
   color: rgb(68, 68, 68);
   font-size: 16px;
   font-weight: 600;
@@ -259,13 +287,20 @@
   background: aquamarine;
   transition: ease-out;
   box-shadow: 0px 5px 13px rgba(5, 21, 168, 0.6);
+  cursor: pointer;
 }
-.submit-btn:hover {
+.next-btn:hover {
   color: black;
   background: aquamarine;
   transition: ease-out;
   box-shadow: 0px 5px 13px rgba(5, 21, 168, 0.6);
+  cursor: pointer;
 }
+
+.submit-btn {
+  display: none;
+}
+
 /* for other devices */
 @media (max-width: 800px) {
   .modal {
