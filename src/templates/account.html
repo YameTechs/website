@@ -35,7 +35,8 @@
             <hr>
             <div class="serv-opt opt">
                 <p>Services</p>
-                <a href="#bought"><i class="fa-solid fa-cart-shopping"></i>Bought Services</a>
+                <a href="#pay"><i class="fa-regular fa-credit-card"></i>To Pay</a>
+                <a href="#receive"><i class="fa-solid fa-cart-shopping"></i>To Receive</a>
                 <a href="#transac"><i class="fa-solid fa-file-invoice"></i>Transactions</a>
             </div>
         </div>
@@ -84,38 +85,47 @@
                 </div>
             </div>
             
-            <div class="ServBought" id="bought">
-                <h2>Bought Services</h2>
+            <div class="toPay" id="pay">
+                <h2>To Pay</h2>
                 <hr>
-                <div class="boughtContent">
-                    <div class="boughtList">
-                        <div class="item">
-                            <div class="item-left">
-                                <h2>Website</h2><!-- name of what service bought -->
-                                <p class="">Jan. 43, 3434</p><!-- date when the service was bought -->
-                            </div>
-                            <div class="item-right">
-                                <div class="status">
-                                    <!-- if status == done -->
-                                    <p class="status-text">Done</p>
-                                    <!--else -->
-                                    <!-- <p>Pending</p> -->
-                                </div>
-                            </div>
+                <div class="item">
+                    <div class="item-left">
+                        <h3>ITEM</h3>
+                        <p><i>until 01/22/33</i></p>
+                    </div>
+                    
+                    <div class="item-right">
+                        <!-- if paid, show PAID -->
+                        <div class="status">
+                            <p>PAID</p>
                         </div>
+                        <!-- else, NOT PAID/PENDING -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="toReceive" id="receive">
+                <h2>To Receive</h2>
+                <hr />
+                <div class="item">
+                    <div class="item-left">
+                        <h3>ITEM2</h3>
+                        <p><i>Thank you for trusting our service(?)</i></p>
                     </div>
                 </div>
             </div>
             
             <div class="ServTransactions" id="transac">
                 <h2>Transactions</h2>
-                <hr>
                 <div class="transacContent">
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </ul>
+                    <table>
+                        <tr>
+                            <td><b>EyeSwallowCome</b> bought Website Service</td>
+                        </tr>
+                        <tr>
+                            <td><b>EyeSwallowCome</b> paid Website Service</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
