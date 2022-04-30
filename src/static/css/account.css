@@ -114,40 +114,47 @@ hr {
     background-color: #001f3d;
 }
 
-/* ====================bought service ======================= */
+/* =============== items ===================*/
 
-.boughtContent {
-    padding: 20px;
-}
-
-.boughtList {
+.item {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.boughtList .item {
-    padding: 10px;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: royalblue;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+    color: black;
+    background-color: ghostwhite;
 }
 
-.boughtList .item .item-left {
+.item-left p {
+    font-size: .7rem;
 }
 
-.boughtList .item .item-left {
-}
-
-.boughtList .item .item-left .boughtDate {
-    font-size: 0.8rem;
-}
-
-.boughtList .item .item-right .status {
-    padding: 5px 9px;
-    background-color: limegreen;
+.item-right .status {
     color: white;
+    padding: 5px 9px;
+    font-weight: 600;
+    background: limegreen;
+}
+
+
+/* ==================== end items =================== */
+
+.transacContent table {
+    color: black;
+    background-color: ghostwhite;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.transacContent td,
+.transacContent th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.transacContent tr:nth-child(even) {
+    background-color: #dddddd;
 }
