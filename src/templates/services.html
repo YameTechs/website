@@ -14,14 +14,14 @@
 
   <div class="overlay " id="overlay"></div>
 
-  <div class="modalContainer " id="modalForm">
+  <div class="modalContainer " id="modalContainer">
   
-    <div class="modal">
+    <div class="modal" id="modal1">
   
       <div class="header">
         <h2 > Add order </h2>
         <div class="close-button" id="close">
-          <span   >&times;</span>
+          <span>&times;</span>
         </div>
         
       </div>
@@ -54,7 +54,8 @@
           </div>
           <div class="btns">
             <input class="reset-btn " type="reset" value="Reset">
-            {{ form.submit(class="submit-btn" )}}
+            <input class="next-btn" type="button" value="Next" id="next-btn">
+            
           </div>  
   
         </form>
@@ -62,7 +63,38 @@
       </div> 
   
     </div>
-     
+
+    <div class="modal2" id="modal2">
+  
+      <div class="header">
+        <h2 > Add order </h2>
+        <div class="close-button" id="close">
+          <span>&times;</span>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modalContainer " id="modalForm2">
+  
+    <div class="modal">
+  
+      <div class="header">
+        <h2 > More information </h2>
+        <div class="close-button" id="close">
+          <span>&times;</span>
+        </div>
+      </div>
+
+      <div class="">
+        {{ form.submit(class="submit-btn" )}}
+      </div>
+      
+    </div>
+
   </div>
 
   <div class="container1">
